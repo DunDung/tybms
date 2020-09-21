@@ -5,8 +5,6 @@ plugins {
     id 'java'
 }
 
-
-
 group = 'com'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
@@ -42,7 +40,7 @@ node {
     nodeModulesDir = file("./src/frontend")
 }
 
-task setUp(type: NpmTask, dependsOn: copyApiKey) {
+task setUp(type: NpmTask) {
     description = "Install Node.js Package"
     args = ['install']
 }
