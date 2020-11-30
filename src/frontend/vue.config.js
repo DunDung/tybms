@@ -10,6 +10,6 @@ module.exports = {
         changeOrigin: true
       }
     },
-    port: 9000
+    port: 4000
   }
 };
