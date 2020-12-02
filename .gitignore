@@ -5,15 +5,6 @@ build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
-
 ### IntelliJ IDEA ###
 .idea
 *.iws
@@ -22,13 +13,5 @@ build/
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
+/src/main/resources/static
 
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-
-### VS Code ###
-.vscode/

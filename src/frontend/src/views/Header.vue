@@ -1,7 +1,31 @@
 <template>
   <v-main>
     <img width="100%" src="@/assets/header/top-header2.jpg" />
-    <h1>동양 BMS</h1>
+    <v-container class="container">
+      <a href="/">
+        <img id="logo" src="@/assets/header/logo.png" />
+      </a>
+      <v-tabs class="menus" fixed-tabs light optional>
+        <v-tab class="menu-element" to="/#1">
+          회사소개
+        </v-tab>
+        <v-tab class="menu-element" to="/#2">
+          사업분야
+        </v-tab>
+        <v-tab class="menu-element" to="/#3">
+          쇼핑하기
+        </v-tab>
+        <v-tab class="menu-element" to="/#4">
+          인증 및 특허현황
+        </v-tab>
+        <v-tab class="menu-element" to="/#5">
+          고객센터
+        </v-tab>
+        <v-tab class="menu-element" to="/#6">
+          자료실
+        </v-tab>
+      </v-tabs>
+    </v-container>
     <Slider />
   </v-main>
 </template>
@@ -11,7 +35,22 @@ import Slider from "@/components/Slider";
 export default {
   components: {
     Slider
-  }
+  },
+  methods: {}
 };
 </script>
-<style scoped></style>
+<style scoped>
+.container {
+  diplay: flex;
+  text-align: center;
+}
+#logo {
+}
+.menus {
+  margin: 0 auto;
+  max-width: 80%;
+}
+.menu-element {
+  color: black !important;
+}
+</style>
