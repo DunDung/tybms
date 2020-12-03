@@ -1,7 +1,13 @@
 <template>
-  <div>
-    안녕
-  </div>
+  <Slider />
 </template>
-<script></script>
+<script>
+import Slider from "@/components/Slider";
+
+export default {
+  components: {
+    Slider
+  }
+};
+</script>
 <style scoped></style>

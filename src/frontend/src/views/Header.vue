@@ -1,12 +1,12 @@
 <template>
   <v-main>
-    <img width="100%" src="@/assets/header/top-header2.jpg" />
+    <img width="100%" src="@/assets/images/header/top-header2.jpg" />
     <v-container class="container">
       <a href="/">
-        <img id="logo" src="@/assets/header/logo.png" />
+        <img id="logo" src="@/assets/images/header/logo.png" />
       </a>
       <v-tabs class="menus" fixed-tabs light optional>
-        <v-tab class="menu-element" to="/#1">
+        <v-tab class="menu-element" to="/about">
           회사소개
         </v-tab>
         <v-tab class="menu-element" to="/#2">
@@ -26,19 +26,9 @@
         </v-tab>
       </v-tabs>
     </v-container>
-    <Slider />
   </v-main>
 </template>
-<script>
-import Slider from "@/components/Slider";
-
-export default {
-  components: {
-    Slider
-  },
-  methods: {}
-};
-</script>
+<script></script>
 <style scoped>
 .container {
   diplay: flex;

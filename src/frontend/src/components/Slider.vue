@@ -23,9 +23,9 @@ export default {
   data() {
     return {
       slides: [
-        require("@/assets/main/main-img01.jpg"),
-        require("@/assets/main/main-img02.jpg"),
-        require("@/assets/main/main-img03.jpg")
+        require("@/assets/images/slider/slider-img01.jpg"),
+        require("@/assets/images/slider/slider-img02.jpg"),
+        require("@/assets/images/slider/slider-img03.jpg")
       ]
     };
   }
