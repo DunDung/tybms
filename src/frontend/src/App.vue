@@ -25,4 +25,8 @@ export default {
   font-family: "Nanum Gothic", sans-serif;
   /*font-family: 'Noto Sans KR', sans-serif;*/
 }
+
+.border {
+  border: red 3px solid;
+}
 </style>
