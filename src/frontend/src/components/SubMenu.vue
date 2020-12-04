@@ -4,6 +4,7 @@
       center-active
       light
       :centered="true"
+      :grow="true"
       class="sub-menus"
       color="black"
     >
@@ -37,12 +38,19 @@ export default {
 </script>
 <style scoped>
 .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
 }
 .sub-menus {
   max-width: 70%;
-  margin: 0 auto;
+  margin-top: 1vw;
 }
+
 .menu {
+  font-size: 1vw;
   margin: 0.3vw;
   border: 1px solid #dcdcdc;
 }
