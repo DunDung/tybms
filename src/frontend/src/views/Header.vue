@@ -69,7 +69,9 @@ export default {
 }
 
 #logo {
-  max-width: 40%;
+  margin-top: -1vw;
+  margin-bottom: -1vw;
+  max-width: 50%;
 }
 
 .menus {
@@ -80,5 +82,4 @@ export default {
 .menu-element {
   color: black !important;
 }
-
 </style>

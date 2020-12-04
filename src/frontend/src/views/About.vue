@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <ImageFrame />
+    <ImageFrame :frame="frame" />
     <SubMenu :subMenus="aboutSubMenus" />
     <Story v-if="aboutSubMenus[0].isActive" />
   </v-app>
@@ -26,7 +26,12 @@ export default {
           title: "찾아오시는 길",
           isActive: false
         }
-      ]
+      ],
+      frame: {
+        content: "CORPORATE INNOVATION",
+        subContent: "혁신기업! 동양BMS(주)",
+        backgroundImageUrl: require("@/assets/images/frame/frame01.jpg")
+      }
     };
   },
   components: {

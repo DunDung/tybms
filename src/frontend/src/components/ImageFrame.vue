@@ -3,22 +3,16 @@
     class="image-container"
     :fluid="true"
     background-color="red"
-    :style="{'background-image': 'url(' + backgroundImageUrl + ')'}"
+    :style="{'background-image': 'url(' + frame.backgroundImageUrl + ')'}"
   >
-    <span class="content">{{ content }}</span>
+    <span class="content">{{ frame.content }}</span>
     <br />
-    <span class="sub-content">{{ subContent }}</span>
+    <span class="sub-content">{{ frame.subContent }}</span>
   </v-container>
 </template>
 <script>
 export default {
-  data() {
-    return {
-      content: "CORPORATE INNOVATION",
-      subContent: "혁신기업! 동양BMS(주)",
-      backgroundImageUrl: require("@/assets/images/card/card01.jpg")
-    };
-  }
+  props: ['frame'],
 };
 </script>
 <style scoped>
