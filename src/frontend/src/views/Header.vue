@@ -1,28 +1,28 @@
 <template>
   <v-main>
-    <img width="100%" src="@/assets/images/header/top-header2.jpg"/>
+    <img width="100%" src="@/assets/images/header/top-header2.jpg" />
     <v-container class="container">
       <v-row>
         <v-col cols="3">
-          <v-btn text color="grey">즐겨찾기</v-btn>
-          <v-btn text color="grey">바로가기</v-btn>
+          <v-btn small text color="grey">즐겨찾기</v-btn>
+          <v-btn small text color="grey">바로가기</v-btn>
         </v-col>
-        <v-spacer/>
+        <v-spacer />
         <v-col cols="4">
           <a href="/">
-            <img id="logo" src="@/assets/images/header/logo.png"/>
+            <img id="logo" src="@/assets/images/header/logo.png" />
           </a>
         </v-col>
-        <v-spacer/>
+        <v-spacer />
         <v-col cols="3">
           <v-btn small text>
-            <v-icon color="grey">{{accountIcon}}</v-icon>
+            <v-icon color="grey">{{ accountIcon }}</v-icon>
           </v-btn>
           <v-btn small text>
-            <v-icon color="grey">{{mapMakerIcon}}</v-icon>
+            <v-icon color="grey">{{ mapMakerIcon }}</v-icon>
           </v-btn>
           <v-btn small text>
-            <v-icon color="grey">{{searchIcon}}</v-icon>
+            <v-icon color="grey">{{ searchIcon }}</v-icon>
           </v-btn>
         </v-col>
       </v-row>
@@ -50,7 +50,7 @@
   </v-main>
 </template>
 <script>
-import {mdiAccount,mdiMapMarker,mdiMagnify} from "@mdi/js";
+import { mdiAccount, mdiMapMarker, mdiMagnify } from "@mdi/js";
 
 export default {
   data() {
@@ -58,25 +58,27 @@ export default {
       accountIcon: mdiAccount,
       mapMakerIcon: mdiMapMarker,
       searchIcon: mdiMagnify
-    }
+    };
   }
-}
+};
 </script>
 <style scoped>
-  .container {
-    diplay: flex;
-    text-align: center;
-  }
+.container {
+  diplay: flex;
+  text-align: center;
+}
 
-  #logo {
-  }
+#logo {
+  max-width: 40%;
+}
 
-  .menus {
-    margin: 0 auto;
-    max-width: 80%;
-  }
+.menus {
+  margin: 0 auto;
+  max-width: 80%;
+}
 
-  .menu-element {
-    color: black !important;
-  }
+.menu-element {
+  color: black !important;
+}
+
 </style>
