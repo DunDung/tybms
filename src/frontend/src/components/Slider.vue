@@ -1,19 +1,10 @@
 <template>
   <v-main>
-    <v-carousel
-      cycle
-      max-height="100%"
-      hide-delimiter-background
-      show-arrows-on-hover
-    >
+    <v-carousel cycle hide-delimiter-background>
       <v-carousel-item v-for="(slide, i) in slides" :key="i">
-        <v-sheet max-height="80%">
-          <v-row class="fill-height" align="center" justify="center">
-            <div class="display-3">
-              <v-img :src="slide" max-width="100%" height="auto" />
-            </div>
-          </v-row>
-        </v-sheet>
+        <v-row class="fill-height" align="center" justify="center">
+          <img :src="slide" />
+        </v-row>
       </v-carousel-item>
     </v-carousel>
   </v-main>
@@ -31,4 +22,4 @@ export default {
   }
 };
 </script>
-e
+

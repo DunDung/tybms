@@ -1,5 +1,5 @@
 <template>
-  <v-main>
+  <v-main class="main">
     <img width="100%" src="@/assets/images/header/top-header2.jpg" />
     <v-container class="container">
       <v-row>
@@ -63,6 +63,9 @@ export default {
 };
 </script>
 <style scoped>
+.main {
+  height: 18vw;
+}
 .container {
   diplay: flex;
   text-align: center;

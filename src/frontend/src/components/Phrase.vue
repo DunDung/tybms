@@ -11,6 +11,7 @@ export default {
 </script>
 <style scoped>
 .welcome-wrap {
+  margin-top: 2%;
   display: flex;
   flex-direction: column;
   justify-content: center;
