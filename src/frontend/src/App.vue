@@ -2,31 +2,28 @@
   <v-app>
     <Header />
     <router-view />
+    <ScrollToTopButton />
   </v-app>
 </template>
 
 <script>
 import Header from "@/views/Header";
+import ScrollToTopButton from "@/components/ScrollToTopButton";
 
 export default {
   name: "App",
 
   components: {
-    Header
+    Header,
+    ScrollToTopButton
   },
 
-  data: () => ({
-    //
-  })
+  data: () => ({})
 };
 </script>
 <style>
-* {
+ {
   font-family: "Nanum Gothic", sans-serif;
   /*font-family: 'Noto Sans KR', sans-serif;*/
-}
-
-.border {
-  border: red 3px solid;
 }
 </style>
