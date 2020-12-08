@@ -8,7 +8,7 @@
 
 <script>
 import Header from "@/views/Header";
-import ScrollToTopButton from "@/components/ScrollToTopButton";
+import ScrollToTopButton from "@/views/ScrollToTopButton";
 
 export default {
   name: "App",

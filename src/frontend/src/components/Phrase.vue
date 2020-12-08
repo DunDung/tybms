@@ -1,7 +1,7 @@
 <template>
   <v-container class="welcome-wrap">
-    <span class="phrase-title">{{phrase.title}}</span>
-    <span class="phrase-sub-title">{{phrase.subTitle}}</span>
+    <span class="phrase-title">{{ phrase.title }}</span>
+    <span class="phrase-sub-title">{{ phrase.subTitle }}</span>
   </v-container>
 </template>
 <script>

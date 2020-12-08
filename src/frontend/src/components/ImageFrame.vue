@@ -3,7 +3,7 @@
     class="image-container"
     :fluid="true"
     background-color="red"
-    :style="{'background-image': 'url(' + frame.backgroundImageUrl + ')'}"
+    :style="{ 'background-image': 'url(' + frame.backgroundImageUrl + ')' }"
   >
     <span class="content">{{ frame.content }}</span>
     <br />
@@ -12,7 +12,7 @@
 </template>
 <script>
 export default {
-  props: ['frame'],
+  props: ["frame"]
 };
 </script>
 <style scoped>

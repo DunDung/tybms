@@ -64,7 +64,7 @@ export default {
 </script>
 <style scoped>
 .main {
-  height: 18vw;
+  overflow: auto;
 }
 .container {
   diplay: flex;

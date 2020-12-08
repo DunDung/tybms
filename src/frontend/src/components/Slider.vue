@@ -1,13 +1,11 @@
 <template>
-  <v-main>
-    <v-carousel cycle hide-delimiter-background>
-      <v-carousel-item v-for="(slide, i) in slides" :key="i">
-        <v-row class="fill-height" align="center" justify="center">
-          <img :src="slide" />
-        </v-row>
-      </v-carousel-item>
-    </v-carousel>
-  </v-main>
+  <v-carousel cycle hide-delimiter-background>
+    <v-carousel-item v-for="(slide, i) in slides" :key="i">
+      <v-row class="fill-height" align="center" justify="center">
+        <img :src="slide" />
+      </v-row>
+    </v-carousel-item>
+  </v-carousel>
 </template>
 <script>
 export default {
@@ -22,4 +20,3 @@ export default {
   }
 };
 </script>
-

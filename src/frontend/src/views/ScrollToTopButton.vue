@@ -7,7 +7,7 @@
     fixed
     bottom
     right
-    color="primary"
+    color="green"
     @click="toTop"
   >
     <v-icon>{{ mdiArrowUp }}</v-icon>
