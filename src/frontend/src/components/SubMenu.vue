@@ -1,13 +1,6 @@
 <template>
   <v-container class="container">
-    <v-tabs
-      center-active
-      light
-      :centered="true"
-      :grow="true"
-      class="sub-menus"
-      color="black"
-    >
+    <v-tabs center-active light centered grow class="sub-menus" color="black">
       <v-tab
         class="menu"
         v-for="(subMenu, index) in subMenus"

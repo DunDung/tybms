@@ -3,11 +3,13 @@
     <ImageFrame :frame="frame" />
     <SubMenu :subMenus="aboutSubMenus" />
     <Story v-if="aboutSubMenus[0].isActive" />
+    <History v-if="aboutSubMenus[1].isActive" />
   </v-app>
 </template>
 <script>
 import SubMenu from "@/components/SubMenu";
 import Story from "@/components/Story";
+import History from "@/components/History";
 import ImageFrame from "@/components/ImageFrame";
 
 export default {
@@ -15,7 +17,7 @@ export default {
     return {
       aboutSubMenus: [
         {
-          title: "동양BMS 스토리",
+          title: "동양BMS 이야기",
           isActive: true
         },
         {
@@ -37,7 +39,8 @@ export default {
   components: {
     SubMenu,
     Story,
-    ImageFrame
+    ImageFrame,
+    History
   }
 };
 </script>

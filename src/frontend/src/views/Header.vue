@@ -26,7 +26,7 @@
           </v-btn>
         </v-col>
       </v-row>
-      <v-tabs class="menus" fixed-tabs light optional>
+      <v-tabs class="menus" fixed-tabs light optional show-arrows>
         <v-tab class="menu-element" to="/about">
           회사소개
         </v-tab>

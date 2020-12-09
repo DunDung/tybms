@@ -42,7 +42,7 @@
         <v-progress-linear
           indeterminate
           color="green"
-          :reverse="true"
+          reverse
           style="float: right; width: 39vw"
         ></v-progress-linear>
         <br />
@@ -167,6 +167,6 @@ export default {
   flex-direction: row;
   justify-items: center;
   align-items: center;
-  margin-top: 5vw;
+  margin-top: 5%;
 }
 </style>

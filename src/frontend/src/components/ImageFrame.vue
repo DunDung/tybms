@@ -1,7 +1,7 @@
 <template>
   <v-container
     class="image-container"
-    :fluid="true"
+    fluid
     background-color="red"
     :style="{ 'background-image': 'url(' + frame.backgroundImageUrl + ')' }"
   >
