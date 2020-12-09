@@ -1,8 +1,8 @@
 <template>
-    <v-carousel class="carousel" cycle hide-delimiter-background>
+  <v-carousel cycle hide-delimiter-background>
     <v-carousel-item v-for="(slide, i) in slides" :key="i">
       <v-row class="fill-height" align="center" justify="center">
-          <img :src="slide" height="100%"/>
+        <img :src="slide" height="100%" />
       </v-row>
     </v-carousel-item>
   </v-carousel>

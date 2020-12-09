@@ -68,10 +68,10 @@
     </v-container>
     <v-container class="cards-container">
       <v-card class="mx-auto" max-width="30%">
-        <v-img height="100%" src="@/assets/images/story/product.jpg"/>
+        <v-img height="100%" src="@/assets/images/story/product.jpg" />
         <v-card-subtitle>
-          동양비엠에스가 갖고있는 놀라운 기술인력과<br/>
-          20여년간 쌓아온 원천기술이 만나<br/>
+          동양비엠에스가 갖고있는 놀라운 기술인력과<br />
+          20여년간 쌓아온 원천기술이 만나<br />
           최고의 자동제어시스템을 만듭니다.
         </v-card-subtitle>
         <v-card-title class="justify-center">
@@ -82,11 +82,11 @@
         </v-card-title>
       </v-card>
       <v-card class="mx-auto" max-width="30%">
-        <v-img height="100%" src="@/assets/images/story/client-compony.jpg"/>
+        <v-img height="100%" src="@/assets/images/story/client-compony.jpg" />
         <v-card-subtitle>
-          고객사의 만족은 저희동양비엠에스의 행복입니다 <br/>
-          설치와 유지보수,하나도 쉽게 생각하지 않습니다.<br/>
-          시스템과학! 바로 동양비엠에스이기 때문입니다.<br/>
+          고객사의 만족은 저희동양비엠에스의 행복입니다 <br />
+          설치와 유지보수,하나도 쉽게 생각하지 않습니다.<br />
+          시스템과학! 바로 동양비엠에스이기 때문입니다.<br />
         </v-card-subtitle>
         <v-card-title class="justify-center">
           고객사 보기
@@ -94,16 +94,15 @@
             <v-icon>{{ mdiArrowRightBold }}</v-icon>
           </v-btn>
         </v-card-title>
-
       </v-card>
       <v-card class="mx-auto" max-width="30%">
         <v-img
-                height="100%"
-                src="@/assets/images/story/Installation-case.jpg"
+          height="100%"
+          src="@/assets/images/story/Installation-case.jpg"
         />
         <v-card-subtitle>
-          국내 굴지의 건설업체 현장엔 항상 동양비엠에스 <br/>
-          가 있습니다.<br/>
+          국내 굴지의 건설업체 현장엔 항상 동양비엠에스 <br />
+          가 있습니다.<br />
           현장과학! 역시 제품은 동양비엠에스입니다.
         </v-card-subtitle>
         <v-card-title class="justify-center">
@@ -117,17 +116,17 @@
   </v-main>
 </template>
 <script>
-  import Phrase from "@/components/Phrase";
-  import {mdiArrowRightBold} from "@mdi/js";
+import Phrase from "@/components/Phrase";
+import { mdiArrowRightBold } from "@mdi/js";
 
-  export default {
-    data: () => ({
-      phrase: {
-        title: "TYBMS STORY",
-        subTitle: "동양비엠에스에 오신 것을 환영합니다!"
-      },
-      mdiArrowRightBold: mdiArrowRightBold
-    }),
+export default {
+  data: () => ({
+    phrase: {
+      title: "TYBMS STORY",
+      subTitle: "동양비엠에스에 오신 것을 환영합니다!"
+    },
+    mdiArrowRightBold: mdiArrowRightBold
+  }),
   components: {
     Phrase
   }
