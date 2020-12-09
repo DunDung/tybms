@@ -4,7 +4,7 @@
     <v-container>
       <v-card class="card-wrap" width="70%" elevation="0">
         <v-card-title>
-          <v-icon large class="mdi-icon">{{ mdiMapMarker }}</v-icon>
+          <v-icon large class="mdi-icon" color="green">{{ mdiMapMarker }}</v-icon>
           회사 주소
         </v-card-title>
         <v-card-text class="card-text">
@@ -15,7 +15,7 @@
           FAX : 02-6347-8336
         </v-card-subtitle>
         <v-card-title>
-          <v-icon large class="mdi-icon">{{ mdiEmailOutline }}</v-icon>
+          <v-icon large class="mdi-icon" color="blue">{{ mdiEmailOutline }}</v-icon>
           메일 주소
         </v-card-title>
         <v-card-text class="card-text">
@@ -59,7 +59,7 @@ export default {
 }
 .card-wrap {
   margin: 0 auto;
-    padding-bottom: 1.5vw;
+  padding-bottom: 1.5vw;
   font-family: "Noto Sans KR", sans-serif;
 }
 </style>

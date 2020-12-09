@@ -15,29 +15,27 @@ import History from "@/components/History";
 import Contact from "@/components/Contact";
 
 export default {
-  data() {
-    return {
-      aboutSubMenus: [
-        {
-          title: "동양BMS 이야기",
-          isActive: true
-        },
-        {
-          title: "동양BMS 연혁",
-          isActive: false
-        },
-        {
-          title: "찾아오시는 길",
-          isActive: false
-        }
-      ],
-      frame: {
-        content: "CORPORATE INNOVATION",
-        subContent: "혁신기업! 동양BMS(주)",
-        backgroundImageUrl: require("@/assets/images/frame/frame01.jpg")
+  data: () => ({
+    aboutSubMenus: [
+      {
+        title: "동양BMS 이야기",
+        isActive: true
+      },
+      {
+        title: "동양BMS 연혁",
+        isActive: false
+      },
+      {
+        title: "찾아오시는 길",
+        isActive: false
       }
-    };
-  },
+    ],
+    frame: {
+      content: "CORPORATE INNOVATION",
+      subContent: "혁신기업! 동양BMS(주)",
+      backgroundImageUrl: require("@/assets/images/frame/frame01.jpg")
+    }
+  }),
   components: {
     SubMenu,
     Story,

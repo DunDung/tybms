@@ -3,26 +3,32 @@
     <img width="100%" src="@/assets/images/header/top-header2.jpg" />
     <v-container class="container">
       <v-row>
-        <v-col cols="3">
-          <v-btn small text color="grey">즐겨찾기</v-btn>
-          <v-btn small text color="grey">바로가기</v-btn>
-        </v-col>
+        <v-spacer />
+        <v-spacer />
+        <v-spacer />
         <v-spacer />
         <v-col cols="4">
           <a href="/">
             <img id="logo" src="@/assets/images/header/logo.png" />
           </a>
         </v-col>
-        <v-spacer />
-        <v-col cols="3">
-          <v-btn small text>
-            <v-icon color="grey">{{ accountIcon }}</v-icon>
+        <v-col cols="4">
+          <v-btn
+            small
+            text
+            href="https://www.youtube.com/channel/UCMvY1lFX49hn_zjZFUnFgpw"
+            target="_blank"
+          >
+            <v-icon color="red" text>{{ mdiYoutube }}</v-icon>
           </v-btn>
           <v-btn small text>
-            <v-icon color="grey">{{ mapMakerIcon }}</v-icon>
+            <v-icon color="black">{{ accountIcon }}</v-icon>
           </v-btn>
           <v-btn small text>
-            <v-icon color="grey">{{ searchIcon }}</v-icon>
+            <v-icon color="green">{{ mapMakerIcon }}</v-icon>
+          </v-btn>
+          <v-btn small text>
+            <v-icon color="black">{{ searchIcon }}</v-icon>
           </v-btn>
         </v-col>
       </v-row>
@@ -50,15 +56,23 @@
   </v-main>
 </template>
 <script>
-import { mdiAccount, mdiMapMarker, mdiMagnify } from "@mdi/js";
+import { mdiAccount, mdiMapMarker, mdiMagnify, mdiYoutube } from "@mdi/js";
 
 export default {
-  data() {
-    return {
-      accountIcon: mdiAccount,
-      mapMakerIcon: mdiMapMarker,
-      searchIcon: mdiMagnify
-    };
+  data: () => ({
+    accountIcon: mdiAccount,
+    mapMakerIcon: mdiMapMarker,
+    searchIcon: mdiMagnify,
+    mdiYoutube: mdiYoutube
+  }),
+  methods: {
+    registerBookMark() {
+      if (window.chrome) {
+        alert("ctrl + d");
+      } else {
+        window.external.AddFavorite("https://tybms.co.kr", "동양BMS");
+      }
+    }
   }
 };
 </script>
