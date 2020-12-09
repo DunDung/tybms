@@ -11,11 +11,13 @@ export default {
 </script>
 <style scoped>
 .welcome-wrap {
-  margin-top: 2%;
+  margin-top: 1.5%;
+  margin-bottom: 3.5%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-family: "Noto Sans KR", sans-serif;
 }
 .phrase-title {
   font-size: 4vw;

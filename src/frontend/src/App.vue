@@ -23,7 +23,7 @@ export default {
 </script>
 <style>
  {
-  font-family: "Nanum Gothic", sans-serif;
+  font-family: "Nanum Gothic", sans-serif !important;
   /*font-family: 'Noto Sans KR', sans-serif;*/
   /* font-family: 'Yeon Sung', cursive;*/
   /* font-family: "Do Hyeon", sans-serif;*/

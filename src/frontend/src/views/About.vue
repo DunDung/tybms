@@ -4,13 +4,15 @@
     <SubMenu :subMenus="aboutSubMenus" />
     <Story v-if="aboutSubMenus[0].isActive" />
     <History v-if="aboutSubMenus[1].isActive" />
+    <Contact v-if="aboutSubMenus[2].isActive" />
   </v-app>
 </template>
 <script>
 import SubMenu from "@/components/SubMenu";
+import ImageFrame from "@/components/ImageFrame";
 import Story from "@/components/Story";
 import History from "@/components/History";
-import ImageFrame from "@/components/ImageFrame";
+import Contact from "@/components/Contact";
 
 export default {
   data() {
@@ -40,7 +42,8 @@ export default {
     SubMenu,
     Story,
     ImageFrame,
-    History
+    History,
+    Contact
   }
 };
 </script>

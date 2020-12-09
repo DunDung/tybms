@@ -65,6 +65,7 @@ export default {
 <style scoped>
 .main {
   overflow: auto;
+  font-family: "Nanum Gothic", sans-serif;
 }
 .container {
   diplay: flex;

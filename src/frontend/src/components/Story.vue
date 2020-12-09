@@ -1,7 +1,7 @@
 <template>
   <v-main class="main">
     <Phrase :phrase="phrase" />
-    <v-container id="container">
+    <v-container class="container">
       <div>
         <span class="main-content">
           정직한 제품으로 고객에게 다가설 것이며 <br />
@@ -69,7 +69,7 @@
     <v-container class="cards-container">
       <v-card class="mx-auto" max-width="30%">
         <v-img height="100%" src="@/assets/images/story/product.jpg" />
-        <v-card-subtitle>
+        <v-card-subtitle style="font-size: 1vw">
           동양비엠에스가 갖고있는 놀라운 기술인력과<br />
           20여년간 쌓아온 원천기술이 만나<br />
           최고의 자동제어시스템을 만듭니다.
@@ -83,7 +83,7 @@
       </v-card>
       <v-card class="mx-auto" max-width="30%">
         <v-img height="100%" src="@/assets/images/story/client-compony.jpg" />
-        <v-card-subtitle>
+        <v-card-subtitle style="font-size: 1vw">
           고객사의 만족은 저희동양비엠에스의 행복입니다 <br />
           설치와 유지보수,하나도 쉽게 생각하지 않습니다.<br />
           시스템과학! 바로 동양비엠에스이기 때문입니다.<br />
@@ -100,9 +100,9 @@
           height="100%"
           src="@/assets/images/story/Installation-case.jpg"
         />
-        <v-card-subtitle>
-          국내 굴지의 건설업체 현장엔 항상 동양비엠에스 <br />
-          가 있습니다.<br />
+        <v-card-subtitle style="font-size: 1vw">
+          국내 굴지의 건설업체 현장엔 항상<br />
+          동양비엠에스가 있습니다.<br />
           현장과학! 역시 제품은 동양비엠에스입니다.
         </v-card-subtitle>
         <v-card-title class="justify-center">
@@ -133,16 +133,15 @@ export default {
 };
 </script>
 <style scoped>
-#container {
-  margin-top: 3.5%;
+.container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-family: "Noto Sans KR", sans-serif;
 }
 .main-content {
   font-size: 1.7vw;
   letter-spacing: 0.1vw;
-  font-family: "Noto Sans KR", sans-serif;
 }
 .content {
   line-height: 1.9;
@@ -168,5 +167,6 @@ export default {
   justify-items: center;
   align-items: center;
   margin-top: 5%;
+  font-family: "Noto Sans KR", sans-serif;
 }
 </style>

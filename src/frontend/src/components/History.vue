@@ -87,7 +87,7 @@ export default {
     ],
     phrase: {
       title: "TYBMS HISTORY",
-      subTitle: "동양비엠에스에 오신 것을 환영합니다!"
+      subTitle: "동양비엠에스는 이렇게 성장했습니다!"
     }
   }),
   components: {
@@ -97,7 +97,7 @@ export default {
 </script>
 <style scoped>
 .wrap {
-  width: 60%;
+  width: 57%;
 }
 .content {
   font-family: "Do Hyeon", sans-serif !important;

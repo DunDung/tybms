@@ -40,6 +40,7 @@ export default {
 .sub-menus {
   max-width: 70%;
   margin-top: 1vw;
+  font-family: "Noto Sans KR", sans-serif
 }
 
 .menu {
