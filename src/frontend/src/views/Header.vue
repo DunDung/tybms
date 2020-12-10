@@ -24,7 +24,12 @@
           <v-btn small text>
             <v-icon color="black">{{ accountIcon }}</v-icon>
           </v-btn>
-          <v-btn small text>
+          <v-btn
+            small
+            text
+            href="https://map.naver.com/v5/search/%EB%8F%99%EC%96%91BMS/place/18424837?c=14125347.8479585,4506939.7781789,15,0,0,0,dh"
+            target="_blank"
+          >
             <v-icon color="green">{{ mapMakerIcon }}</v-icon>
           </v-btn>
           <v-btn small text>
@@ -42,7 +47,7 @@
         <v-tab class="menu-element" to="/#3">
           쇼핑하기
         </v-tab>
-        <v-tab class="menu-element" to="/#4">
+        <v-tab class="menu-element" to="/licence">
           인증 및 특허현황
         </v-tab>
         <v-tab class="menu-element" to="/#5">

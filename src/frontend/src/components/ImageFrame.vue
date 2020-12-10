@@ -21,6 +21,7 @@ export default {
   background-size: 100%;
   background-attachment: fixed;
   background-position: bottom;
+  background-repeat: repeat-y;
   opacity: 90%;
   display: flex;
   flex-direction: column;

@@ -1,6 +1,14 @@
 <template>
   <v-container class="container">
-    <v-tabs center-active light centered grow show-arrows class="sub-menus" color="black" >
+    <v-tabs
+      center-active
+      light
+      centered
+      grow
+      show-arrows
+      class="sub-menus"
+      color="black"
+    >
       <v-tab
         class="menu"
         v-for="(subMenu, index) in subMenus"
@@ -15,11 +23,9 @@
 <script>
 export default {
   props: ["subMenus"],
-  data() {
-    return {
-      activeIndex: 0
-    };
-  },
+  data: () => ({
+    activeIndex: 0
+  }),
   methods: {
     active(index) {
       this.subMenus[this.activeIndex].isActive = false;
