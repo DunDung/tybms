@@ -23,7 +23,7 @@
           메일 주소
         </v-card-title>
         <v-card-text class="card-text">
-            tybms@chol.com
+          tybms@chol.com
         </v-card-text>
         <v-card-text class="card-text">
           <v-icon small>{{ mdiCheck }}</v-icon>

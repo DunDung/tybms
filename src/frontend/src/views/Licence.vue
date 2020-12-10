@@ -64,7 +64,7 @@ export default {
 };
 </script>
 <style scoped>
-    .licence-wrap {
-        /*margin-top: -5%;*/
-    }
+.licence-wrap {
+  /*margin-top: -5%;*/
+}
 </style>
