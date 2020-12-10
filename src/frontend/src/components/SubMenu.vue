@@ -1,6 +1,6 @@
 <template>
   <v-container class="container">
-    <v-tabs center-active light centered grow class="sub-menus" color="black">
+    <v-tabs center-active light centered grow show-arrows class="sub-menus" color="black" >
       <v-tab
         class="menu"
         v-for="(subMenu, index) in subMenus"
@@ -40,7 +40,7 @@ export default {
 .sub-menus {
   max-width: 70%;
   margin-top: 1vw;
-  font-family: "Noto Sans KR", sans-serif
+  font-family: "Noto Sans KR", sans-serif;
 }
 
 .menu {

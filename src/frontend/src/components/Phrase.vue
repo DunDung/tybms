@@ -20,7 +20,7 @@ export default {
   font-family: "Noto Sans KR", sans-serif;
 }
 .phrase-title {
-  font-size: 4vw;
+  font-size: 3.5vw;
   letter-spacing: 0.2vw;
 }
 .phrase-sub-title {

@@ -36,7 +36,7 @@
         <v-tab class="menu-element" to="/about">
           회사소개
         </v-tab>
-        <v-tab class="menu-element" to="/#2">
+        <v-tab class="menu-element" to="/business">
           사업분야
         </v-tab>
         <v-tab class="menu-element" to="/#3">

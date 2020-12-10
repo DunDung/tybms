@@ -4,7 +4,9 @@
     <v-container>
       <v-card class="card-wrap" width="70%" elevation="0">
         <v-card-title>
-          <v-icon large class="mdi-icon" color="green">{{ mdiMapMarker }}</v-icon>
+          <v-icon large class="mdi-icon" color="green">
+            {{ mdiMapMarker }}
+          </v-icon>
           회사 주소
         </v-card-title>
         <v-card-text class="card-text">
@@ -15,11 +17,13 @@
           FAX : 02-6347-8336
         </v-card-subtitle>
         <v-card-title>
-          <v-icon large class="mdi-icon" color="blue">{{ mdiEmailOutline }}</v-icon>
+          <v-icon large class="mdi-icon" color="blue">{{
+            mdiEmailOutline
+          }}</v-icon>
           메일 주소
         </v-card-title>
         <v-card-text class="card-text">
-          김현아(hakim@tybms.co.kr)
+            tybms@chol.com
         </v-card-text>
         <v-card-text class="card-text">
           <v-icon small>{{ mdiCheck }}</v-icon>

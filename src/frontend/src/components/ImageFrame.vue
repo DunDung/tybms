@@ -20,6 +20,7 @@ export default {
   height: 18vw;
   background-size: 100%;
   background-attachment: fixed;
+  background-position: bottom;
   opacity: 90%;
   display: flex;
   flex-direction: column;
