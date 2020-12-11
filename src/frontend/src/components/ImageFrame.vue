@@ -2,7 +2,6 @@
   <v-container
     class="image-container"
     fluid
-    background-color="red"
     :style="{ 'background-image': 'url(' + frame.backgroundImageUrl + ')' }"
   >
     <span class="content">{{ frame.content }}</span>
@@ -22,7 +21,7 @@ export default {
   background-attachment: fixed;
   background-position: bottom;
   background-repeat: repeat-y;
-  opacity: 90%;
+  opacity: 0.9;
   display: flex;
   flex-direction: column;
   justify-content: center;
