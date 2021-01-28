@@ -30,7 +30,7 @@ class RouterControllerTest {
 
     @DisplayName("'/error'로 get요청")
     @Test
-    void indexPage2() throws Exception {
+    void error() throws Exception {
         mockMvc.perform(get("/error")
                 .accept(MediaType.TEXT_HTML_VALUE))
                 .andExpect(status().isOk())

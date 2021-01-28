@@ -12,7 +12,7 @@ export default {
   data() {
     return {
       slides: [
-        require("@/assets/images/slider/slider-img01.jpg"),
+        // require("@/assets/images/slider/slider-img01.jpg"),
         require("@/assets/images/slider/slider-img02.jpg"),
         require("@/assets/images/slider/slider-img03.jpg")
       ]

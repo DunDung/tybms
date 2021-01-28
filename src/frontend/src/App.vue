@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app id="app">
     <Header />
     <router-view />
     <ScrollToTopButton />
@@ -22,8 +22,8 @@ export default {
 };
 </script>
 <style>
- {
-  font-family: "Nanum Gothic", sans-serif !important;
+#app {
+  font-family: "Nanum Gothic", sans-serif;
   /*font-family: 'Noto Sans KR', sans-serif;*/
   /* font-family: 'Yeon Sung', cursive;*/
   /* font-family: "Do Hyeon", sans-serif;*/

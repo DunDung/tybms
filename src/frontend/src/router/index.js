@@ -2,8 +2,6 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "@/views/Home.vue";
 import About from "@/views/About.vue";
-import Business from "@/views/Business.vue";
-import Licence from "@/views/Licence.vue";
 
 Vue.use(VueRouter);
 
@@ -18,16 +16,6 @@ const routes = [
     path: "/about",
     name: "About",
     component: About
-  },
-  {
-    path: "/business",
-    name: "Business",
-    component: Business
-  },
-  {
-    path: "/licence",
-    name: "Licence",
-    component: Licence
   }
 ];
 
