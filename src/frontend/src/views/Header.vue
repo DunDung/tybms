@@ -5,14 +5,14 @@
         <!--      모바일 메뉴 <v-app-bar-nav-icon> </v-app-bar-nav-icon>-->
         <v-app-bar-title>
           <router-link to="/">
-            <v-img id="logo" src="@/assets/images/header/logo.png" />
+            <v-img src="@/assets/images/header/logo.png" />
           </router-link>
         </v-app-bar-title>
         <v-toolbar-items class="mx-auto text-center">
-          <v-list class="list-wrap" v-for="(menu, index) in menus" :key="index">
+          <v-list class="menu-list" v-for="(menu, index) in menus" :key="index">
             <v-list-item-group>
-              <v-list-item-content class="main-title">
-                <v-list-item-title v-text="menu.title" />
+              <v-list-item-content>
+                <v-list-item-title class="main-title" v-text="menu.title" />
               </v-list-item-content>
             </v-list-item-group>
           </v-list>
@@ -25,17 +25,39 @@
           color="black"
           class="sub-menus v-navigation-drawer--absolute"
         >
-          <div class="flex-row">
-            <div style="color: white">
-              abc
-            </div>
-            <div style="color: white">
-              abc
-            </div>
-            <div style="color: white">
-              abc
-            </div>
-          </div>
+          <v-toolbar color="transparent" class="sub-menus-wrap">
+            <v-toolbar-items>
+              <v-list
+                class="sub-menu-list"
+                v-for="(menu, index) in menus"
+                :key="index"
+              >
+                <v-list-item-group>
+                  <v-list-item-content
+                    class="sub-title-wrap"
+                    v-for="(subMenu, index) in menu.subMenus"
+                    :key="index"
+                  >
+                    <router-link to="/#" tag="span">
+                      <v-list-item-title
+                        v-text="subMenu.title"
+                        class="sub-menu-title"
+                      />
+                    </router-link>
+                    <router-link to="/#" tag="span">
+                      <v-list-item-title
+                        v-text="deepSubMenu.title"
+                        v-for="(deepSubMenu, index) in subMenu.deepSubMenus"
+                        :key="index"
+                        class="deep-sub-menu-title"
+                        to="/2"
+                      />
+                    </router-link>
+                  </v-list-item-content>
+                </v-list-item-group>
+              </v-list>
+            </v-toolbar-items>
+          </v-toolbar>
         </v-card>
       </v-expand-transition>
     </v-card>
@@ -128,40 +150,48 @@ export default {
 };
 </script>
 <style scoped>
-.div-wrap {
-  flex-direction: column;
+.menu-list {
+  width: 20vw;
+  background-color: transparent !important;
 }
-#logo {
+
+.main-title {
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 20px;
 }
+
 .sub-menus {
-  height: 500px;
+  height: 53vh;
   width: 100%;
   opacity: 0.5;
 }
 
-.list-sub-wrap {
-  flex-direction: column;
+.sub-menus-wrap {
+  margin-left: 20.6vw;
 }
 
-.list-sub-wrap:hover {
-}
-.main-title {
+.sub-title-wrap {
   color: white;
-}
-.deep-sub-title {
-}
-
-.sub-title {
+  text-align: left;
 }
 
-.main-wrap {
-  display: flex;
-  flex-direction: row;
-  text-align: center;
-}
-
-.list-wrap {
+.sub-menu-list {
   width: 20vw;
   background-color: transparent !important;
 }
+
+.sub-menu-title {
+  font-size: 18px;
+}
+
+.deep-sub-menu-title {
+  font-size: 13px;
+  margin-top: 1.3vh;
+}
+
+span {
+  cursor: pointer;
+}
+
 </style>
