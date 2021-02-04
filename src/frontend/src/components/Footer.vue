@@ -1,7 +1,7 @@
 <template>
   <v-footer padless>
-    <v-container class="wrap">
-      <div>
+    <v-container class="footer-container">
+      <div class="wrap">
         <span
           class="content-wrap"
           v-for="(topRow, index) in topRows"
@@ -11,7 +11,7 @@
           <span class="footer-content">{{ topRow.content }}</span>
         </span>
       </div>
-      <div>
+      <div class="wrap">
         <span
           class="content-wrap"
           v-for="(bottomRow, index) in bottomRows"
@@ -62,11 +62,13 @@ export default {
 };
 </script>
 <style scoped>
-.wrap {
+.footer-container {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+}
+.wrap {
 }
 .content-wrap {
   margin-left: 30px;
@@ -80,5 +82,23 @@ export default {
 .footer-content {
   margin-left: 2.5px;
   font-size: 14px;
+}
+@media screen and (max-width: 960px) {
+  .footer-container {
+  }
+  .wrap {
+      display: flex;
+      justify-content: flex-start;
+      flex-direction: column;
+      width: 100%;
+  }
+  .content-wrap {
+      margin-left: 0;
+  }
+  .footer__copyright {
+      width: 100%;
+      justify-content: flex-start;
+
+  }
 }
 </style>

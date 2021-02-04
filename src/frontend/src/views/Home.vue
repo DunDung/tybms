@@ -1,6 +1,6 @@
 <template>
   <v-main>
-  <Slider />
+    <Slider />
   </v-main>
 </template>
 <script>

@@ -7,7 +7,7 @@
       <!-- If using vue-router -->
       <router-view></router-view>
       <ScrollToTopButton />
-        <Footer/>
+      <Footer />
     </v-main>
   </v-app>
 </template>
