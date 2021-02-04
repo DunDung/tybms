@@ -7,16 +7,14 @@
       <!-- If using vue-router -->
       <router-view></router-view>
       <ScrollToTopButton />
+        <Footer/>
     </v-main>
-
-    <v-footer app>
-      <!-- -->
-    </v-footer>
   </v-app>
 </template>
 
 <script>
-import Header from "@/views/Header";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
 
 export default {
@@ -24,6 +22,7 @@ export default {
 
   components: {
     Header,
+    Footer,
     ScrollToTopButton
   },
 
