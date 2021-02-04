@@ -1,14 +1,23 @@
 <template>
   <v-app id="app">
-    <Header />
-    <router-view />
-    <ScrollToTopButton />
+    <!-- Sizes your content based upon application components -->
+    <v-main>
+      <!-- Provides the application the proper gutter -->
+      <Header />
+      <!-- If using vue-router -->
+      <router-view></router-view>
+      <ScrollToTopButton />
+    </v-main>
+
+    <v-footer app>
+      <!-- -->
+    </v-footer>
   </v-app>
 </template>
 
 <script>
 import Header from "@/views/Header";
-import ScrollToTopButton from "@/views/ScrollToTopButton";
+import ScrollToTopButton from "@/components/ScrollToTopButton";
 
 export default {
   name: "App",

@@ -2,13 +2,30 @@
   <v-hover v-slot="{ hover }">
     <v-card rounded="0">
       <v-toolbar color="#1A9A1A">
-        <!--      모바일 메뉴 <v-app-bar-nav-icon> </v-app-bar-nav-icon>-->
         <v-app-bar-title>
           <router-link to="/">
             <v-img src="@/assets/images/header/logo.png" />
           </router-link>
         </v-app-bar-title>
-        <v-toolbar-items class="mx-auto text-center">
+
+        <v-spacer class="hidden-md-and-up"></v-spacer>
+        <v-menu offset-y>
+          <template v-slot:activator="{ on, attrs }">
+            <v-app-bar-nav-icon
+              v-bind="attrs"
+              v-on="on"
+              class="hidden-md-and-up"
+            >
+            </v-app-bar-nav-icon>
+          </template>
+          <v-list>
+            <v-list-item v-for="(menu, index) in menus" :key="index">
+              <v-list-item-title>{{ menu.title }}</v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-menu>
+
+        <v-toolbar-items class="mx-auto text-center hidden-sm-and-down">
           <v-list class="menu-list" v-for="(menu, index) in menus" :key="index">
             <v-list-item-group>
               <v-list-item-content>
@@ -23,7 +40,7 @@
           rounded="0"
           v-if="hover"
           color="black"
-          class="sub-menus v-navigation-drawer--absolute"
+          class="sub-menus v-navigation-drawer--absolute hidden-sm-and-down"
         >
           <v-toolbar color="transparent" class="sub-menus-wrap">
             <v-toolbar-items>
@@ -44,13 +61,15 @@
                         class="sub-menu-title"
                       />
                     </router-link>
-                    <router-link to="/#" tag="span">
+                    <router-link
+                      to="/#"
+                      tag="span"
+                      v-for="(deepSubMenu, index) in subMenu.deepSubMenus"
+                      :key="index"
+                    >
                       <v-list-item-title
                         v-text="deepSubMenu.title"
-                        v-for="(deepSubMenu, index) in subMenu.deepSubMenus"
-                        :key="index"
                         class="deep-sub-menu-title"
-                        to="/2"
                       />
                     </router-link>
                   </v-list-item-content>
@@ -164,7 +183,7 @@ export default {
 .sub-menus {
   height: 53vh;
   width: 100%;
-  opacity: 0.5;
+  opacity: 0.7;
 }
 
 .sub-menus-wrap {
@@ -177,7 +196,7 @@ export default {
 }
 
 .sub-menu-list {
-  width: 20vw;
+  width: 20.2vw;
   background-color: transparent !important;
 }
 
@@ -194,4 +213,7 @@ span {
   cursor: pointer;
 }
 
+span:hover {
+  color: #1a9a1a;
+}
 </style>

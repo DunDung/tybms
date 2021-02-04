@@ -1,18 +1,15 @@
 <template>
-  <div>
-
-  </div>
-  <!--  <Slider />-->
+  <v-main>
+  <Slider />
+  </v-main>
 </template>
 <script>
-// import Slider from "@/components/Slider";
+import Slider from "@/components/Slider";
 
 export default {
-  data: () => ({
-
-  }),
+  data: () => ({}),
   components: {
-    // Slider
+    Slider
   }
 };
 </script>
