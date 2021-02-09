@@ -1,88 +1,84 @@
 <template xmlns:v-slot="http://www.w3.org/1999/XSL/Transform">
-    <v-hover v-slot="{ hover }">
-      <v-card rounded="0">
-        <v-toolbar color="#1A9A1A">
-            <router-link to="/">
-              <v-img src="@/assets/images/header/logo.png" />
-            </router-link>
+  <v-hover v-slot="{ hover }">
+    <v-card rounded="0">
+      <v-toolbar color="#1A9A1A">
+        <router-link to="/">
+          <v-img src="@/assets/images/header/logo.png" />
+        </router-link>
 
-          <v-spacer class="hidden-md-and-up"></v-spacer>
-          <v-menu offset-y>
-            <template v-slot:activator="{ on, attrs }">
-              <v-app-bar-nav-icon
-                v-bind="attrs"
-                v-on="on"
-                class="hidden-md-and-up"
-              >
-              </v-app-bar-nav-icon>
-            </template>
-            <v-list>
-              <v-list-item v-for="(menu, index) in menus" :key="index">
-                <v-list-item-title>{{ menu.title }}</v-list-item-title>
-              </v-list-item>
-            </v-list>
-          </v-menu>
-
-          <v-toolbar-items class="mx-auto text-center hidden-sm-and-down">
-            <v-list
-              class="menu-list"
-              v-for="(menu, index) in menus"
-              :key="index"
+        <v-spacer class="hidden-md-and-up"></v-spacer>
+        <v-menu offset-y>
+          <template v-slot:activator="{ on, attrs }">
+            <v-app-bar-nav-icon
+              v-bind="attrs"
+              v-on="on"
+              class="hidden-md-and-up"
             >
-              <v-list-item-group>
-                <v-list-item-content>
-                  <v-list-item-title class="main-title" v-text="menu.title" />
-                </v-list-item-content>
-              </v-list-item-group>
-            </v-list>
-          </v-toolbar-items>
-        </v-toolbar>
-        <v-expand-transition>
-          <v-card
-            rounded="0"
-            v-if="hover"
-            color="black"
-            class="sub-menus v-navigation-drawer--absolute hidden-sm-and-down"
-          >
-            <v-toolbar color="transparent" class="sub-menus-wrap">
-              <v-toolbar-items>
-                <v-list
-                  class="sub-menu-list"
-                  v-for="(menu, index) in menus"
-                  :key="index"
-                >
-                  <v-list-item-group>
-                    <v-list-item-content
-                      class="sub-title-wrap"
-                      v-for="(subMenu, index) in menu.subMenus"
+            </v-app-bar-nav-icon>
+          </template>
+          <v-list>
+            <v-list-item v-for="(menu, index) in menus" :key="index">
+              <v-list-item-title>{{ menu.title }}</v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-menu>
+
+        <v-toolbar-items class="mx-auto text-center hidden-sm-and-down">
+          <v-list class="menu-list" v-for="(menu, index) in menus" :key="index">
+            <v-list-item-group>
+              <v-list-item-content>
+                <v-list-item-title class="main-title" v-text="menu.title" />
+              </v-list-item-content>
+            </v-list-item-group>
+          </v-list>
+        </v-toolbar-items>
+      </v-toolbar>
+      <v-expand-transition>
+        <v-card
+          rounded="0"
+          v-if="hover"
+          color="black"
+          class="sub-menus v-navigation-drawer--absolute hidden-sm-and-down"
+        >
+          <v-toolbar color="transparent" class="sub-menus-wrap">
+            <v-toolbar-items>
+              <v-list
+                class="sub-menu-list"
+                v-for="(menu, index) in menus"
+                :key="index"
+              >
+                <v-list-item-group>
+                  <v-list-item-content
+                    class="sub-title-wrap"
+                    v-for="(subMenu, index) in menu.subMenus"
+                    :key="index"
+                  >
+                    <router-link to="/#" tag="span">
+                      <v-list-item-title
+                        v-text="subMenu.title"
+                        class="sub-menu-title"
+                      />
+                    </router-link>
+                    <router-link
+                      to="/#"
+                      tag="span"
+                      v-for="(deepSubMenu, index) in subMenu.deepSubMenus"
                       :key="index"
                     >
-                      <router-link to="/#" tag="span">
-                        <v-list-item-title
-                          v-text="subMenu.title"
-                          class="sub-menu-title"
-                        />
-                      </router-link>
-                      <router-link
-                        to="/#"
-                        tag="span"
-                        v-for="(deepSubMenu, index) in subMenu.deepSubMenus"
-                        :key="index"
-                      >
-                        <v-list-item-title
-                          v-text="deepSubMenu.title"
-                          class="deep-sub-menu-title"
-                        />
-                      </router-link>
-                    </v-list-item-content>
-                  </v-list-item-group>
-                </v-list>
-              </v-toolbar-items>
-            </v-toolbar>
-          </v-card>
-        </v-expand-transition>
-      </v-card>
-    </v-hover>
+                      <v-list-item-title
+                        v-text="deepSubMenu.title"
+                        class="deep-sub-menu-title"
+                      />
+                    </router-link>
+                  </v-list-item-content>
+                </v-list-item-group>
+              </v-list>
+            </v-toolbar-items>
+          </v-toolbar>
+        </v-card>
+      </v-expand-transition>
+    </v-card>
+  </v-hover>
 </template>
 <script>
 export default {
@@ -203,11 +199,11 @@ export default {
 }
 
 .sub-menu-title {
-  font-size: 18px;
+  font-size: 1.1rem;
 }
 
 .deep-sub-menu-title {
-  font-size: 13px;
+  font-size: 0.8rem;
   margin-top: 1.3vh;
 }
 
