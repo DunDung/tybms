@@ -2,10 +2,12 @@
   <v-hover v-slot="{ hover }">
     <v-card rounded="0">
       <v-toolbar color="#1A9A1A">
-        <router-link to="/">
+        <router-link to="/" style="margin-left: -5px">
           <v-img src="@/assets/images/header/logo.png" />
         </router-link>
 
+
+        <!-- 모바일 메뉴 -->
         <v-spacer class="hidden-md-and-up"></v-spacer>
         <v-menu offset-y>
           <template v-slot:activator="{ on, attrs }">
@@ -16,18 +18,20 @@
             >
             </v-app-bar-nav-icon>
           </template>
-          <v-list>
-            <v-list-item v-for="(menu, index) in menus" :key="index">
-              <v-list-item-title>{{ menu.title }}</v-list-item-title>
-            </v-list-item>
-          </v-list>
+            <v-list>
+              <v-list-item v-for="(menu, index) in menus" :key="index">
+                <v-list-item-title>{{ menu.title }}</v-list-item-title>
+              </v-list-item>
+            </v-list>
         </v-menu>
 
         <v-toolbar-items class="mx-auto text-center hidden-sm-and-down">
           <v-list class="menu-list" v-for="(menu, index) in menus" :key="index">
             <v-list-item-group>
               <v-list-item-content>
-                <v-list-item-title class="main-title" v-text="menu.title" />
+                <router-link to="/#" tag="span">
+                  <v-list-item-title class="main-title" v-text="menu.title" />
+                </router-link>
               </v-list-item-content>
             </v-list-item-group>
           </v-list>
@@ -185,7 +189,7 @@ export default {
 }
 
 .sub-menus-wrap {
-  margin-left: 20.6vw;
+  margin-left: 20.5vw;
 }
 
 .sub-title-wrap {
