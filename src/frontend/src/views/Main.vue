@@ -20,7 +20,7 @@
         <section class="notice">
           <h2>NOTICE</h2>
           <router-link class="more" to="/#"
-            ><img src="@/assets/images/main/learn-more.png"
+            ><img src="@/assets/images/main/mini-slider/learn-more.png"
           /></router-link>
           <ul>
             <li>
@@ -50,7 +50,7 @@
         <section class="notice">
           <h2>TYBMS NEWS</h2>
           <router-link class="more" to="/#"
-            ><img src="@/assets/images/main/learn-more.png"
+            ><img src="@/assets/images/main/mini-slider/learn-more.png"
           /></router-link>
           <ul>
             <li>
@@ -80,7 +80,7 @@
       <v-card elevation="0" rounded="0" class="cards">
         <iframe
           class="youtube-frame"
-          src="https://www.youtube.com/embed/hxijtz2WaVs?autoplay=1&amp;mute=1"
+          src="https://www.youtube.com/embed/hxijtz2WaVs?autoplay=1&amp;mute=1&amp;playlist=hxijtz2WaVs&amp;loop=1"
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen
@@ -94,7 +94,7 @@ import Slider from "@/components/Slider";
 
 export default {
   data: () => ({
-    slides: [require("@/assets/images/main/home-mini-slider01.png")]
+    slides: [require("@/assets/images/main/mini-slider/home-mini-slider01.png")]
   }),
   components: {
     Slider
@@ -104,6 +104,7 @@ export default {
 <style scoped>
 .main-wrap {
 }
+
 .wrap {
   margin-top: 3vh;
   margin-bottom: 3vh;
@@ -139,6 +140,7 @@ li {
   padding: 0;
   list-style: none;
 }
+
 li {
   border-bottom: 1px dashed #666;
   text-overflow: ellipsis;
@@ -147,6 +149,7 @@ li {
   padding-bottom: 3px;
   margin-bottom: 10px;
 }
+
 li::before {
   content: "";
   display: inline-block;
@@ -156,6 +159,7 @@ li::before {
   border-radius: 100%;
   line-height: 2;
 }
+
 a {
   text-decoration: none;
   color: #ffffff;
@@ -189,11 +193,13 @@ h2 {
   .wrap {
     flex-direction: column;
   }
+
   .cards {
     width: 100%;
     height: auto;
     margin-top: 30px;
   }
+
   .youtube-frame {
     width: 100%;
     height: 300px;

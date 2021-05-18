@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 @Controller
 public class RouterController implements ErrorController {
+
     @GetMapping({"/", "/error"})
     @ResponseStatus(HttpStatus.OK)
     public String index() {
