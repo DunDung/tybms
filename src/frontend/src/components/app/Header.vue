@@ -217,5 +217,6 @@ span {
 
 span:hover {
   color: #1a9a1a;
+  font-weight: 900;
 }
 </style>

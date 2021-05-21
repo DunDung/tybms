@@ -13,9 +13,9 @@
 </template>
 
 <script>
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import ScrollToTopButton from "@/components/ScrollToTopButton";
+import Header from "@/components/app/Header";
+import Footer from "@/components/app/Footer";
+import ScrollToTopButton from "@/components/app/ScrollToTopButton";
 
 export default {
   name: "App",
