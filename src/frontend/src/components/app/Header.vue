@@ -6,7 +6,6 @@
           <v-img src="@/assets/images/header/logo.png" />
         </router-link>
 
-
         <!-- 모바일 메뉴 -->
         <v-spacer class="hidden-md-and-up"></v-spacer>
         <v-menu offset-y>
@@ -18,11 +17,11 @@
             >
             </v-app-bar-nav-icon>
           </template>
-            <v-list>
-              <v-list-item v-for="(menu, index) in menus" :key="index">
-                <v-list-item-title>{{ menu.title }}</v-list-item-title>
-              </v-list-item>
-            </v-list>
+          <v-list>
+            <v-list-item v-for="(menu, index) in menus" :key="index">
+              <v-list-item-title>{{ menu.title }}</v-list-item-title>
+            </v-list-item>
+          </v-list>
         </v-menu>
 
         <v-toolbar-items class="mx-auto text-center hidden-sm-and-down">
@@ -42,7 +41,7 @@
           rounded="0"
           v-if="hover"
           color="black"
-          class="sub-menus v-navigation-drawer--absolute hidden-sm-and-down"
+          class="sub-menus hidden-sm-and-down"
         >
           <v-toolbar color="transparent" class="sub-menus-wrap">
             <v-toolbar-items>
@@ -87,6 +86,7 @@
 <script>
 export default {
   data: () => ({
+    hover1: true,
     menus: [
       {
         title: "제품소개",
@@ -186,6 +186,8 @@ export default {
   height: 53vh;
   width: 100%;
   opacity: 0.7;
+  position: absolute;
+  z-index: 1;
 }
 
 .sub-menus-wrap {
