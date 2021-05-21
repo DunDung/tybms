@@ -2,18 +2,26 @@
   <v-carousel cycle hide-delimiter-background interval="3000">
     <v-carousel-item v-for="(slide, i) in slides" :key="i">
       <v-row class="fill-height" align="center" justify="center">
-        <img
-          :srcset="
-            `
-            ${slide.w1920} 1920w,
-            ${slide.w1280} 1280w,
-            ${slide.w960} 960w,
-            ${slide.w640} 640w,
-            ${slide.w320} 380w,
-          `
-          "
-          sizes="(max-width: 400px) 380px,"
-        />
+        <picture>
+          <source :srcset="`${slide.w320}`" media="(min-width: 200px)" />
+          <source :srcset="`${slide.w640}`" media="(min-width: 630px)" />
+          <source :srcset="`${slide.w960}`" media="(min-width: 950px)" />
+          <source :srcset="`${slide.w1280}`" media="(min-width: 1270px)" />
+          <source :srcset="`${slide.w1920}`" media="(min-width: 1910px)" />
+          <img :src="`${slide.w1920}`" alt="" />
+        </picture>
+        <!--          <img-->
+        <!--          :srcset="-->
+        <!--            `-->
+        <!--            ${slide.w320} 380w,-->
+        <!--            ${slide.w640} 640w,-->
+        <!--            ${slide.w960} 960w,-->
+        <!--            ${slide.w1280} 1280w,-->
+        <!--            ${slide.w1920} 1920w,-->
+        <!--          `-->
+        <!--          "-->
+        <!--          sizes="(max-width: 400px) 380px,"-->
+        <!--        />-->
       </v-row>
     </v-carousel-item>
   </v-carousel>
