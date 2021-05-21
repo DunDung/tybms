@@ -39,6 +39,6 @@ JAR_NAME=$(ls -tr $REPOSITORY/*.jar | tail -n 1)
 
 echo "> JAR Name: $JAR_NAME"
 
-nohup java -jar $REPOSITORY/$JAR_NAME 1> /dev/null 2>&1 &
+nohup java -jar $JAR_NAME 1> /dev/null 2>&1 &
 
 #-DSpring.profiles.active=prod

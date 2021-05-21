@@ -28,7 +28,7 @@
           <v-list class="menu-list" v-for="(menu, index) in menus" :key="index">
             <v-list-item-group>
               <v-list-item-content>
-                <router-link to="/#" tag="span">
+                <router-link :to="menu.path" tag="span">
                   <v-list-item-title class="main-title" v-text="menu.title" />
                 </router-link>
               </v-list-item-content>
@@ -56,21 +56,10 @@
                     v-for="(subMenu, index) in menu.subMenus"
                     :key="index"
                   >
-                    <router-link to="/#" tag="span">
+                    <router-link :to="subMenu.path" tag="span">
                       <v-list-item-title
                         v-text="subMenu.title"
                         class="sub-menu-title"
-                      />
-                    </router-link>
-                    <router-link
-                      to="/#"
-                      tag="span"
-                      v-for="(deepSubMenu, index) in subMenu.deepSubMenus"
-                      :key="index"
-                    >
-                      <v-list-item-title
-                        v-text="deepSubMenu.title"
-                        class="deep-sub-menu-title"
                       />
                     </router-link>
                   </v-list-item-content>
@@ -90,81 +79,65 @@ export default {
     menus: [
       {
         title: "제품소개",
+        path: "/product-about",
         subMenus: [
           {
-            title: "빌딩자동화 Solution",
-            deepSubMenus: [
-              {
-                title: "설비자동제어 시스템"
-              },
-              {
-                title: "전력감시 시스템"
-              },
-              {
-                title: "조명제어 시스템"
-              }
-            ]
+            title: "Smart Go 유무선 분산시스템 솔루션",
+            path: "/product-about"
           },
           {
-            title: "그린뉴딜 Solution",
-            deepSubMenus: [
-              {
-                title: "Smart 환경 Solution"
-              },
-              {
-                title: "IoT 유,무선 Solution"
-              },
-              {
-                title: "멀티 통합 Solution"
-              }
-            ]
+            title: "Newdeal Go 원격관리솔루션",
+            path: "/#"
           },
           {
-            title: "고객만족 Solution",
-            deepSubMenus: [
-              {
-                title: "개보수공사 Solution"
-              },
-              {
-                title: "유지보수 Solution"
-              }
-            ]
+            title: "Green Newdeal Go 산업안전환경 솔루션",
+            path: "/#"
           },
           {
-            title: "제품 Specification"
+            title: "제품 Specification",
+            path: "/#"
           }
         ]
       },
       {
         title: "고객지원",
+        path: "/#",
         subMenus: [
           {
-            title: "공지사항"
+            title: "공지사항",
+            path: "/#"
           },
           {
-            title: "자료실"
+            title: "자료실",
+            path: "/#"
           }
         ]
       },
       {
         title: "회사소개",
+        path: "/#",
         subMenus: [
           {
-            title: "CEO 인사"
+            title: "CEO 인사",
+            path: "/#"
           },
           {
-            title: "회사 연혁"
+            title: "회사 연혁",
+            path: "/#"
           },
           {
-            title: "주요 실적"
+            title: "주요 실적",
+            path: "/#"
           },
           {
-            title: "찾아오시는 길"
+            title: "찾아오시는 길",
+            path: "/#"
           }
         ]
       },
       {
-        title: "쇼핑몰"
+        title: "쇼핑몰",
+        path: "/#",
       }
     ]
   })
@@ -183,7 +156,7 @@ export default {
 }
 
 .sub-menus {
-  height: 53vh;
+  height: 40vh;
   width: 100%;
   opacity: 0.7;
   position: absolute;
@@ -206,11 +179,7 @@ export default {
 
 .sub-menu-title {
   font-size: 1.1rem;
-}
-
-.deep-sub-menu-title {
-  font-size: 0.8rem;
-  margin-top: 1.3vh;
+  margin-top: 15px;
 }
 
 span {

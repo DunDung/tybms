@@ -2,8 +2,9 @@
   <v-container
     class="image-container"
     fluid
-    :style="{ 'background-image': 'url(' + frame.backgroundImageUrl + ')' }"
   >
+<!--    <img :src="frame.backgroundImageUrls.w1920">-->
+<!--    :style="{ 'background-image': 'url(' + frame.backgroundImageUrls.w1920 + ')' }"-->
     <span class="content">{{ frame.content }}</span>
     <br />
     <span class="sub-content">{{ frame.subContent }}</span>
@@ -15,8 +16,12 @@ export default {
 };
 </script>
 <style scoped>
+  img {
+    width: 100%;
+    height: 100%;
+  }
 .image-container {
-  height: 18vw;
+  height: 400px;
   background-size: 100%;
   background-attachment: fixed;
   background-position: bottom;

@@ -3,25 +3,13 @@
     <v-carousel-item v-for="(slide, i) in slides" :key="i">
       <v-row class="fill-height" align="center" justify="center">
         <picture>
-          <source :srcset="`${slide.w320}`" media="(min-width: 200px)" />
-          <source :srcset="`${slide.w640}`" media="(min-width: 630px)" />
-          <source :srcset="`${slide.w960}`" media="(min-width: 950px)" />
-          <source :srcset="`${slide.w1280}`" media="(min-width: 1270px)" />
-          <source :srcset="`${slide.w1920}`" media="(min-width: 1910px)" />
+          <source :srcset="`${slide.w320}`" media="(max-width: 400px)" />
+          <source :srcset="`${slide.w640}`" media="(max-width: 640px)" />
+          <source :srcset="`${slide.w960}`" media="(max-width: 960px)" />
+          <source :srcset="`${slide.w1280}`" media="(max-width: 1280px)" />
+          <source :srcset="`${slide.w1920}`" media="(max-width: 1920px)" />
           <img :src="`${slide.w1920}`" alt="" />
         </picture>
-        <!--          <img-->
-        <!--          :srcset="-->
-        <!--            `-->
-        <!--            ${slide.w320} 380w,-->
-        <!--            ${slide.w640} 640w,-->
-        <!--            ${slide.w960} 960w,-->
-        <!--            ${slide.w1280} 1280w,-->
-        <!--            ${slide.w1920} 1920w,-->
-        <!--          `-->
-        <!--          "-->
-        <!--          sizes="(max-width: 400px) 380px,"-->
-        <!--        />-->
       </v-row>
     </v-carousel-item>
   </v-carousel>
@@ -32,32 +20,32 @@ export default {
     return {
       slides: [
         {
-          w320: require("@/assets/images/main/main-slider/320.png"),
-          w640: require("@/assets/images/main/main-slider/640.png"),
-          w960: require("@/assets/images/main/main-slider/960.png"),
-          w1280: require("@/assets/images/main/main-slider/1280.png"),
-          w1920: require("@/assets/images/main/main-slider/1920.png")
+          w320: require("@/assets/images/main/main-slider/1(320).png"),
+          w640: require("@/assets/images/main/main-slider/1(640).png"),
+          w960: require("@/assets/images/main/main-slider/1(960).png"),
+          w1280: require("@/assets/images/main/main-slider/1(1280).png"),
+          w1920: require("@/assets/images/main/main-slider/1(1920).png")
         },
         {
-          w320: require("@/assets/images/main/main-slider/320.png"),
-          w640: require("@/assets/images/main/main-slider/640.png"),
-          w960: require("@/assets/images/main/main-slider/960.png"),
-          w1280: require("@/assets/images/main/main-slider/1280.png"),
-          w1920: require("@/assets/images/main/main-slider/1920.png")
+          w320: require("@/assets/images/main/main-slider/2(320).png"),
+          w640: require("@/assets/images/main/main-slider/2(640).png"),
+          w960: require("@/assets/images/main/main-slider/2(960).png"),
+          w1280: require("@/assets/images/main/main-slider/2(1280).png"),
+          w1920: require("@/assets/images/main/main-slider/2(1920).png")
         },
         {
-          w320: require("@/assets/images/main/main-slider/320.png"),
-          w640: require("@/assets/images/main/main-slider/640.png"),
-          w960: require("@/assets/images/main/main-slider/960.png"),
-          w1280: require("@/assets/images/main/main-slider/1280.png"),
-          w1920: require("@/assets/images/main/main-slider/1920.png")
+          w320: require("@/assets/images/main/main-slider/3(320).png"),
+          w640: require("@/assets/images/main/main-slider/3(640).png"),
+          w960: require("@/assets/images/main/main-slider/3(960).png"),
+          w1280: require("@/assets/images/main/main-slider/3(1280).png"),
+          w1920: require("@/assets/images/main/main-slider/3(1920).png")
         },
         {
-          w320: require("@/assets/images/main/main-slider/320.png"),
-          w640: require("@/assets/images/main/main-slider/640.png"),
-          w960: require("@/assets/images/main/main-slider/960.png"),
-          w1280: require("@/assets/images/main/main-slider/1280.png"),
-          w1920: require("@/assets/images/main/main-slider/1920.png")
+          w320: require("@/assets/images/main/main-slider/4(320).png"),
+          w640: require("@/assets/images/main/main-slider/4(640).png"),
+          w960: require("@/assets/images/main/main-slider/4(960).png"),
+          w1280: require("@/assets/images/main/main-slider/4(1280).png"),
+          w1920: require("@/assets/images/main/main-slider/4(1920).png")
         }
       ]
     };
@@ -65,7 +53,7 @@ export default {
 };
 </script>
 <style scoped>
-img {
+source {
   height: 100%;
   width: 100%;
 }
