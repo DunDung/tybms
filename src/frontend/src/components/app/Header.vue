@@ -79,37 +79,37 @@ export default {
     menus: [
       {
         title: "제품소개",
-        path: "/product-about",
+        path: "/smart-go",
         subMenus: [
           {
-            title: "Smart Go 유무선 분산시스템 솔루션",
-            path: "/product-about"
+            title: `Smart Go 유무선 분산시스템 솔루션`,
+            path: "/smart-go"
           },
           {
-            title: "Newdeal Go 원격관리솔루션",
-            path: "/#"
+            title: `New deal Go 원격관리 솔루션`,
+            path: "/new-deal-go"
           },
           {
-            title: "Green Newdeal Go 산업안전환경 솔루션",
-            path: "/#"
+            title: `Green New deal Go 산업안전환경 솔루션`,
+            path: "/green-new-deal-go"
           },
           {
             title: "제품 Specification",
-            path: "/#"
+            path: "/product-specification"
           }
         ]
       },
       {
         title: "고객지원",
-        path: "/#",
+        path: "/notice",
         subMenus: [
           {
             title: "공지사항",
-            path: "/#"
+            path: "/notice"
           },
           {
             title: "자료실",
-            path: "/#"
+            path: "/archives"
           }
         ]
       },
@@ -137,7 +137,7 @@ export default {
       },
       {
         title: "쇼핑몰",
-        path: "/#",
+        path: "/#"
       }
     ]
   })
@@ -156,11 +156,11 @@ export default {
 }
 
 .sub-menus {
-  height: 40vh;
+  height: 300px;
   width: 100%;
   opacity: 0.7;
   position: absolute;
-  z-index: 1;
+  z-index: 5;
 }
 
 .sub-menus-wrap {
@@ -178,7 +178,8 @@ export default {
 }
 
 .sub-menu-title {
-  font-size: 1.1rem;
+  white-space:normal;
+  font-size: 1rem;
   margin-top: 15px;
 }
 

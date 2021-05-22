@@ -1,10 +1,6 @@
 <template>
-  <v-container
-    class="image-container"
-    fluid
-  >
-<!--    <img :src="frame.backgroundImageUrls.w1920">-->
-<!--    :style="{ 'background-image': 'url(' + frame.backgroundImageUrls.w1920 + ')' }"-->
+  <v-container class="image-container pa-0" fluid>
+      <img :src="frame.backgroundImageUrl" />
     <span class="content">{{ frame.content }}</span>
     <br />
     <span class="sub-content">{{ frame.subContent }}</span>
@@ -16,30 +12,52 @@ export default {
 };
 </script>
 <style scoped>
-  img {
-    width: 100%;
-    height: 100%;
-  }
-.image-container {
+img {
+  position: absolute;
+  width: 100%;
   height: 400px;
-  background-size: 100%;
-  background-attachment: fixed;
-  background-position: bottom;
-  background-repeat: repeat-y;
-  opacity: 0.9;
+  object-fit: cover;
+  z-index: 1;
+  /*opacity: 0.8;*/
+}
+
+span {
+  z-index: 2;
+  color: white;
+  white-space: pre;
+
+}
+.image-container {
+  max-width: 100%;
+  height: 400px;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 .content {
-  font-size: 2.6vw;
+  font-size: 4vw;
   letter-spacing: 0.1vw;
   font-family: "Do Hyeon", sans-serif;
 }
 .sub-content {
   color: #c0c0c0;
-  font-size: 1.2vw;
+  font-size: 1.4vw;
   font-family: "Noto Sans KR", sans-serif;
+}
+
+@media screen and (max-width: 960px) {
+  .image-container, img {
+    height: 200px;
+  }
+
+  .content {
+    font-size: 6vw;
+  }
+  .sub-content {
+    font-size: 3vw;
+  }
+
 }
 </style>
