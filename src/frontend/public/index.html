@@ -31,7 +31,7 @@
     <div id="app"></div>
     <!--    IE를 EDGE로-->
     <script>
-      if (navigator.userAgent.indexOf("Trident") > 0) {
+      if (navigator.userAgent.match(/MSIE|Internet Explorer|Trident/i)) {
         window.location = 'microsoft-edge:' + window.location.href;
         // // IE 강제종료
         top.window.open('about:blank','_self').close();
