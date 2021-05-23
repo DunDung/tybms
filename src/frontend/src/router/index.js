@@ -1,12 +1,16 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Main from "@/views/Main.vue";
-import SmartGo from "@/views/product-about/SmartGo.vue";
-import NewDealGo from "@/views/product-about/NewDealGo.vue";
-import GreenNewDealGo from "@/views/product-about/GreenNewDealGo.vue";
-import ProductSpecification from "@/views/product-about/ProductSpecification.vue";
-import Notice from "@/views/customer-support/Notice.vue";
-import Archives from "@/views/customer-support/Archives.vue";
+import Main from "@/views/Main";
+import SmartGo from "@/views/product-about/SmartGo";
+import NewDealGo from "@/views/product-about/NewDealGo";
+import GreenNewDealGo from "@/views/product-about/GreenNewDealGo";
+import ProductSpecification from "@/views/product-about/ProductSpecification";
+import Notice from "@/views/customer-support/Notice";
+import Archives from "@/views/customer-support/Archives";
+import Greeting from "@/views/company-about/Greeting";
+import History from "@/views/company-about/History.vue";
+import Performance from "@/views/company-about/Performance.vue";
+import Contact from "@/views/company-about/Contact.vue";
 
 Vue.use(VueRouter);
 
@@ -46,6 +50,26 @@ const routes = [
     name: "Notice",
     component: Notice
   },
+  {
+    path: "/greeting",
+    name: "Greeting",
+    component: Greeting
+  },
+  {
+    path: "/history",
+    name: "History",
+    component: History
+  },
+  {
+    path: "/performance",
+    name: "Performance",
+    component: Performance
+  },
+  {
+    path: "/contact",
+    name: "Contact",
+    component: Contact
+  }
 ];
 
 const router = new VueRouter({

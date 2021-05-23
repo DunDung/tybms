@@ -1,6 +1,24 @@
 <template>
   <v-container class="image-container pa-0" fluid>
-      <img :src="frame.backgroundImageUrl" />
+    <picture>
+      <source
+        :srcset="frame.backgroundImageUrls.w640"
+        media="(max-width: 640px)"
+      />
+      <source
+        :srcset="frame.backgroundImageUrls.w960"
+        media="(max-width: 960px)"
+      />
+      <source
+        :srcset="frame.backgroundImageUrls.w1280"
+        media="(max-width: 1280px)"
+      />
+      <source
+        :srcset="frame.backgroundImageUrls.w1920"
+        media="(max-width: 1920px)"
+      />
+      <img :src="frame.backgroundImageUrls.w1280" />
+    </picture>
     <span class="content">{{ frame.content }}</span>
     <br />
     <span class="sub-content">{{ frame.subContent }}</span>
@@ -12,6 +30,8 @@ export default {
 };
 </script>
 <style scoped>
+picture,
+source,
 img {
   position: absolute;
   width: 100%;
@@ -25,7 +45,6 @@ span {
   z-index: 2;
   color: white;
   white-space: pre;
-
 }
 .image-container {
   max-width: 100%;
@@ -48,7 +67,10 @@ span {
 }
 
 @media screen and (max-width: 960px) {
-  .image-container, img {
+  .image-container,
+  picture,
+  source,
+  img {
     height: 200px;
   }
 
@@ -58,6 +80,5 @@ span {
   .sub-content {
     font-size: 3vw;
   }
-
 }
 </style>

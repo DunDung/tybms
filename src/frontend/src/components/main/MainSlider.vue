@@ -3,12 +3,12 @@
     <v-carousel-item v-for="(slide, i) in slides" :key="i">
       <v-row class="fill-height" align="center" justify="center">
         <picture>
-          <source :srcset="`${slide.w320}`" media="(max-width: 400px)" />
-          <source :srcset="`${slide.w640}`" media="(max-width: 640px)" />
-          <source :srcset="`${slide.w960}`" media="(max-width: 960px)" />
-          <source :srcset="`${slide.w1280}`" media="(max-width: 1280px)" />
-          <source :srcset="`${slide.w1920}`" media="(max-width: 1920px)" />
-          <img :src="`${slide.w1920}`" alt="" />
+          <source :srcset="slide.w320" media="(max-width: 400px)" />
+          <source :srcset="slide.w640" media="(max-width: 640px)" />
+          <source :srcset="slide.w960" media="(max-width: 960px)" />
+          <source :srcset="slide.w1280" media="(max-width: 1280px)" />
+          <source :srcset="slide.w1920" media="(max-width: 1920px)" />
+          <img :src="slide.w1920" />
         </picture>
       </v-row>
     </v-carousel-item>

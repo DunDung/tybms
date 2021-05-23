@@ -12,7 +12,12 @@ export default {
     frame: {
       content: "제품 Specification",
       subContent: `제품소개   >   제품 Specification`,
-      backgroundImageUrl: require("@/assets/images/frame/product-about/product-specification-1280.png")
+      backgroundImageUrls: {
+        w640: require("@/assets/images/frame/product-about/product-specification-640.png"),
+        w960: require("@/assets/images/frame/product-about/product-specification-960.png"),
+        w1280: require("@/assets/images/frame/product-about/product-specification-1280.png"),
+        w1920: require("@/assets/images/frame/product-about/product-specification-1920.png")
+      }
     }
   })
 };

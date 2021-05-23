@@ -87,18 +87,17 @@ export default {
   .footer-container {
   }
   .wrap {
-      display: flex;
-      justify-content: flex-start;
-      flex-direction: column;
-      width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 100%;
   }
   .content-wrap {
-      margin-left: 0;
+    margin-left: 0;
   }
   .footer__copyright {
-      width: 100%;
-      justify-content: flex-start;
-
+    width: 100%;
+    justify-content: flex-start;
   }
 }
 </style>

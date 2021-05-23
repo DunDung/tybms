@@ -1,6 +1,6 @@
 <template>
   <v-main>
-    <Phrase :phrase="phrase" />
+    <ImageFrame :frame="frame" />
     <v-container>
       <v-card class="card-wrap" width="70%" elevation="0">
         <v-card-title>
@@ -34,21 +34,27 @@
   </v-main>
 </template>
 <script>
-import Phrase from "@/components/Phrase";
+import ImageFrame from "@/components/ImageFrame";
 import { mdiMapMarker, mdiEmailOutline, mdiCheck } from "@mdi/js";
 
 export default {
   data: () => ({
-    phrase: {
-      title: "TYBMS CONTACT",
-      subTitle: "동양비엠에스를 찾아주셔서 감사합니다!"
+    frame: {
+      content: "찾아오시는 길",
+      subContent: `회사소개   >   찾아오시는 길`,
+      backgroundImageUrls: {
+        w640: require("@/assets/images/frame/company-about/contact-640.png"),
+        w960: require("@/assets/images/frame/company-about/contact-960.png"),
+        w1280: require("@/assets/images/frame/company-about/contact-1280.png"),
+        w1920: require("@/assets/images/frame/company-about/contact-1920.png")
+      }
     },
     mdiMapMarker: mdiMapMarker,
     mdiEmailOutline: mdiEmailOutline,
     mdiCheck: mdiCheck
   }),
   components: {
-    Phrase
+    ImageFrame
   }
 };
 </script>

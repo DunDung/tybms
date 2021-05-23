@@ -12,7 +12,12 @@ export default {
     frame: {
       content: "Green New deal Go 산업안전환경 솔루션",
       subContent: `제품소개   >   Green New deal Go 산업안전환경 솔루션`,
-      backgroundImageUrl: require("@/assets/images/frame/product-about/green-new-deal-go-1280.png")
+      backgroundImageUrls: {
+        w640: require("@/assets/images/frame/product-about/green-new-deal-go-640.png"),
+        w960: require("@/assets/images/frame/product-about/green-new-deal-go-960.png"),
+        w1280: require("@/assets/images/frame/product-about/green-new-deal-go-1280.png"),
+        w1920: require("@/assets/images/frame/product-about/green-new-deal-go-1920.png")
+      }
     }
   })
 };

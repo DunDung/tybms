@@ -1,6 +1,6 @@
 <template xmlns:v-slot="http://www.w3.org/1999/XSL/Transform">
   <v-main class="main">
-    <Phrase :phrase="phrase" />
+    <ImageFrame :frame="frame" />
     <v-container class="wrap">
       <v-timeline>
         <v-timeline-item
@@ -26,9 +26,23 @@
   </v-main>
 </template>
 <script>
-import Phrase from "@/components/Phrase";
+import ImageFrame from "@/components/ImageFrame";
+
 export default {
+  components: {
+    ImageFrame
+  },
   data: () => ({
+    frame: {
+      content: "회사 연혁",
+      subContent: `회사소개   >   회사 연혁`,
+      backgroundImageUrls: {
+        w640: require("@/assets/images/frame/company-about/history-640.png"),
+        w960: require("@/assets/images/frame/company-about/history-960.png"),
+        w1280: require("@/assets/images/frame/company-about/history-1280.png"),
+        w1920: require("@/assets/images/frame/company-about/history-1920.png")
+      }
+    },
     years: [
       {
         year: "1998",
@@ -89,10 +103,7 @@ export default {
       title: "TYBMS HISTORY",
       subTitle: "동양비엠에스는 이렇게 성장했습니다!"
     }
-  }),
-  components: {
-    Phrase
-  }
+  })
 };
 </script>
 <style scoped>

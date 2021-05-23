@@ -115,23 +115,23 @@ export default {
       },
       {
         title: "회사소개",
-        path: "/#",
+        path: "/greeting",
         subMenus: [
           {
             title: "CEO 인사",
-            path: "/#"
+            path: "/greeting"
           },
           {
             title: "회사 연혁",
-            path: "/#"
+            path: "/history"
           },
           {
             title: "주요 실적",
-            path: "/#"
+            path: "/performance"
           },
           {
             title: "찾아오시는 길",
-            path: "/#"
+            path: "/contact"
           }
         ]
       },
@@ -178,7 +178,7 @@ export default {
 }
 
 .sub-menu-title {
-  white-space:normal;
+  white-space: normal;
   font-size: 1rem;
   margin-top: 15px;
 }

@@ -1,6 +1,6 @@
 <template>
   <v-main class="main">
-    <Phrase :phrase="phrase" />
+    <ImageFrame :frame="frame" />
     <v-container class="container">
       <div>
         <span class="main-content">
@@ -9,13 +9,13 @@
         </span>
         <br /><br />
         <v-progress-linear
-                indeterminate
-                color="green"
-                style="width: 34vw"
+          indeterminate
+          color="green"
+          style="width: 34vw"
         ></v-progress-linear>
         <br />
         <span class="content"
-        >동양비엠에스에 오신 것을 환영합니다! <br />
+          >동양비엠에스에 오신 것을 환영합니다! <br />
           동양비엠에스는 5년 이상의 노하우를 갖춘 전문 기술인들로 구성된 <br />
           자동제어시스템 전문회사입니다. <br />
           1999년 이래 20여년간 자동제어시스템 설치 및 유지보수를 진행해 왔으며
@@ -40,14 +40,14 @@
         </span>
         <br /><br />
         <v-progress-linear
-                indeterminate
-                color="green"
-                reverse
-                style="float: right; width: 39vw"
+          indeterminate
+          color="green"
+          reverse
+          style="float: right; width: 39vw"
         ></v-progress-linear>
         <br />
         <span class="content"
-        >동양비엠에스의 노력은 계속됩니다! <br />
+          >동양비엠에스의 노력은 계속됩니다! <br />
           1999년 동양정보기술 창업 이래 슈나이더일렉트릭코리아의
           정식파트너로서<br />
           기술혁신형 중소기업으로서 기틀을 만들었습니다. <br />
@@ -97,8 +97,8 @@
       </v-card>
       <v-card class="mx-auto" max-width="30%">
         <v-img
-                height="100%"
-                src="@/assets/images/story/Installation-case.jpg"
+          height="100%"
+          src="@/assets/images/story/Installation-case.jpg"
         />
         <v-card-subtitle style="font-size: 1vw">
           국내 굴지의 건설업체 현장엔 항상<br />
@@ -116,57 +116,67 @@
   </v-main>
 </template>
 <script>
-  import Phrase from "@/components/Phrase";
-  import { mdiArrowRightBold } from "@mdi/js";
+import { mdiArrowRightBold } from "@mdi/js";
+import ImageFrame from "@/components/ImageFrame";
 
-  export default {
-    data: () => ({
-      phrase: {
-        title: "TYBMS STORY",
-        subTitle: "동양비엠에스에 오신 것을 환영합니다!"
-      },
-      mdiArrowRightBold: mdiArrowRightBold
-    }),
-    components: {
-      Phrase
-    }
-  };
+export default {
+  components: {
+    ImageFrame
+  },
+  data: () => ({
+    frame: {
+      content: "CEO 인사",
+      subContent: `회사소개   >   CEO 인사`,
+      backgroundImageUrls: {
+        w640: require("@/assets/images/frame/company-about/ceo-greeting-640.png"),
+        w960: require("@/assets/images/frame/company-about/ceo-greeting-960.png"),
+        w1280: require("@/assets/images/frame/company-about/ceo-greeting-1280.png"),
+        w1920: require("@/assets/images/frame/company-about/ceo-greeting-1920.png")
+      }
+    },
+    mdiArrowRightBold: mdiArrowRightBold
+  })
+};
 </script>
 <style scoped>
-  .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-family: "Noto Sans KR", sans-serif;
-  }
-  .main-content {
-    font-size: 1.7vw;
-    letter-spacing: 0.1vw;
-  }
-  .content {
-    line-height: 1.9;
-  }
-  .right-sort {
-    margin-left: auto;
-    text-align: right;
-  }
-  .last-wrap {
-    margin-top: 5%;
-    text-align: center;
-  }
-  .last-wrap > span {
-    font-size: 2.5vw;
-  }
-  .last-wrap > h1 {
-    font-size: 2.5vw;
-  }
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Noto Sans KR", sans-serif;
+}
+.main-content {
+  font-size: 1.7vw;
+  letter-spacing: 0.1vw;
+}
+.content {
+  line-height: 1.9;
+}
+.right-sort {
+  margin-left: auto;
+  text-align: right;
+}
+.last-wrap {
+  margin-top: 5%;
+  text-align: center;
+}
+.last-wrap > span {
+  font-size: 2.5vw;
+}
+.last-wrap > h1 {
+  font-size: 2.5vw;
+}
 
-  .cards-container {
-    display: flex;
-    flex-direction: row;
-    justify-items: center;
-    align-items: center;
-    margin-top: 5%;
-    font-family: "Noto Sans KR", sans-serif;
-  }
+.cards-container {
+  display: flex;
+  flex-direction: row;
+  justify-items: center;
+  align-items: center;
+  margin-top: 5%;
+  font-family: "Noto Sans KR", sans-serif;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
 </style>
