@@ -32,12 +32,11 @@
     <!--    IE를 EDGE로-->
     <script>
       if (navigator.userAgent.indexOf("Trident") > 0) {
-        // IE 강제종료
+        window.location = 'microsoft-edge:' + window.location.href;
+        // // IE 강제종료
         top.window.open('about:blank','_self').close();
         top.window.opener=self;
         top.self.close();
-
-        location.href = "microsoft-edge:" + location.href;
       }
     </script>
   </body>
