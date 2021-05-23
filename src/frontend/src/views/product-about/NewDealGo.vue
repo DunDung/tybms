@@ -12,7 +12,12 @@ export default {
     frame: {
       content: "New deal Go 원격관리 솔루션",
       subContent: `제품소개   >   New deal Go 원격관리 솔루션`,
-      backgroundImageUrls: require("@/assets/images/frame/product-about/new-deal-go-1280.png")
+      backgroundImageUrls: {
+        w640: require("@/assets/images/frame/product-about/new-deal-go-640.png"),
+        w960: require("@/assets/images/frame/product-about/new-deal-go-960.png"),
+        w1280: require("@/assets/images/frame/product-about/new-deal-go-1280.png"),
+        w1920: require("@/assets/images/frame/product-about/new-deal-go-1920.png")
+      }
     }
   })
 };
