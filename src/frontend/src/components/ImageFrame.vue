@@ -35,7 +35,7 @@ source,
 img {
   position: absolute;
   width: 100%;
-  height: 400px;
+  height: 300px;
   object-fit: cover;
   z-index: 1;
   /*opacity: 0.8;*/
@@ -48,7 +48,7 @@ span {
 }
 .image-container {
   max-width: 100%;
-  height: 400px;
+  height: 300px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -71,7 +71,7 @@ span {
   picture,
   source,
   img {
-    height: 200px;
+    height: 150px;
   }
 
   .content {
