@@ -10,8 +10,8 @@ export default {
   },
   data: () => ({
     frame: {
-      content: "제품 Specification",
-      subContent: `제품소개   >   제품 Specification`,
+      content: "제품 카다로그",
+      subContent: `제품소개   >   제품 카다로그`,
       backgroundImageUrls: {
         w640: require("@/assets/images/frame/product-about/product-specification-640.png"),
         w960: require("@/assets/images/frame/product-about/product-specification-960.png"),

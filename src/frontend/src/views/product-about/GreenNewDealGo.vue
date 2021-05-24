@@ -10,8 +10,8 @@ export default {
   },
   data: () => ({
     frame: {
-      content: "Green New deal Go 산업안전환경 솔루션",
-      subContent: `제품소개   >   Green New deal Go 산업안전환경 솔루션`,
+      content: "그린뉴딜 고 산업안전환경 솔루션",
+      subContent: `제품소개   >   그린뉴딜 고 산업안전환경 솔루션`,
       backgroundImageUrls: {
         w640: require("@/assets/images/frame/product-about/green-new-deal-go-640.png"),
         w960: require("@/assets/images/frame/product-about/green-new-deal-go-960.png"),

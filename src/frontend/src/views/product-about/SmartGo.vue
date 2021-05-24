@@ -10,8 +10,8 @@ export default {
   },
   data: () => ({
     frame: {
-      content: "Smart Go 유무선 분산시스템 솔루션",
-      subContent: `제품소개   >   Smart Go 유무선 분산시스템 솔루션`,
+      content: "스마트 고 유무선 분산시스템 솔루션",
+      subContent: `제품소개   >   스마트 고 유무선 분산시스템 솔루션`,
       backgroundImageUrls: {
         w640: require("@/assets/images/frame/product-about/smart-go-640.png"),
         w960: require("@/assets/images/frame/product-about/smart-go-960.png"),

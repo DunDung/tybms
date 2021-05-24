@@ -32,6 +32,8 @@ export default {
 <style>
 #app {
   font-family: "Nanum Gothic", sans-serif;
+  width: 80%;
+  margin: 0 auto;
   /*font-family: 'Noto Sans KR', sans-serif;*/
   /* font-family: 'Yeon Sung', cursive;*/
   /* font-family: "Do Hyeon", sans-serif;*/

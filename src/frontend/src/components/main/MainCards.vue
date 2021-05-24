@@ -9,9 +9,9 @@
         </v-carousel-item>
       </v-carousel>
     </v-card>
-    <v-card elevation="0" rounded="0" class="cards">
+    <v-card elevation="0" rounded="0" class="cards cards-margin-left">
       <section class="notice">
-        <h2>NOTICE</h2>
+        <h2>공지사항</h2>
         <router-link class="more" to="/#"
           ><img src="@/assets/images/main/mini-slider/learn-more.png"
         /></router-link>
@@ -31,9 +31,9 @@
         </ul>
       </section>
     </v-card>
-    <v-card elevation="0" rounded="0" class="cards">
+    <v-card elevation="0" rounded="0" class="cards cards-margin-left">
       <section class="notice">
-        <h2>TYBMS NEWS</h2>
+        <h2>자료실</h2>
         <router-link class="more" to="/#"
           ><img src="@/assets/images/main/mini-slider/learn-more.png"
         /></router-link>
@@ -53,7 +53,7 @@
         </ul>
       </section>
     </v-card>
-    <v-card elevation="0" rounded="0" class="cards">
+    <v-card elevation="0" rounded="0" class="cards cards-margin-left">
       <iframe
         class="youtube-frame"
         src="https://www.youtube.com/embed/hxijtz2WaVs?autoplay=1&amp;mute=1&amp;playlist=hxijtz2WaVs&amp;loop=1"
@@ -86,8 +86,10 @@ export default {
 .cards {
   width: 25%;
   height: 200px;
+}
+
+.cards-margin-left {
   margin-left: 0.5vw;
-  margin-right: 0.5vw;
 }
 
 img {

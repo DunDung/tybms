@@ -82,19 +82,19 @@ export default {
         path: "/smart-go",
         subMenus: [
           {
-            title: `Smart Go 유무선 분산시스템 솔루션`,
+            title: `스마트 고 유무선 분산시스템 솔루션`,
             path: "/smart-go"
           },
           {
-            title: `New deal Go 원격관리 솔루션`,
+            title: `뉴딜 고 원격관리 솔루션`,
             path: "/new-deal-go"
           },
           {
-            title: `Green New deal Go 산업안전환경 솔루션`,
+            title: `그린뉴딜 고 산업안전환경 솔루션`,
             path: "/green-new-deal-go"
           },
           {
-            title: "제품 Specification",
+            title: "제품 카다로그",
             path: "/product-specification"
           }
         ]
@@ -145,26 +145,26 @@ export default {
 </script>
 <style scoped>
 .menu-list {
-  width: 20vw;
+  width: 15vw;
   background-color: transparent !important;
 }
 
 .main-title {
   color: #ffffff;
   font-weight: 500;
-  font-size: 20px;
+  font-size: 18px;
+}
+
+.sub-menus-wrap {
+  margin-left: 18.3vw;
 }
 
 .sub-menus {
   height: 300px;
   width: 100%;
-  opacity: 0.7;
+  opacity: 0.8;
   position: absolute;
   z-index: 5;
-}
-
-.sub-menus-wrap {
-  margin-left: 20.5vw;
 }
 
 .sub-title-wrap {
@@ -173,13 +173,13 @@ export default {
 }
 
 .sub-menu-list {
-  width: 20.2vw;
+  width: 15.1vw;
   background-color: transparent !important;
 }
 
 .sub-menu-title {
   white-space: normal;
-  font-size: 1rem;
+  font-size: 0.9rem;
   margin-top: 15px;
 }
 

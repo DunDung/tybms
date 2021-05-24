@@ -10,8 +10,8 @@ export default {
   },
   data: () => ({
     frame: {
-      content: "New deal Go 원격관리 솔루션",
-      subContent: `제품소개   >   New deal Go 원격관리 솔루션`,
+      content: "뉴딜 고 원격관리 솔루션",
+      subContent: `제품소개   >   뉴딜 고 원격관리 솔루션`,
       backgroundImageUrls: {
         w640: require("@/assets/images/frame/product-about/new-deal-go-640.png"),
         w960: require("@/assets/images/frame/product-about/new-deal-go-960.png"),
