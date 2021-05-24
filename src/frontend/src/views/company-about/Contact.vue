@@ -64,6 +64,7 @@ export default {
   .wrap {
     margin-top: 30px;
     margin-bottom: 30px;
+    padding: 0px;
     width: 100%;
   }
   img {
