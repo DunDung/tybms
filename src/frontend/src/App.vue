@@ -37,5 +37,6 @@ export default {
   /*font-family: 'Noto Sans KR', sans-serif;*/
   /* font-family: 'Yeon Sung', cursive;*/
   /* font-family: "Do Hyeon", sans-serif;*/
+  /*font-family: 'NanumSquare', sans-serif !important;*/
 }
 </style>

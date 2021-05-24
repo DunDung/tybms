@@ -23,8 +23,8 @@ export default {
     return {
       slides: [
         {
-          content: "첨단 자동제어시스템(IoT&AI)을 선도하는 기업",
-          subContent: "동양 BMS(주)",
+          content: "첨단 자동제어시스템(IoT&AI) 선도 기업",
+          subContent: "동양BMS(주)",
           w320: require("@/assets/images/main/main-slider/1(320).png"),
           w640: require("@/assets/images/main/main-slider/1(640).png"),
           w960: require("@/assets/images/main/main-slider/1(960).png"),
@@ -84,9 +84,10 @@ export default {
   span {
     z-index: 2;
     color: white;
-    font-size: 4vw;
+    font-size: 3.7vw;
+    font-weight: 900;
     letter-spacing: 0.2vw;
-     font-family: "Do Hyeon", sans-serif;
+    font-family: 'NanumSquare', sans-serif !important;
   }
 
   /*슬라이더 모바일 처리*/
