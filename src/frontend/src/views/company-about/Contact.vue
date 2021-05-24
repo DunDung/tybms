@@ -66,9 +66,10 @@ export default {
     margin-bottom: 30px;
     padding: 0px;
     width: 100%;
+    text-align: center;
   }
   img {
-    max-width: 100%;
+    max-width: 80%;
     height: auto;
   }
 .mdi-icon {
