@@ -69,6 +69,7 @@ export default {
   flex-direction: column;
 }
 .wrap {
+  margin-bottom: 5px;
 }
 .content-wrap {
   margin-left: 30px;
@@ -82,6 +83,11 @@ export default {
 .footer-content {
   margin-left: 2.5px;
   font-size: 14px;
+}
+
+.footer__copyright {
+ font-size: 14px;
+  margin-top: 5px;
 }
 @media screen and (max-width: 960px) {
   .footer-container {

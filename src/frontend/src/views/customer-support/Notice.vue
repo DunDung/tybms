@@ -26,67 +26,67 @@ export default {
     posts: [
       {
         id: 1,
-        title: "공지사항1" ,
+        title: "공지사항 1" ,
         updatedDate: "2021.05.13",
         views: 24
       },
       {
         id: 2,
-        title: "공지사항2",
+        title: "공지사항 2",
         updatedDate: "2021.05.14",
         views: 21
       },
       {
         id: 3,
-        title: "공지사항3",
+        title: "공지사항 3",
         updatedDate: "2021.05.15",
         views: 25
       },
       {
         id: 4,
-        title: "공지사항4",
+        title: "공지사항 4",
         updatedDate: "2021.05.16",
         views: 27
       },
       {
         id: 5,
-        title: "공지사항5",
+        title: "공지사항 5",
         updatedDate: "2021.05.17",
         views: 2
       },
       {
         id: 6,
-        title: "공지사항6",
+        title: "공지사항 6",
         updatedDate: "2021.05.18",
         views: 27
       },
       {
         id: 7,
-        title: "공지사항7",
+        title: "공지사항 7",
         updatedDate: "2021.05.19",
         views: 27
       },
       {
         id: 8,
-        title: "공지사항8",
+        title: "공지사항 8",
         updatedDate: "2021.05.20",
         views: 7
       },
       {
         id: 9,
-        title: "공지사항9",
+        title: "공지사항 9",
         updatedDate: "2021.05.21",
         views: 2
       },
       {
         id: 10,
-        title: "공지사항10",
+        title: "공지사항 10",
         updatedDate: "2021.05.28",
         views: 27
       },
       {
         id: 11,
-        title: "공지사항11",
+        title: "공지사항 11",
         updatedDate: "2021.05.29",
         views: 87
       }

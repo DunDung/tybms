@@ -12,21 +12,24 @@
     <v-card elevation="0" rounded="0" class="cards cards-margin-left">
       <section class="notice">
         <h2>공지사항</h2>
-        <router-link class="more" to="/#"
-          ><img src="@/assets/images/main/mini-slider/learn-more.png"
-        /></router-link>
+        <router-link to="/notice">
+          <img
+            src="@/assets/images/main/mini-slider/learn-more.png"
+            class="more"
+          />
+        </router-link>
         <ul>
           <li>
-            <a href="#">제 14회 한국국제 냉난방공조전(HARFKO 2017)</a>
+            <router-link to="/#">공지사항 11</router-link>
           </li>
           <li>
-            <a href="#">제 14회 한국국제 냉난방공조전(HARFKO 2017)</a>
+            <router-link to="/#">공지사항 10</router-link>
           </li>
           <li>
-            <a href="#">제 14회 한국국제 냉난방공조전(HARFKO 2017)</a>
+            <router-link to="/#">공지사항 9</router-link>
           </li>
           <li>
-            <a href="#">제 14회 한국국제 냉난방공조전(HARFKO 2017)</a>
+            <router-link to="/#">공지사항 8</router-link>
           </li>
         </ul>
       </section>
@@ -34,21 +37,24 @@
     <v-card elevation="0" rounded="0" class="cards cards-margin-left">
       <section class="notice">
         <h2>자료실</h2>
-        <router-link class="more" to="/#"
-          ><img src="@/assets/images/main/mini-slider/learn-more.png"
-        /></router-link>
+        <router-link to="/archives">
+          <img
+            src="@/assets/images/main/mini-slider/learn-more.png"
+            class="more"
+          />
+        </router-link>
         <ul>
           <li>
-            <a href="#">제 14회 한국국제 냉난방공조전(HARFKO 2017)</a>
+            <router-link to="#">제 11기 주주총회 안내문 </router-link>
           </li>
           <li>
-            <a href="#">제 14회 한국국제 냉난방공조전(HARFKO 2017)</a>
+            <router-link to="#">제 10기 주주총회 안내문 </router-link>
           </li>
           <li>
-            <a href="#">제 14회 한국국제 냉난방공조전(HARFKO 2017)</a>
+            <router-link to="#">제 9기 주주총회 안내문 </router-link>
           </li>
           <li>
-            <a href="#">제 14회 한국국제 냉난방공조전(HARFKO 2017)</a>
+            <router-link to="#">제 8기 주주총회 안내문 </router-link>
           </li>
         </ul>
       </section>
@@ -84,7 +90,7 @@ export default {
 }
 
 .cards {
-  font-family: 'NanumSquare', sans-serif !important;
+  font-family: "NanumSquare", sans-serif !important;
   width: 25%;
   height: 200px;
 }
@@ -96,14 +102,6 @@ export default {
 img {
   height: 100%;
   width: 100%;
-}
-
-.notice {
-  margin-top: 2.5vh;
-  width: 100%;
-  position: relative;
-  border: 1px solid #000;
-  padding: 30px 10px 0;
 }
 
 .youtube-frame {
@@ -141,9 +139,17 @@ a {
   font-weight: bold;
 }
 
+.notice {
+  margin-top: 1.6vh;
+  position: relative;
+  width: 100%;
+  border: 1px solid #000;
+  padding: 30px 10px 0;
+}
+
 h2 {
   position: absolute;
-  font-size: 30px;
+  font-size: 33px;
   left: 20px;
   top: -35px;
   margin: 0;
@@ -152,9 +158,10 @@ h2 {
 }
 
 .more {
-  width: 140px;
+  width: 145px;
+  height: auto;
   position: absolute;
-  left: 10vw;
+  left: 10.5vw;
   top: -28px;
   padding: 10px 20px;
 }
@@ -168,6 +175,10 @@ h2 {
   .wrap {
     flex-direction: column;
     margin-top: 2px;
+  }
+
+  .more {
+    left: 60vw;
   }
 
   .cards {
