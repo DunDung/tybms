@@ -9,6 +9,10 @@ import ImageFrame from "@/components/ImageFrame";
 import ImageContent from "@/components/ImageContent";
 
 export default {
+  components: {
+    ImageContent,
+    ImageFrame
+  },
   data: () => ({
     frame: {
       content: "찾아오시는 길",
@@ -21,11 +25,7 @@ export default {
       }
     },
     imageUrl: require("@/assets/images/content/company-about/directions.png")
-  }),
-  components: {
-    ImageContent,
-    ImageFrame
-  }
+  })
 };
 </script>
 <style scoped></style>

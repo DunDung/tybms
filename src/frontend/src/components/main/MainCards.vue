@@ -84,12 +84,13 @@ export default {
 }
 
 .cards {
+  font-family: 'NanumSquare', sans-serif !important;
   width: 25%;
   height: 200px;
 }
 
 .cards-margin-left {
-  margin-left: 0.5vw;
+  margin-left: 0.8vw;
 }
 
 img {
@@ -99,7 +100,6 @@ img {
 
 .notice {
   margin-top: 2.5vh;
-  /*margin-left: 0.5vw;*/
   width: 100%;
   position: relative;
   border: 1px solid #000;
@@ -114,7 +114,6 @@ ul,
 li {
   margin: 0;
   padding: 0;
-  list-style: none;
 }
 
 li {
@@ -153,10 +152,10 @@ h2 {
 }
 
 .more {
+  width: 140px;
   position: absolute;
-  left: 270px;
-  top: -30px;
-  margin-left: -50px;
+  left: 10vw;
+  top: -28px;
   padding: 10px 20px;
 }
 

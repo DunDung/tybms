@@ -11,7 +11,7 @@
           <img :src="slide.w1920" />
         </picture>
         <span class="content">{{ slide.content }}</span>
-        <br/>
+        <br />
         <span class="sub-content">{{ slide.subContent }}</span>
       </v-row>
     </v-carousel-item>
@@ -64,47 +64,43 @@ export default {
 };
 </script>
 <style scoped>
+.slider-wrap {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
 
-  .slider-wrap {
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-  }
+picture,
+source,
+img {
+  position: absolute;
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  z-index: 1;
+}
 
-  picture,
+span {
+  z-index: 2;
+  color: white;
+  font-size: 3.7vw;
+  font-weight: 900;
+  letter-spacing: 0.2vw;
+  font-family: "NanumSquare", sans-serif !important;
+}
+
+/*슬라이더 모바일 처리*/
+@media screen and (max-width: 960px) {
+  .fill-height picture,
   source,
   img {
-    position: absolute;
-    width: 100%;
-    height: 500px;
-    object-fit: cover;
-    z-index: 1;
   }
 
-  span {
-    z-index: 2;
-    color: white;
-    font-size: 3.7vw;
-    font-weight: 900;
-    letter-spacing: 0.2vw;
-    font-family: 'NanumSquare', sans-serif !important;
+  .content {
+    font-size: 6vw;
   }
-
-  /*슬라이더 모바일 처리*/
-  @media screen and (max-width: 960px) {
-    .fill-height
-    picture,
-    source,
-    img {
-
-    }
-
-    .content {
-      font-size: 6vw;
-    }
-    .sub-content {
-      font-size: 3vw;
-    }
+  .sub-content {
+    font-size: 3vw;
   }
-
+}
 </style>

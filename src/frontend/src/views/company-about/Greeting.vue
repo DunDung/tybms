@@ -1,5 +1,5 @@
 <template>
-  <v-main >
+  <v-main>
     <ImageFrame :frame="frame" />
     <ImageContent :image-url="imageUrl" />
   </v-main>
@@ -30,6 +30,4 @@ export default {
   })
 };
 </script>
-<style scoped>
-
-</style>
+<style scoped></style>

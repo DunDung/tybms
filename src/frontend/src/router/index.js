@@ -8,9 +8,9 @@ import ProductSpecification from "@/views/product-about/ProductSpecification";
 import Notice from "@/views/customer-support/Notice";
 import Archives from "@/views/customer-support/Archives";
 import Greeting from "@/views/company-about/Greeting";
-import History from "@/views/company-about/History.vue";
-import Performance from "@/views/company-about/Performance.vue";
-import Contact from "@/views/company-about/Contact.vue";
+import History from "@/views/company-about/History";
+import Performance from "@/views/company-about/Performance";
+import Contact from "@/views/company-about/Contact";
 
 Vue.use(VueRouter);
 

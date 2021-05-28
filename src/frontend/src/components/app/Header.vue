@@ -160,7 +160,7 @@ export default {
 }
 
 .sub-menus {
-  height: 300px;
+  height: 250px;
   width: 100%;
   opacity: 0.8;
   position: absolute;

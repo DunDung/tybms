@@ -1,12 +1,17 @@
 <template>
-  <ImageFrame :frame="frame" />
+  <v-main>
+    <ImageFrame :frame="frame" />
+    <ImageContent :image-url="imageUrl" />
+  </v-main>
 </template>
 <script>
 import ImageFrame from "@/components/ImageFrame";
+import ImageContent from "@/components/ImageContent";
 
 export default {
   components: {
-    ImageFrame
+    ImageFrame,
+    ImageContent
   },
   data: () => ({
     frame: {
@@ -18,7 +23,8 @@ export default {
         w1280: require("@/assets/images/frame/product-about/smart-go-1280.png"),
         w1920: require("@/assets/images/frame/product-about/smart-go-1920.png")
       }
-    }
+    },
+    imageUrl: require("@/assets/images/content/product-about/smart-go.png")
   })
 };
 </script>

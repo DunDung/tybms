@@ -10,8 +10,8 @@ export default {
 </script>
 <style scoped>
   .wrap {
-    margin-top: 3vw;
-    margin-bottom: 3vw;
+    margin-top: 1.5vw;
+    margin-bottom: 1.5vw;
     padding: 0;
     width: 100%;
     text-align: center;
