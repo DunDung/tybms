@@ -39,6 +39,20 @@ export default {
   /* font-family: "Do Hyeon", sans-serif;*/
   /*font-family: 'NanumSquare', sans-serif !important;*/
 }
+
+/*Board 컴포넌트 스타일 적용이 App.vue가 아니면 안됨.*/
+th {
+  font-size: 0.9vw !important;
+  font-weight: bold;
+  background-color: #f0f0f0;
+}
+
+td {
+  font-size: 0.8vw !important;
+  cursor: pointer;
+}
+/**/
+
 @media screen and (max-width: 960px) {
   #app {
     width: 100%;

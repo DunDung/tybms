@@ -10,7 +10,8 @@ import ImageContent from "@/components/ImageContent";
 
 export default {
   components: {
-    ImageFrame, ImageContent
+    ImageFrame,
+    ImageContent
   },
   data: () => ({
     frame: {
