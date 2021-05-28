@@ -10,7 +10,8 @@ import ImageContent from "@/components/ImageContent";
 
 export default {
   components: {
-    ImageFrame, ImageContent
+    ImageFrame,
+    ImageContent
   },
   data: () => ({
     frame: {
@@ -23,9 +24,8 @@ export default {
         w1920: require("@/assets/images/frame/company-about/history-1920.png")
       }
     },
-    imageUrl: require("@/assets/images/content/company-about/time-line.jpg"),
+    imageUrl: require("@/assets/images/content/company-about/time-line.jpg")
   })
 };
 </script>
-<style scoped>
-</style>
+<style scoped></style>

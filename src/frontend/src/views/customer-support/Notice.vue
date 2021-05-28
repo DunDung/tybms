@@ -10,7 +10,8 @@ import Board from "@/components/Board";
 
 export default {
   components: {
-    ImageFrame, Board
+    ImageFrame,
+    Board
   },
   data: () => ({
     frame: {
@@ -26,7 +27,7 @@ export default {
     posts: [
       {
         id: 1,
-        title: "공지사항 1" ,
+        title: "공지사항 1",
         updatedDate: "2021.05.13",
         views: 24
       },
@@ -91,9 +92,7 @@ export default {
         views: 87
       }
     ]
-
-  }),
-
+  })
 };
 </script>
 <style scoped></style>

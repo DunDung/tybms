@@ -34,7 +34,7 @@ export default {
       { text: "조회 수", sortable: false, align: "center", value: "views" }
     ]
   }),
-  props: ["posts"],
+  props: ["posts"]
 };
 </script>
 <style scoped>

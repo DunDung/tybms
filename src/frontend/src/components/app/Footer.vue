@@ -86,7 +86,7 @@ export default {
 }
 
 .footer__copyright {
- font-size: 14px;
+  font-size: 14px;
   margin-top: 5px;
 }
 @media screen and (max-width: 960px) {

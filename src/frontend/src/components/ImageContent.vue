@@ -9,15 +9,15 @@ export default {
 };
 </script>
 <style scoped>
-  .wrap {
-    margin-top: 1.5vw;
-    margin-bottom: 1.5vw;
-    padding: 0;
-    width: 100%;
-    text-align: center;
-  }
-  img {
-    max-width: 80%;
-    height: auto;
-  }
+.wrap {
+  margin-top: 1.5vw;
+  margin-bottom: 1.5vw;
+  padding: 0;
+  width: 100%;
+  text-align: center;
+}
+img {
+  max-width: 80%;
+  height: auto;
+}
 </style>

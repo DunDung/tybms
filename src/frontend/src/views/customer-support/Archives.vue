@@ -10,7 +10,8 @@ import Board from "@/components/Board";
 
 export default {
   components: {
-    ImageFrame, Board
+    ImageFrame,
+    Board
   },
   data: () => ({
     frame: {
@@ -26,7 +27,7 @@ export default {
     posts: [
       {
         id: 1,
-        title: "제 1기 주주총회 안내문 " ,
+        title: "제 1기 주주총회 안내문 ",
         updatedDate: "2021.05.13",
         views: 24
       },
