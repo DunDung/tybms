@@ -167,7 +167,7 @@ h2 {
 @media screen and (max-width: 960px) {
   .wrap {
     flex-direction: column;
-    margin-top: 3px;
+    margin-top: 2px;
   }
 
   .cards {

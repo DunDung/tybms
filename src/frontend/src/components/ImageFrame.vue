@@ -71,7 +71,7 @@ span {
   picture,
   source,
   img {
-    height: 150px;
+    height: 200px;
   }
 
   .content {

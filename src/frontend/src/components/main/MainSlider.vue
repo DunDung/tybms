@@ -1,21 +1,28 @@
 <template>
-  <v-carousel cycle hide-delimiter-background interval="3000">
-    <v-carousel-item v-for="(slide, i) in slides" :key="i">
-      <v-row class="fill-height slider-wrap" align="center" justify="center">
-        <picture>
-          <source :srcset="slide.w320" media="(max-width: 400px)" />
-          <source :srcset="slide.w640" media="(max-width: 640px)" />
-          <source :srcset="slide.w960" media="(max-width: 960px)" />
-          <source :srcset="slide.w1280" media="(max-width: 1280px)" />
-          <source :srcset="slide.w1920" media="(max-width: 1920px)" />
-          <img :src="slide.w1920" />
-        </picture>
-        <span class="content">{{ slide.content }}</span>
-        <br />
-        <span class="sub-content">{{ slide.subContent }}</span>
-      </v-row>
-    </v-carousel-item>
-  </v-carousel>
+  <v-main>
+    <v-carousel
+      cycle
+      hide-delimiter-background
+      interval="3000"
+      class="slider-wrap"
+    >
+      <v-carousel-item v-for="(slide, i) in slides" :key="i">
+        <v-row class="slider-wrap" align="center" justify="center">
+          <picture>
+            <source :srcset="slide.w320" media="(max-width: 400px)" />
+            <source :srcset="slide.w640" media="(max-width: 640px)" />
+            <source :srcset="slide.w960" media="(max-width: 960px)" />
+            <source :srcset="slide.w1280" media="(max-width: 1280px)" />
+            <source :srcset="slide.w1920" media="(max-width: 1920px)" />
+            <img :src="slide.w1920" />
+          </picture>
+          <span class="content">{{ slide.content }}</span>
+          <br />
+          <span class="sub-content">{{ slide.subContent }}</span>
+        </v-row>
+      </v-carousel-item>
+    </v-carousel>
+  </v-main>
 </template>
 <script>
 export default {
@@ -68,6 +75,7 @@ export default {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  height: 500px;
 }
 
 picture,
@@ -91,13 +99,15 @@ span {
 
 /*슬라이더 모바일 처리*/
 @media screen and (max-width: 960px) {
-  .fill-height picture,
+  .slider-wrap,
+  picture,
   source,
   img {
+    height: 300px !important;
   }
 
   .content {
-    font-size: 6vw;
+    font-size: 5vw;
   }
   .sub-content {
     font-size: 3vw;

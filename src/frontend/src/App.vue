@@ -39,4 +39,9 @@ export default {
   /* font-family: "Do Hyeon", sans-serif;*/
   /*font-family: 'NanumSquare', sans-serif !important;*/
 }
+@media screen and (max-width: 960px) {
+  #app {
+    width: 100%;
+  }
+}
 </style>
