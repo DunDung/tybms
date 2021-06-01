@@ -75,7 +75,6 @@
 <script>
 export default {
   data: () => ({
-    hover1: true,
     menus: [
       {
         title: "제품소개",

@@ -19,7 +19,11 @@
       href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Noto+Sans+KR&family=Do+Hyeon&family=Yeon+Sung&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css">
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css"
+    />
   </head>
   <body>
     <noscript>
@@ -32,12 +36,12 @@
     <div id="app"></div>
     <!--    IE를 EDGE로-->
     <script>
-      if (navigator.userAgent.match(/MSIE|Internet Explorer|Trident/i)) {
-        window.location = 'microsoft-edge:' + window.location.href;
-        // // IE 강제종료
-        top.window.open('about:blank','_self').close();
-        top.window.opener=self;
-        top.self.close();
+      if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) {
+        window.location = "microsoft-edge:" + window.location;
+
+        setTimeout(function() {
+          window.location = "https://go.microsoft.com/fwlink/?linkid=2135547";
+        }, 1);
       }
     </script>
   </body>
