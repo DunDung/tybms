@@ -10,11 +10,10 @@
     color="#1A9A1A"
     @click="toTop"
   >
-    <v-icon>{{ mdiArrowUp }}</v-icon>
+    <v-icon>mdi-arrow-up</v-icon>
   </v-btn>
 </template>
 <script>
-import { mdiArrowUp } from "@mdi/js";
 export default {
   methods: {
     onScroll(e) {
@@ -28,7 +27,6 @@ export default {
   },
   data: () => ({
     fab: false,
-    mdiArrowUp: mdiArrowUp
   })
 };
 </script>

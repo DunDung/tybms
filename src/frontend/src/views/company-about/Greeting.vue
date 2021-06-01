@@ -5,7 +5,6 @@
   </v-main>
 </template>
 <script>
-import { mdiArrowRightBold } from "@mdi/js";
 import ImageFrame from "@/components/ImageFrame";
 import ImageContent from "@/components/ImageContent";
 
@@ -28,7 +27,6 @@ export default {
     imageUrls: [
       require("@/assets/images/content/company-about/ceo-greeting.jpg")
     ],
-    mdiArrowRightBold: mdiArrowRightBold
   })
 };
 </script>

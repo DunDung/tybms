@@ -1,17 +1,17 @@
 <template>
   <v-main>
     <ImageFrame :frame="frame" />
-    <Board :posts="posts" />
+    <ProductBoard :posts="posts" />
   </v-main>
 </template>
 <script>
 import ImageFrame from "@/components/ImageFrame";
-import Board from "@/components/Board";
+import ProductBoard from "@/components/ProductBoard";
 
 export default {
   components: {
     ImageFrame,
-    Board
+    ProductBoard
   },
   data: () => ({
     frame: {
@@ -27,34 +27,11 @@ export default {
     posts: [
       {
         id: 1,
-        title: "제품 1",
+        title: "AQS Series CATALOG",
         updatedDate: "2021.05.13",
-        views: 24
+        views: 24,
+        fileUrl: require("@/assets/pdf/AQS-Series-CATALOG.pdf")
       },
-      {
-        id: 2,
-        title: "제품 2",
-        updatedDate: "2021.05.14",
-        views: 21
-      },
-      {
-        id: 3,
-        title: "제품 3",
-        updatedDate: "2021.05.15",
-        views: 25
-      },
-      {
-        id: 4,
-        title: "제품 4",
-        updatedDate: "2021.05.16",
-        views: 27
-      },
-      {
-        id: 5,
-        title: "제품 5",
-        updatedDate: "2021.05.17",
-        views: 2
-      }
     ]
   })
 };
