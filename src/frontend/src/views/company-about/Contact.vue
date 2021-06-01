@@ -1,7 +1,7 @@
 <template>
   <v-main>
     <ImageFrame :frame="frame" />
-    <ImageContent :image-url="imageUrl" />
+    <ImageContent :image-urls="imageUrls" />
   </v-main>
 </template>
 <script>
@@ -24,7 +24,7 @@ export default {
         w1920: require("@/assets/images/frame/company-about/contact-1920.png")
       }
     },
-    imageUrl: require("@/assets/images/content/company-about/directions.png")
+    imageUrls: [require("@/assets/images/content/company-about/directions.png")]
   })
 };
 </script>

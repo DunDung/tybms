@@ -1,11 +1,13 @@
 <template>
   <v-container class="wrap">
-    <img :src="imageUrl" />
+    <div v-for="(imageUrl, i) in imageUrls" :key="i">
+      <img :src="imageUrl" />
+    </div>
   </v-container>
 </template>
 <script>
 export default {
-  props: ["imageUrl"]
+  props: ["imageUrls"]
 };
 </script>
 <style scoped>
