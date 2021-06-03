@@ -17,13 +17,22 @@
     </v-card>
     <v-card elevation="0" rounded="0" class="cards cards-margin-left">
       <section class="notice">
-        <h2>공지사항</h2>
-        <router-link to="/notice">
-          <img
-            src="@/assets/images/main/mini-slider/learn-more.png"
-            class="more"
-          />
-        </router-link>
+        <table width="100%">
+          <tr>
+            <td width="43%" align="center">
+              <h2>공지사항</h2>
+            </td>
+            <td width="60%" align="center">
+              <router-link to="/notice">
+                <img
+                  src="@/assets/images/main/mini-slider/learn-more.png"
+                  class="more"
+                />
+              </router-link>
+            </td>
+          </tr>
+        </table>
+
         <ul>
           <li>
             <router-link to="/#">공지사항 11</router-link>
@@ -49,19 +58,27 @@
           <li>
             <router-link to="/#">공지사항 4</router-link>
           </li>
-
         </ul>
       </section>
     </v-card>
     <v-card elevation="0" rounded="0" class="cards cards-margin-left">
       <section class="notice">
-        <h2>자료실</h2>
-        <router-link to="/archives">
-          <img
-            src="@/assets/images/main/mini-slider/learn-more.png"
-            class="more"
-          />
-        </router-link>
+        <table width="100%">
+          <tr>
+            <td width="20%" align="center">
+              <h2>자료실</h2>
+            </td>
+            <td width="20%" align="center">
+              <router-link to="/archives">
+                <img
+                  src="@/assets/images/main/mini-slider/learn-more.png"
+                  class="more"
+                />
+              </router-link>
+            </td>
+          </tr>
+        </table>
+
         <ul>
           <li>
             <router-link to="#">제 11기 주주총회 안내문 </router-link>
@@ -109,12 +126,12 @@ export default {
       {
         w320: require("@/assets/images/main/mini-slider/mini-slider-1-320.png"),
         w640: require("@/assets/images/main/mini-slider/mini-slider-1-640.png"),
-        w960: require("@/assets/images/main/mini-slider/mini-slider-1-960.png"),
+        w960: require("@/assets/images/main/mini-slider/mini-slider-1-960.png")
       },
       {
         w320: require("@/assets/images/main/mini-slider/mini-slider-2-320.png"),
         w640: require("@/assets/images/main/mini-slider/mini-slider-2-640.png"),
-        w960: require("@/assets/images/main/mini-slider/mini-slider-2-960.png"),
+        w960: require("@/assets/images/main/mini-slider/mini-slider-2-960.png")
       }
     ]
   })
@@ -141,11 +158,11 @@ export default {
   margin-left: 0.8vw;
 }
 
-img {
+img,
+picture,
+source {
   width: 100%;
   height: 100%;
-  object-fit: fill;
-
 }
 
 .youtube-frame {
@@ -187,28 +204,23 @@ a {
 .notice {
   position: relative;
   width: 100%;
-  border: 1px solid #000;
+  border: 1px solid black;
   padding: 30px 10px 0;
   height: 100%;
 }
-
-h2 {
+table {
   position: absolute;
-  font-size: 33px;
-  left: 20px;
-  top: -35px;
+  top: -1.45vw;
+}
+h2 {
+  font-size: 2vw;
   margin: 0;
   background-color: #fff;
-  padding: 10px;
 }
 
 .more {
-  width: 145px;
+  width: 6.3vw;
   height: auto;
-  position: absolute;
-  left: 10.5vw;
-  top: -28px;
-  padding: 10px 20px;
 }
 
 .youtube-frame {
@@ -221,20 +233,56 @@ h2 {
     flex-direction: column;
     margin-top: 2px;
   }
+  @media screen and (min-width: 551px) {
+    table {
+      position: absolute;
+      top: -3.55vw;
+    }
 
-  .more {
-    left: 60vw;
+    h2 {
+      font-size: 4.5vw;
+      margin: 0;
+      background-color: #fff;
+    }
+
+    .more {
+      width: 19vw;
+      height: auto;
+    }
   }
 
   .cards {
     width: 100%;
     height: 100%;
-    margin-top: 30px;
+    margin-top: 40px;
+  }
+
+  .cards-margin-left {
+    margin-left: 0vw;
   }
 
   .youtube-frame {
     width: 100%;
     height: 300px;
+  }
+
+  .notice {
+  }
+}
+@media screen and (max-width: 550px) {
+  table {
+    position: absolute;
+    top: -6vw;
+  }
+  h2 {
+    font-size: 8vw;
+    margin: 0;
+    background-color: #fff;
+  }
+
+  .more {
+    width: 28vw;
+    height: auto;
   }
 }
 </style>
