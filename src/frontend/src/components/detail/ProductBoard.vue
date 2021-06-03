@@ -19,7 +19,7 @@
     </div>
 
     <v-container class="flex justify-center">
-      <v-dialog v-model="dialog" max-width="30%">
+      <v-dialog v-model="dialog" max-width="25%">
         <v-card class="modal-wrap">
           <v-card-title class="text-h5 ma-auto">
             {{ clickedPost.title }}
@@ -32,7 +32,7 @@
                   :href="clickedPost.fileUrl"
                   :download="clickedPost.title"
                   @click="dialog = false"
-                  target="_blank"
+                  style="font-weight: bold"
                 >
                   다운로드
                 </v-btn>
@@ -42,13 +42,14 @@
                   text
                   @click="dialog = false"
                   :href="clickedPost.fileUrl"
+                  style="font-weight: bold"
                   target="_blank"
                 >
                   열기
                 </v-btn>
               </td>
               <td>
-                <v-btn text @click="dialog = false">
+                <v-btn text @click="dialog = false" style="font-weight: bold">
                   닫기
                 </v-btn>
               </td>
