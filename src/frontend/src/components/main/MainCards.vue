@@ -141,7 +141,7 @@ export default {
 <style scoped>
 .wrap {
   margin-top: 2.3rem;
-  margin-bottom: 2.3rem;
+  margin-bottom: 1rem;
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -231,7 +231,7 @@ h2 {
 @media screen and (max-width: 960px) {
   .wrap {
     flex-direction: column;
-    margin-top: 2px;
+    margin-top: -20px;
   }
   @media screen and (min-width: 551px) {
     table {
