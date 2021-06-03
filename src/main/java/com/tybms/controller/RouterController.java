@@ -19,4 +19,5 @@ public class RouterController implements ErrorController {
     public String getErrorPath() {
         return "/error";
     }
+
 }

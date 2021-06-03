@@ -15,6 +15,9 @@
 </template>
 <script>
 export default {
+  data: () => ({
+    fab: false
+  }),
   methods: {
     onScroll(e) {
       if (typeof window === "undefined") return;
@@ -24,9 +27,6 @@ export default {
     toTop() {
       window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
     }
-  },
-  data: () => ({
-    fab: false,
-  })
+  }
 };
 </script>

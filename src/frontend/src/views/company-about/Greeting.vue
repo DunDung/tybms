@@ -26,7 +26,7 @@ export default {
     },
     imageUrls: [
       require("@/assets/images/content/company-about/ceo-greeting.jpg")
-    ],
+    ]
   })
 };
 </script>

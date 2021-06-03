@@ -22,7 +22,7 @@
       <v-dialog v-model="dialog" max-width="30%">
         <v-card class="modal-wrap">
           <v-card-title class="text-h5 ma-auto">
-            {{clickedPost.title}}
+            {{ clickedPost.title }}
           </v-card-title>
           <table class="ma-auto">
             <tr>
@@ -111,6 +111,5 @@ td {
   width: 100%;
   font-size: 1rem;
   letter-spacing: 0.2rem;
-
 }
 </style>

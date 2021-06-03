@@ -31,7 +31,7 @@ export default {
         updatedDate: "2021.05.13",
         views: 24,
         fileUrl: require("@/assets/pdf/AQS-Series-CATALOG.pdf")
-      },
+      }
     ]
   })
 };
