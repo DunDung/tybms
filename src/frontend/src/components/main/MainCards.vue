@@ -210,16 +210,16 @@ a {
 }
 table {
   position: absolute;
-  top: -1.45vw;
+  top: -1.2vw;
 }
 h2 {
-  font-size: 2vw;
+  font-size: 1.7vw;
   margin: 0;
   background-color: #fff;
 }
 
 .more {
-  width: 6.3vw;
+  width: 6vw;
   height: auto;
 }
 
@@ -236,17 +236,17 @@ h2 {
   @media screen and (min-width: 551px) {
     table {
       position: absolute;
-      top: -3.55vw;
+      top: -3.35vw;
     }
 
     h2 {
-      font-size: 4.5vw;
+      font-size: 4.2vw;
       margin: 0;
       background-color: #fff;
     }
 
     .more {
-      width: 19vw;
+      width: 18vw;
       height: auto;
     }
   }
@@ -272,16 +272,16 @@ h2 {
 @media screen and (max-width: 550px) {
   table {
     position: absolute;
-    top: -6vw;
+    top: -5.5vw;
   }
   h2 {
-    font-size: 8vw;
+    font-size: 7.5vw;
     margin: 0;
     background-color: #fff;
   }
 
   .more {
-    width: 28vw;
+    width: 27.5vw;
     height: auto;
   }
 }
