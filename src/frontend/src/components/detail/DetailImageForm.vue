@@ -22,4 +22,10 @@ img {
   max-width: 80%;
   height: auto;
 }
+
+@media screen and (max-width: 960px) {
+  img {
+    max-width: 100%;
+  }
+}
 </style>

@@ -1,17 +1,17 @@
 <template>
   <v-main>
     <ImageFrame :frame="frame" />
-    <ImageContent :image-urls="imageUrls" />
+    <DetailImageForm :image-urls="imageUrls" />
   </v-main>
 </template>
 <script>
-import ImageFrame from "@/components/ImageFrame";
-import ImageContent from "@/components/ImageContent";
+import ImageFrame from "@/components/detail/ImageFrame";
+import DetailImageForm from "@/components/detail/DetailImageForm";
 
 export default {
   components: {
     ImageFrame,
-    ImageContent
+    DetailImageForm
   },
   data: () => ({
     frame: {

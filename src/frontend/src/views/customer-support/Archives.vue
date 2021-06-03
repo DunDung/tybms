@@ -5,8 +5,8 @@
   </v-main>
 </template>
 <script>
-import ImageFrame from "@/components/ImageFrame";
-import Board from "@/components/Board";
+import ImageFrame from "@/components/detail/ImageFrame";
+import Board from "@/components/detail/Board";
 
 export default {
   components: {

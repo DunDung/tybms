@@ -17,13 +17,18 @@
             >
             </v-app-bar-nav-icon>
           </template>
-          <v-list>
-            <v-list-item v-for="(menu, index) in menus" :key="index">
-              <v-list-item-title>{{ menu.title }}</v-list-item-title>
+          <v-list dark class="mobile-menu">
+            <v-list-item
+              v-for="(subMenu, index) in extractSubMenusForMobile()"
+              :key="index"
+            >
+              <router-link :to="subMenu.path" tag="span">
+                <v-list-item-title>{{ subMenu.title }}</v-list-item-title>
+              </router-link>
             </v-list-item>
           </v-list>
         </v-menu>
-
+        <!-- 모바일 메뉴 끝 -->
         <v-toolbar-items class="mx-auto text-center hidden-sm-and-down">
           <v-list class="menu-list" v-for="(menu, index) in menus" :key="index">
             <v-list-item-group>
@@ -75,6 +80,7 @@
 <script>
 export default {
   data: () => ({
+    mobileTitles: [],
     menus: [
       {
         title: "제품소개",
@@ -139,7 +145,18 @@ export default {
         path: "/#"
       }
     ]
-  })
+  }),
+  methods: {
+    extractSubMenusForMobile() {
+      let menuTitles = [];
+      this.menus.forEach(menu => {
+        for (let i in menu.subMenus) {
+          menuTitles.push(menu.subMenus[i]);
+        }
+      });
+      return menuTitles;
+    }
+  }
 };
 </script>
 <style scoped>
@@ -189,5 +206,9 @@ span {
 span:hover {
   color: #1a9a1a;
   font-weight: 900;
+}
+
+.mobile-menu {
+  opacity: 0.9 !important;
 }
 </style>
