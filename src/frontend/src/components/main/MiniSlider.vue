@@ -72,6 +72,7 @@ picture,
 source {
   width: 100%;
   height: 100%;
+  cursor: pointer !important;
 }
 
 @media screen and (max-width: 960px) {

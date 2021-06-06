@@ -185,6 +185,7 @@ h2 {
   font-size: 1.7vw;
   margin: 0;
   background-color: #fff;
+  cursor: default;
 }
 
 .more {
