@@ -1,6 +1,7 @@
 <template>
   <div class="board-wrap">
     <v-data-table
+      @click:row="moveDetailPostPage"
       :headers="headers"
       :items="posts"
       :page.sync="page"
@@ -34,7 +35,15 @@ export default {
       { text: "조회 수", sortable: false, align: "center", value: "views" }
     ]
   }),
-  props: ["posts"]
+  props: ["posts"],
+  methods: {
+    moveDetailPostPage(clickedPost) {
+      this.$router.push({
+        name: "DetailPost",
+        params: { clickedPost: clickedPost }
+      });
+    }
+  }
 };
 </script>
 <style scoped>

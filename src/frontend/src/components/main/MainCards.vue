@@ -1,20 +1,6 @@
 <template>
   <div class="wrap">
-    <v-card elevation="0" rounded="0" class="cards">
-      <v-carousel cycle hide-delimiter-background interval="3000" height="100%">
-        <v-carousel-item v-for="(slide, i) in slides" :key="i">
-          <v-row class="fill-height" align="center" justify="center">
-            <picture>
-              <source :srcset="slide.w320" media="(max-width: 400px)" />
-              <source :srcset="slide.w640" media="(max-width: 640px)" />
-              <source :srcset="slide.w960" media="(max-width: 960px)" />
-              <source :srcset="slide.w320" media="(max-width: 1920px)" />
-              <img :src="slide.w320" />
-            </picture>
-          </v-row>
-        </v-carousel-item>
-      </v-carousel>
-    </v-card>
+    <MiniSlider />
     <v-card elevation="0" rounded="0" class="cards cards-margin-left">
       <section class="notice">
         <table width="100%">
@@ -120,21 +106,11 @@
 </template>
 
 <script>
+import MiniSlider from "@/components/main/MiniSlider";
 export default {
-  data: () => ({
-    slides: [
-      {
-        w320: require("@/assets/images/main/mini-slider/mini-slider-1-320.png"),
-        w640: require("@/assets/images/main/mini-slider/mini-slider-1-640.png"),
-        w960: require("@/assets/images/main/mini-slider/mini-slider-1-960.png")
-      },
-      {
-        w320: require("@/assets/images/main/mini-slider/mini-slider-2-320.png"),
-        w640: require("@/assets/images/main/mini-slider/mini-slider-2-640.png"),
-        w960: require("@/assets/images/main/mini-slider/mini-slider-2-960.png")
-      }
-    ]
-  })
+  components: {
+    MiniSlider
+  }
 };
 </script>
 
@@ -156,13 +132,6 @@ export default {
 
 .cards-margin-left {
   margin-left: 0.8vw;
-}
-
-img,
-picture,
-source {
-  width: 100%;
-  height: 100%;
 }
 
 .youtube-frame {

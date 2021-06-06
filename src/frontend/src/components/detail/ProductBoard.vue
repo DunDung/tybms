@@ -17,53 +17,18 @@
         <v-pagination v-model="page" :length="pageCount"></v-pagination>
       </div>
     </div>
-
-    <v-container class="flex justify-center">
-      <v-dialog v-model="dialog" max-width="25%">
-        <v-card class="modal-wrap">
-          <v-card-title class="text-h5 ma-auto">
-            {{ clickedPost.title }}
-          </v-card-title>
-          <table class="ma-auto">
-            <tr>
-              <td>
-                <v-btn
-                  text
-                  :href="clickedPost.fileUrl"
-                  :download="clickedPost.title"
-                  @click="dialog = false"
-                  style="font-weight: bold"
-                >
-                  다운로드
-                </v-btn>
-              </td>
-              <td>
-                <v-btn
-                  text
-                  @click="dialog = false"
-                  :href="clickedPost.fileUrl"
-                  style="font-weight: bold"
-                  target="_blank"
-                >
-                  열기
-                </v-btn>
-              </td>
-              <td>
-                <v-btn text @click="dialog = false" style="font-weight: bold">
-                  닫기
-                </v-btn>
-              </td>
-            </tr>
-          </table>
-        </v-card>
-      </v-dialog>
-    </v-container>
+    <ProductModal
+      v-if="isShow"
+      :product="clickedPost"
+      @close="isShow = false"
+    />
   </v-main>
 </template>
 <script>
+import ProductModal from "@/components/detail/ProductModal";
 export default {
   data: () => ({
-    dialog: false,
+    isShow: false,
     clickedPost: {},
     page: 1,
     pageCount: 0,
@@ -81,10 +46,13 @@ export default {
     ]
   }),
   props: ["posts"],
+  components: {
+    ProductModal
+  },
   methods: {
     openProductModal(clickedPost) {
-      this.dialog = true;
       this.clickedPost = clickedPost;
+      this.isShow = true;
     }
   }
 };
@@ -93,24 +61,5 @@ export default {
 .board-wrap {
   margin-top: 1.5vw;
   margin-bottom: 1.5vw;
-}
-
-.modal-wrap {
-  display: flex;
-  justify-items: center;
-  flex-direction: column;
-  padding: 8px;
-  margin: 0 auto;
-}
-
-td {
-  width: 31%;
-  text-align: center;
-}
-
-.v-btn {
-  width: 100%;
-  font-size: 1rem;
-  letter-spacing: 0.2rem;
 }
 </style>

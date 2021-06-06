@@ -103,7 +103,7 @@ span {
   picture,
   source,
   img {
-    height: 300px !important;
+    height: 400px !important;
   }
 
   .content {
