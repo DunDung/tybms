@@ -42,13 +42,13 @@ export default {
 
 /*Board 컴포넌트 스타일 적용이 App.vue가 아니면 안됨.*/
 th {
-  font-size: 0.9vw !important;
+  font-size: 1vw !important;
   font-weight: bold;
   background-color: #f0f0f0;
 }
 
 td {
-  font-size: 0.8vw !important;
+  font-size: 0.9vw !important;
   cursor: pointer;
 }
 /**/

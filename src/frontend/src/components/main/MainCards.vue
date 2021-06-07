@@ -125,7 +125,6 @@ export default {
 }
 
 .cards {
-  font-family: "NanumSquare", sans-serif !important;
   width: 25%;
   height: 350px;
 }
@@ -176,6 +175,8 @@ a {
   border: 1px solid black;
   padding: 30px 10px 0;
   height: 100%;
+  font-family: "Nanum Gothic", sans-serif;
+
 }
 table {
   position: absolute;
@@ -228,15 +229,12 @@ h2 {
   }
 
   .cards-margin-left {
-    margin-left: 0vw;
+    margin-left: 0;
   }
 
   .youtube-frame {
     width: 100%;
     height: 300px;
-  }
-
-  .notice {
   }
 }
 @media screen and (max-width: 550px) {
