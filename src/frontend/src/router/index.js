@@ -11,7 +11,6 @@ import Greeting from "@/views/company-about/Greeting";
 import History from "@/views/company-about/History";
 import Performance from "@/views/company-about/Performance";
 import Contact from "@/views/company-about/Contact";
-import DetailPost from "@/views/customer-support/DetailPost";
 
 Vue.use(VueRouter);
 
@@ -70,12 +69,6 @@ const routes = [
     path: "/contact",
     name: "Contact",
     component: Contact
-  },
-  {
-    path: "/detailPost",
-    component: DetailPost,
-    name: "DetailPost",
-    props: true
   }
 ];
 

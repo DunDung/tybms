@@ -1,19 +1,36 @@
 <template>
   <v-main>
     <ImageFrame :frame="frame" />
-    <Board :posts="posts" />
+    <DetailPost
+      v-if="isViewDetailPost"
+      :clickedPost="clickedPost"
+      @destroyed="receiveDestroyed"
+    />
+    <Board :posts="posts" @clickedPost="receiveClickedPost" />
   </v-main>
 </template>
 <script>
 import ImageFrame from "@/components/detail/ImageFrame";
 import Board from "@/components/detail/Board";
+import DetailPost from "@/components/detail/DetailPost";
 
 export default {
   components: {
     ImageFrame,
-    Board
+    Board,
+    DetailPost
+  },
+  methods: {
+    receiveClickedPost(clickedPost) {
+      this.clickedPost = clickedPost;
+      this.isViewDetailPost = true;
+    },
+    receiveDestroyed() {
+      this.isViewDetailPost = false;
+    }
   },
   data: () => ({
+    isViewDetailPost: false,
     frame: {
       content: "공지사항",
       subContent: `고객지원   >   공지사항`,
@@ -27,69 +44,18 @@ export default {
     posts: [
       {
         id: 1,
-        title: "공지사항 1",
-        updatedDate: "2021.05.13",
-        views: 24
-      },
-      {
-        id: 2,
-        title: "공지사항 2",
-        updatedDate: "2021.05.14",
-        views: 21
-      },
-      {
-        id: 3,
-        title: "공지사항 3",
-        updatedDate: "2021.05.15",
-        views: 25
-      },
-      {
-        id: 4,
-        title: "공지사항 4",
-        updatedDate: "2021.05.16",
-        views: 27
-      },
-      {
-        id: 5,
-        title: "공지사항 5",
-        updatedDate: "2021.05.17",
-        views: 2
-      },
-      {
-        id: 6,
-        title: "공지사항 6",
-        updatedDate: "2021.05.18",
-        views: 27
-      },
-      {
-        id: 7,
-        title: "공지사항 7",
-        updatedDate: "2021.05.19",
-        views: 27
-      },
-      {
-        id: 8,
-        title: "공지사항 8",
-        updatedDate: "2021.05.20",
-        views: 7
-      },
-      {
-        id: 9,
-        title: "공지사항 9",
-        updatedDate: "2021.05.21",
-        views: 2
-      },
-      {
-        id: 10,
-        title: "공지사항 10",
-        updatedDate: "2021.05.28",
-        views: 27
-      },
-      {
-        id: 11,
-        title: "공지사항 11",
-        updatedDate: "2021.05.29",
-        views: 87
+        title: "2021.04.26 기계설비신문 기사 게재",
+        content: `자동제어전문기업 동양BMS는 기존 빌딩자동제어 사업을 바탕으로 산업환경 안전분야, 골프장 자동제어 등으로 사업을 다각화하며 사세 확장에 나서고 있다.
+4차 산업혁명시대를 맞이하고 그린뉴딜정책이 추진되는 상황에서 IoT 기술과 접목된 다양한 기술을 지속적으로 개발하고 이를 적용할 수 있는 현장을 꾸준히 발굴해
+사업영역을 확대해 나갈 예정이라고 얘기했다.`,
+        updatedDate: "2021.06.09",
+        views: 24,
+        attachedFiles: [
+          {
+            fileName: "기계설비신문(21.04.26).pdf",
+            fileUrl: require("@/assets/pdf/기계설비신문(21.04.26).pdf")
+          }
+        ]
       }
     ]
   })

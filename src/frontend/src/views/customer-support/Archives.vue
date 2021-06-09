@@ -1,19 +1,36 @@
 <template>
   <v-main>
     <ImageFrame :frame="frame" />
-    <Board :posts="posts" />
+    <DetailPost
+      v-if="isViewDetailPost"
+      :clickedPost="clickedPost"
+      @destroyed="receiveDestroyed"
+    />
+    <Board :posts="posts" @clickedPost="receiveClickedPost" />
   </v-main>
 </template>
 <script>
 import ImageFrame from "@/components/detail/ImageFrame";
 import Board from "@/components/detail/Board";
+import DetailPost from "@/components/detail/DetailPost";
 
 export default {
   components: {
     ImageFrame,
-    Board
+    Board,
+    DetailPost
+  },
+  methods: {
+    receiveClickedPost(clickedPost) {
+      this.clickedPost = clickedPost;
+      this.isViewDetailPost = true;
+    },
+    receiveDestroyed() {
+      this.isViewDetailPost = false;
+    }
   },
   data: () => ({
+    isViewDetailPost: false,
     frame: {
       content: "자료실",
       subContent: `고객지원   >   자료실`,
@@ -24,72 +41,20 @@ export default {
         w1920: require("@/assets/images/frame/customer-support/archives-1920.png")
       }
     },
+    clickedPost: {},
     posts: [
       {
         id: 1,
-        title: "제 1기 주주총회 안내문 ",
-        updatedDate: "2021.05.13",
-        views: 24
-      },
-      {
-        id: 2,
-        title: "제 2기 주주총회 안내문 ",
-        updatedDate: "2021.05.14",
-        views: 21
-      },
-      {
-        id: 3,
-        title: "제 3기 주주총회 안내문 ",
-        updatedDate: "2021.05.15",
-        views: 25
-      },
-      {
-        id: 4,
-        title: "제 4기 주주총회 안내문 ",
-        updatedDate: "2021.05.16",
-        views: 27
-      },
-      {
-        id: 5,
-        title: "제 5기 주주총회 안내문 ",
-        updatedDate: "2021.05.17",
-        views: 2
-      },
-      {
-        id: 6,
-        title: "제 6기 주주총회 안내문 ",
-        updatedDate: "2021.05.18",
-        views: 27
-      },
-      {
-        id: 7,
-        title: "제 7기 주주총회 안내문 ",
-        updatedDate: "2021.05.19",
-        views: 27
-      },
-      {
-        id: 8,
-        title: "제 8기 주주총회 안내문 ",
-        updatedDate: "2021.05.20",
-        views: 7
-      },
-      {
-        id: 9,
-        title: "제 9기 주주총회 안내문 ",
-        updatedDate: "2021.05.21",
-        views: 2
-      },
-      {
-        id: 10,
-        title: "제 10기 주주총회 안내문 ",
-        updatedDate: "2021.05.28",
-        views: 27
-      },
-      {
-        id: 11,
-        title: "제 11기 주주총회 안내문 ",
-        updatedDate: "2021.05.29",
-        views: 87
+        title: "2021 동양BMS 회사지명원",
+        content: "",
+        updatedDate: "2021.06.09",
+        views: 24,
+        attachedFiles: [
+          {
+            fileName: "2021 동양BMS_회사지명원.pdf",
+            fileUrl: require("@/assets/pdf/2021 동양BMS_회사지명원.pdf")
+          }
+        ]
       }
     ]
   })

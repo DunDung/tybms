@@ -1,7 +1,7 @@
 <template>
   <div class="board-wrap">
     <v-data-table
-      @click:row="moveDetailPostPage"
+      @click:row="sendPostOnEventBus"
       :headers="headers"
       :items="posts"
       :page.sync="page"
@@ -37,11 +37,8 @@ export default {
   }),
   props: ["posts"],
   methods: {
-    moveDetailPostPage(clickedPost) {
-      this.$router.push({
-        name: "DetailPost",
-        params: { clickedPost: clickedPost }
-      });
+    sendPostOnEventBus(clickedPost) {
+      this.$emit("clickedPost", clickedPost);
     }
   }
 };

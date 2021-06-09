@@ -21,28 +21,7 @@
 
         <ul>
           <li>
-            <router-link to="/#">공지사항 11</router-link>
-          </li>
-          <li>
-            <router-link to="/#">공지사항 10</router-link>
-          </li>
-          <li>
-            <router-link to="/#">공지사항 9</router-link>
-          </li>
-          <li>
-            <router-link to="/#">공지사항 8</router-link>
-          </li>
-          <li>
-            <router-link to="/#">공지사항 7</router-link>
-          </li>
-          <li>
-            <router-link to="/#">공지사항 6</router-link>
-          </li>
-          <li>
-            <router-link to="/#">공지사항 5</router-link>
-          </li>
-          <li>
-            <router-link to="/#">공지사항 4</router-link>
+            <router-link to="/#">2021.04.26 기계설비신문 기사 게재</router-link>
           </li>
         </ul>
       </section>
@@ -67,28 +46,7 @@
 
         <ul>
           <li>
-            <router-link to="#">제 11기 주주총회 안내문 </router-link>
-          </li>
-          <li>
-            <router-link to="#">제 10기 주주총회 안내문 </router-link>
-          </li>
-          <li>
-            <router-link to="#">제 9기 주주총회 안내문 </router-link>
-          </li>
-          <li>
-            <router-link to="#">제 8기 주주총회 안내문 </router-link>
-          </li>
-          <li>
-            <router-link to="#">제 7기 주주총회 안내문 </router-link>
-          </li>
-          <li>
-            <router-link to="#">제 6기 주주총회 안내문 </router-link>
-          </li>
-          <li>
-            <router-link to="#">제 5기 주주총회 안내문 </router-link>
-          </li>
-          <li>
-            <router-link to="#">제 4기 주주총회 안내문 </router-link>
+            <router-link to="#">2021 동양BMS 회사지명원</router-link>
           </li>
         </ul>
       </section>
@@ -176,7 +134,6 @@ a {
   padding: 30px 10px 0;
   height: 100%;
   font-family: "Nanum Gothic", sans-serif;
-
 }
 table {
   position: absolute;

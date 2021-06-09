@@ -57,7 +57,6 @@ export default {
     max-width: 100% !important;
   }
 }
-
 </style>
 <style scoped>
 .modal-wrap {
