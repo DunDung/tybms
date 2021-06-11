@@ -2,7 +2,7 @@
   <v-hover v-slot="{ hover }">
     <v-card rounded="0">
       <v-toolbar color="#1A9A1A">
-        <router-link to="/" style="margin-left: -5px">
+        <router-link to="/admin" style="margin-left: -5px">
           <v-img src="@/assets/images/header/logo.png" />
         </router-link>
 

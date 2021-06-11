@@ -30,7 +30,7 @@ export default {
         title: "AQS Series CATALOG",
         updatedDate: "2021.05.13",
         views: 24,
-        fileUrl: require("@/assets/pdf/AQS-Series-CATALOG.pdf")
+        fileUrl: require("@/assets/upload-files/AQS-Series-CATALOG.pdf")
       }
     ]
   })

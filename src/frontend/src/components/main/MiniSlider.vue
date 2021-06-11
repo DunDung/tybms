@@ -44,7 +44,7 @@ export default {
         w960: require("@/assets/images/main/mini-slider/mini-slider-1-960.png"),
         product: {
           title: "AQS Series CATALOG",
-          fileUrl: require("@/assets/pdf/AQS-Series-CATALOG.pdf")
+          fileUrl: require("@/assets/upload-files/AQS-Series-CATALOG.pdf")
         }
       },
       {

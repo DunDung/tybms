@@ -53,7 +53,7 @@ export default {
         attachedFiles: [
           {
             fileName: "기계설비신문(21.04.26).pdf",
-            fileUrl: require("@/assets/pdf/기계설비신문(21.04.26).pdf")
+            fileUrl: require("@/assets/upload-files/기계설비신문(21.04.26).pdf")
           }
         ]
       }

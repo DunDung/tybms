@@ -52,7 +52,7 @@ export default {
         attachedFiles: [
           {
             fileName: "2021 동양BMS_회사지명원.pdf",
-            fileUrl: require("@/assets/pdf/2021 동양BMS_회사지명원.pdf")
+            fileUrl: require("@/assets/upload-files/2021 동양BMS_회사지명원.pdf")
           }
         ]
       }

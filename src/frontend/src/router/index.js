@@ -11,6 +11,7 @@ import Greeting from "@/views/company-about/Greeting";
 import History from "@/views/company-about/History";
 import Performance from "@/views/company-about/Performance";
 import Contact from "@/views/company-about/Contact";
+import Admin from "@/views/admin/Admin";
 
 Vue.use(VueRouter);
 
@@ -69,6 +70,11 @@ const routes = [
     path: "/contact",
     name: "Contact",
     component: Contact
+  },
+  {
+    path: "/admin",
+    name: "Admin",
+    component:Admin
   }
 ];
 

@@ -1,13 +1,10 @@
 <template>
   <v-app id="app">
-    <!-- Sizes your content based upon application components -->
     <v-main>
-      <!-- Provides the application the proper gutter -->
-      <Header />
-      <!-- If using vue-router -->
+      <Header v-if="isNotAdmin" />
       <router-view></router-view>
-      <ScrollToTopButton />
-      <Footer />
+      <ScrollToTopButton v-if=isNotAdmin />
+      <Footer v-if=isNotAdmin />
     </v-main>
   </v-app>
 </template>
@@ -16,6 +13,7 @@
 import Header from "@/components/app/Header";
 import Footer from "@/components/app/Footer";
 import ScrollToTopButton from "@/components/app/ScrollToTopButton";
+import EventBus from "@/event-bus/EventBus.js";
 
 export default {
   name: "App",
@@ -26,7 +24,18 @@ export default {
     ScrollToTopButton
   },
 
-  data: () => ({})
+  computed: {
+    isNotAdmin() {
+      EventBus.$on('admin', (isAdminPage) => {
+        this.isAdmin = isAdminPage;
+      });
+      return !this.isAdmin;
+    }
+  },
+
+  data: () => ({
+    isAdmin: false,
+  })
 };
 </script>
 <style>
