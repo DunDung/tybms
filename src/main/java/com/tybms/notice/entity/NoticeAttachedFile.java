@@ -1,4 +1,4 @@
-package com.tybms.entity;
+package com.tybms.notice.entity;
 
 import com.tybms.config.BaseEntity;
 import lombok.AccessLevel;

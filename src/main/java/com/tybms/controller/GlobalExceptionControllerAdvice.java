@@ -1,4 +1,4 @@
-package com.tybms.api;
+package com.tybms.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -31,11 +31,5 @@ public class GlobalExceptionControllerAdvice {
         log.error("MethodArgumentNotValidException: {}", defaultMessage);
         return ResponseEntity.badRequest().body(defaultMessage);
     }
-//    @ExceptionHandler(MaxUploadSizeExceededException.class)
-//    public ResponseEntity<String> handleFileSizeLimitExceededException(MaxUploadSizeExceededException e) {
-//        System.out.println("걸림#########################");
-//        log.error("MaxUploadSizeExceededException: {}", e.getMessage());
-//        return ResponseEntity.badRequest().body("1MB가 넘는 파일이 있습니다.");
 
-//    }
 }

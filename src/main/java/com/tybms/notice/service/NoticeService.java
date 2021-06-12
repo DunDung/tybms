@@ -1,11 +1,11 @@
-package com.tybms.service;
+package com.tybms.notice.service;
 
-import com.tybms.dto.NoticeCreateRequest;
-import com.tybms.dto.NoticeResponse;
-import com.tybms.entity.Notice;
-import com.tybms.entity.NoticeAttachedFile;
-import com.tybms.repository.NoticeAttachedFileRepository;
-import com.tybms.repository.NoticeRepository;
+import com.tybms.notice.dto.NoticeCreateRequest;
+import com.tybms.notice.dto.NoticeResponse;
+import com.tybms.notice.entity.Notice;
+import com.tybms.notice.entity.NoticeAttachedFile;
+import com.tybms.notice.repository.NoticeAttachedFileRepository;
+import com.tybms.notice.repository.NoticeRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

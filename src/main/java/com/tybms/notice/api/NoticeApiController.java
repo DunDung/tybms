@@ -1,9 +1,9 @@
-package com.tybms.api;
+package com.tybms.notice.api;
 
-import com.tybms.dto.NoticeCreateRequest;
-import com.tybms.dto.NoticeResponse;
-import com.tybms.entity.Notice;
-import com.tybms.service.NoticeService;
+import com.tybms.notice.dto.NoticeCreateRequest;
+import com.tybms.notice.dto.NoticeResponse;
+import com.tybms.notice.entity.Notice;
+import com.tybms.notice.service.NoticeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

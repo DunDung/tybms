@@ -1,7 +1,7 @@
-package com.tybms.dto;
+package com.tybms.notice.dto;
 
-import com.tybms.entity.Notice;
-import com.tybms.entity.NoticeAttachedFile;
+import com.tybms.notice.entity.Notice;
+import com.tybms.notice.entity.NoticeAttachedFile;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

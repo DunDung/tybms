@@ -1,6 +1,5 @@
-package com.tybms.api;
+package com.tybms.file;
 
-import com.tybms.service.FileService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
