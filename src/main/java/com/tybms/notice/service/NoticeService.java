@@ -22,19 +22,18 @@ public class NoticeService {
 
     @Transactional
     public Notice save(NoticeCreateRequest noticeCreateRequest) {
-        Notice notice = noticeCreateRequest.toNotice();
-        Notice savedNotice = noticeRepository.save(notice);
+        Notice savedNotice = noticeRepository.save(noticeCreateRequest.toNotice());
         List<NoticeAttachedFile> noticeAttachedFiles = noticeCreateRequest.toNoticeAttachedFile();
         noticeAttachedFiles.forEach(noticeAttachedFile -> noticeAttachedFile.setNotice(savedNotice));
         noticeAttachedFileRepository.saveAll(noticeAttachedFiles);
-        return notice;
+        return savedNotice;
     }
 
     @Transactional
     public List<NoticeResponse> findAll() {
         List<Notice> notices = noticeRepository.findAll();
         return notices.stream()
-                .map(NoticeResponse::of)
+                .map(NoticeResponse::from)
                 .collect(Collectors.toList());
     }
 }

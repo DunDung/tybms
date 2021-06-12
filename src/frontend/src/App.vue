@@ -3,8 +3,8 @@
     <v-main>
       <Header v-if="isNotAdmin" />
       <router-view></router-view>
-      <ScrollToTopButton v-if=isNotAdmin />
-      <Footer v-if=isNotAdmin />
+      <ScrollToTopButton v-if="isNotAdmin" />
+      <Footer v-if="isNotAdmin" />
     </v-main>
   </v-app>
 </template>
@@ -26,7 +26,7 @@ export default {
 
   computed: {
     isNotAdmin() {
-      EventBus.$on('admin', (isAdminPage) => {
+      EventBus.$on("admin", isAdminPage => {
         this.isAdmin = isAdminPage;
       });
       return !this.isAdmin;
@@ -34,7 +34,7 @@ export default {
   },
 
   data: () => ({
-    isAdmin: false,
+    isAdmin: false
   })
 };
 </script>

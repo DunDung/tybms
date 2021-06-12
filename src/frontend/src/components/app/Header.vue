@@ -100,7 +100,7 @@ export default {
           },
           {
             title: "제품 카다로그",
-            path: "/product-specification"
+            path: "/product-catalog"
           }
         ]
       },
@@ -114,7 +114,7 @@ export default {
           },
           {
             title: "자료실",
-            path: "/archives"
+            path: "/material"
           }
         ]
       },

@@ -1,7 +1,9 @@
 <template>
   <v-main>
     <div>
-      <h2>글 작성하기</h2>
+      <h2>
+        <span style="color:red">{{ component.name }}</span> 작성하기
+      </h2>
       <h5>
         * 첨부파일이 너무 크면 서버에 부담이갑니다ㅠ 파일당 1MB를 안넘었으면
         좋겠어요,.
@@ -25,7 +27,7 @@
         show-size
         v-model="uploadFiles"
       ></v-file-input>
-      <label style="color:gray">첨부된 파일 목록</label>
+      <h4>첨부된 파일 목록 :</h4>
       <v-chip
         v-for="(file, index) in getSavedUploadFiles"
         :key="index"
@@ -38,13 +40,17 @@
         {{ file.name }}
       </v-chip>
     </div>
-    <v-btn class="ma-2" outlined color="indigo" @click="request">
-      완료
+    <v-btn outlined color="indigo" @click="requestCreate" class="submit-btn">
+      {{ component.name }} 작성 완료
+    </v-btn>
+    <v-btn outlined color="indigo" @click="close" class="submit-btn">
+      닫기
     </v-btn>
   </v-main>
 </template>
 <script>
 export default {
+  props: ["component"],
   data: () => ({
     creatingPost: {
       title: "",
@@ -60,7 +66,7 @@ export default {
       this.uploadFiles = [];
       this.savedUploadFiles.splice(index, 1);
     },
-    request() {
+    requestCreate() {
       let formData = new FormData();
       this.savedUploadFiles.forEach(file => {
         formData.append("files", file);
@@ -70,8 +76,12 @@ export default {
         .post("/files", formData)
         .catch(error => alert(error.response.data));
       this.$axios
-        .post("/notices", this.creatingPost)
+        .post(this.component.uri, this.creatingPost) // 수정
         .catch(error => alert(error.response.data));
+      this.close();
+    },
+    close() {
+      this.$emit("close-create");
     }
   },
   computed: {
@@ -82,3 +92,10 @@ export default {
   }
 };
 </script>
+<style scoped>
+.submit-btn {
+  margin-bottom: 1vw;
+  margin-right: 20px;
+  margin-top: 1vw;
+}
+</style>

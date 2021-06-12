@@ -1,13 +1,30 @@
 <template xmlns:v-slot="http://www.w3.org/1999/XSL/Transform">
   <v-main class="flex">
-    <div class="text-right">
-      <span>글 클릭하면 삭제/수정 메뉴 뜹니다 :)</span>
-      <v-btn class="ma-2" outlined color="indigo">
-        글 쓰기
-      </v-btn>
-    </div>
-    <NoticeCreateAdmin />
+    <v-container class="text-right">
+      <v-btn
+        width="30%"
+        color="blue-grey"
+        class="ma-2 white--text"
+        @click="onClickCreateButton"
+        >{{ component.name }} 작성하기</v-btn
+      >
+    </v-container>
+    <PostCreateAdmin
+      :component="component"
+      v-if="isCreate"
+      @close-create="closeCreate"
+    />
+    <PostUpdateAdmin
+      :component="component"
+      v-if="isUpdate"
+      :updatingPost="clickedPost"
+      @close-update="closeUpdate"
+    />
     <div>
+      <h2>
+        <span style="color:red">{{ component.name }}</span> 수정 / 삭제하기
+      </h2>
+      <h5>* 글 클릭하면 삭제/수정 메뉴 뜹니다 :)</h5>
       <v-data-table
         @click:row="openDeleteOrUpdateModal"
         :headers="headers"
@@ -38,7 +55,7 @@
                 </v-btn>
               </td>
               <td>
-                <v-btn text @click="dialog = false">
+                <v-btn text @click="onClickUpdate">
                   수정
                 </v-btn>
               </td>
@@ -55,11 +72,14 @@
   </v-main>
 </template>
 <script>
-import NoticeCreateAdmin from "@/components/admin/NoticeCreateAdmin";
+import PostCreateAdmin from "@/components/admin/PostCreateAdmin";
+import PostUpdateAdmin from "@/components/admin/PostUpdateAdmin";
 export default {
   components: {
-    NoticeCreateAdmin
+    PostCreateAdmin,
+    PostUpdateAdmin
   },
+  props: ["component"],
   data: () => ({
     page: 1,
     pageCount: 0,
@@ -74,6 +94,7 @@ export default {
       { text: "제목", sortable: false, value: "title" }
     ],
     posts: [
+      // props
       {
         id: 1,
         title: "1번 글"
@@ -84,12 +105,27 @@ export default {
       }
     ],
     clickedPost: {},
-    dialog: false
+    dialog: false,
+    isCreate: false,
+    isUpdate: false
   }),
   methods: {
     openDeleteOrUpdateModal(clickedPost) {
       this.clickedPost = clickedPost;
       this.dialog = true;
+    },
+    onClickCreateButton() {
+      this.isCreate = true;
+    },
+    onClickUpdate() {
+      this.isUpdate = true;
+      this.dialog = false;
+    },
+    closeCreate() {
+      this.isCreate = false;
+    },
+    closeUpdate() {
+      this.isUpdate = false;
     }
   }
 };

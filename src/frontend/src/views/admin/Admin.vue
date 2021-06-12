@@ -1,18 +1,23 @@
 <template>
   <v-main>
-    <v-card rounded="0">
+    <v-card rounded="0" class="wrap">
       <v-tabs background-color="#1A9A1A" center-active centered dark>
-        <v-tab to="/" v-for="(menu, index) in menus" :key="index" class="menu">
-          {{ menu }}
+        <v-tab
+          @click="handleAdmin(index)"
+          v-for="(menu, index) in menus"
+          :key="index"
+          class="menu"
+        >
+          {{ menu.name }}
         </v-tab>
       </v-tabs>
     </v-card>
-    <NoticeAdmin />
+    <BoardAdmin :component="component" />
   </v-main>
 </template>
 <script>
 import EventBus from "@/event-bus/EventBus.js";
-import NoticeAdmin from "@/components/admin/NoticeAdmin"
+import BoardAdmin from "@/components/admin/BoardAdmin";
 export default {
   created() {
     EventBus.$emit("admin", true);
@@ -21,14 +26,46 @@ export default {
     EventBus.$emit("admin", false);
   },
   components: {
-    NoticeAdmin
+    BoardAdmin
   },
   data: () => ({
-    menus: ["공지사항", "자료실", "제품 카다로그"]
-  })
+    menus: [
+      {
+        name: "공지사항",
+        uri: "/notices"
+      },
+      {
+        name: "자료실",
+        uri: "/archives"
+      },
+      {
+        name: "제품 카다로그",
+        uri: "/notices"
+      },
+      {
+        name: "홈페이지로 돌아가기",
+        uri: "/"
+      }
+    ],
+    component: {
+      name: "공지사항",
+      uri: "/notices"
+    }
+  }),
+  methods: {
+    handleAdmin(index) {
+      if (index == 3) {
+        this.$router.push("/");
+      }
+      this.component = this.menus[index];
+    }
+  }
 };
 </script>
 <style scoped>
+.wrap {
+  margin-bottom: 1vw;
+}
 .menu {
   width: 20%;
 }

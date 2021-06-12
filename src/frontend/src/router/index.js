@@ -4,9 +4,9 @@ import Main from "@/views/Main";
 import SmartGo from "@/views/product-about/SmartGo";
 import NewDealGo from "@/views/product-about/NewDealGo";
 import GreenNewDealGo from "@/views/product-about/GreenNewDealGo";
-import ProductSpecification from "@/views/product-about/ProductSpecification";
+import ProductCatalog from "@/views/product-about/ProductCatalog";
 import Notice from "@/views/customer-support/Notice";
-import Archives from "@/views/customer-support/Archives";
+import Archive from "@/views/customer-support/Archive";
 import Greeting from "@/views/company-about/Greeting";
 import History from "@/views/company-about/History";
 import Performance from "@/views/company-about/Performance";
@@ -37,14 +37,14 @@ const routes = [
     component: GreenNewDealGo
   },
   {
-    path: "/product-specification",
-    name: "ProductSpecification",
-    component: ProductSpecification
+    path: "/product-catalog",
+    name: "ProductCatalog",
+    component: ProductCatalog
   },
   {
-    path: "/archives",
-    name: "Archives",
-    component: Archives
+    path: "/material",
+    name: "Archive",
+    component: Archive
   },
   {
     path: "/notice",
@@ -74,7 +74,7 @@ const routes = [
   {
     path: "/admin",
     name: "Admin",
-    component:Admin
+    component: Admin
   }
 ];
 

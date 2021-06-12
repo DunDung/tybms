@@ -7,7 +7,7 @@
 <script>
 import MainSlider from "@/components/main/MainSlider";
 import MainCards from "@/components/main/MainCards";
-import { mapActions } from 'vuex'
+import { mapActions } from "vuex";
 
 export default {
   created() {
@@ -18,7 +18,7 @@ export default {
     MainCards
   },
   methods: {
-    ...mapActions(['requestNotices']),
+    ...mapActions(["requestNotices"])
   }
 };
 </script>

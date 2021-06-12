@@ -1,4 +1,4 @@
-package com.tybms.notice.entity;
+package com.tybms.material.entity;
 
 import com.tybms.config.BaseEntity;
 import lombok.AccessLevel;
@@ -18,17 +18,17 @@ import java.util.stream.Collectors;
 @Builder
 @AllArgsConstructor
 @Entity
-public class Notice extends BaseEntity {
+public class Material extends BaseEntity {
 
     private String title;
     private String content;
 
-    @OneToMany(mappedBy = "notice", fetch = FetchType.LAZY)
-    private List<NoticeAttachedFile> noticeAttachedFiles;
+    @OneToMany(mappedBy = "material", fetch = FetchType.LAZY)
+    private List<MaterialAttachedFile> materialAttachedFiles;
 
-    public List<String> getNoticeAttachedFileNames() {
-        return this.noticeAttachedFiles.stream()
-                .map(NoticeAttachedFile::getName)
+    public List<String> getMaterialAttachedFileNames() {
+        return this.materialAttachedFiles.stream()
+                .map(MaterialAttachedFile::getName)
                 .collect(Collectors.toList());
     }
 
