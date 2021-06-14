@@ -17,6 +17,7 @@ public class MaterialResponse {
     private Long id;
     private String title;
     private String content;
+    private Long viewCount;
     private List<String> fileNames;
 
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
@@ -28,6 +29,7 @@ public class MaterialResponse {
                 .title(material.getTitle())
                 .content(material.getContent())
                 .modifiedDate(material.getModifiedDate())
+                .viewCount(material.getViewCount())
                 .fileNames(material.getMaterialAttachedFileNames())
                 .build();
     }

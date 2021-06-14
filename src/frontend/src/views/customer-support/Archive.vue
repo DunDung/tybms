@@ -48,7 +48,7 @@ export default {
         title: "2021 동양BMS 회사지명원",
         content: "",
         updatedDate: "2021.06.09",
-        views: 24,
+        viewCount: 24,
         attachedFiles: [
           {
             fileName: "2021 동양BMS_회사지명원.pdf",

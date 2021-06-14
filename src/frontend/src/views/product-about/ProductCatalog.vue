@@ -29,7 +29,7 @@ export default {
         id: 1,
         title: "AQS Series CATALOG",
         updatedDate: "2021.05.13",
-        views: 24,
+        viewCount: 24,
         fileUrl: require("@/assets/upload-files/AQS-Series-CATALOG.pdf")
       }
     ]

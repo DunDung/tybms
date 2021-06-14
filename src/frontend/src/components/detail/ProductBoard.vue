@@ -42,7 +42,7 @@ export default {
       },
       { text: "제목", sortable: false, value: "title" },
       { text: "날짜", sortable: false, align: "center", value: "updatedDate" },
-      { text: "조회 수", sortable: false, align: "center", value: "views" }
+      { text: "조회 수", sortable: false, align: "center", value: "viewCount" }
     ]
   }),
   props: ["posts"],

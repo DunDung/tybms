@@ -17,7 +17,7 @@
             </td>
             <td width="15%" align="center">
               <span class="header-sub-title"
-                ><strong>조회 수</strong> {{ clickedPost.views }}</span
+                ><strong>조회 수</strong> {{ clickedPost.viewCount }}</span
               >
             </td>
           </tr>

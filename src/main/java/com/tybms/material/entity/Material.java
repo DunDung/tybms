@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -23,6 +24,9 @@ public class Material extends BaseEntity {
     private String title;
     private String content;
 
+    @ColumnDefault("0")
+    private Long viewCount;
+
     @OneToMany(mappedBy = "material", fetch = FetchType.LAZY)
     private List<MaterialAttachedFile> materialAttachedFiles;
 
@@ -30,6 +34,10 @@ public class Material extends BaseEntity {
         return this.materialAttachedFiles.stream()
                 .map(MaterialAttachedFile::getName)
                 .collect(Collectors.toList());
+    }
+
+    public void increaseViewCount() {
+        this.viewCount++;
     }
 
 }

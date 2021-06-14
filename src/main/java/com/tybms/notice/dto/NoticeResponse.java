@@ -17,6 +17,7 @@ public class NoticeResponse {
     private Long id;
     private String title;
     private String content;
+    private Long viewCount;
     private List<String> fileNames;
 
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
@@ -28,6 +29,7 @@ public class NoticeResponse {
                 .title(notice.getTitle())
                 .content(notice.getContent())
                 .modifiedDate(notice.getModifiedDate())
+                .viewCount(notice.getViewCount())
                 .fileNames(notice.getNoticeAttachedFileNames())
                 .build();
     }
