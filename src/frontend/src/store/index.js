@@ -8,17 +8,27 @@ export default new Vuex.Store({
   state: {
     notices: [
       {
-        id: -1,
+        id: 0,
         title: "",
         content: "",
+        viewCount: 0,
         fileNames: []
       }
     ],
     materials: [
       {
-        id: -1,
+        id: 0,
         title: "",
         content: "",
+        viewCount: 0,
+        fileNames: []
+      }
+    ],
+    products: [
+      {
+        id: 0,
+        title: "",
+        viewCount: 0,
         fileNames: []
       }
     ]
@@ -29,6 +39,9 @@ export default new Vuex.Store({
     },
     getMaterials(state) {
       return state.materials;
+    },
+    getProducts(state) {
+      return state.products;
     }
   },
   mutations: {
@@ -39,12 +52,17 @@ export default new Vuex.Store({
     SET_MATERIALS(state, materials) {
       console.log(materials);
       state.materials = materials;
+    },
+    SET_PRODUCTS(state, products) {
+      console.log(products);
+      state.products = products;
     }
   },
   actions: {
-    requestNotices({ dispatch }) {
+    requestResource({ dispatch }) {
       dispatch("requestGet", { uri: "/notices", mutationName: "SET_NOTICES" });
       dispatch("requestGet", { uri: "/materials", mutationName: "SET_MATERIALS" });
+      dispatch("requestGet", { uri: "/products", mutationName: "SET_PRODUCTS" });
     },
     requestGet({ commit }, request) {
       axios

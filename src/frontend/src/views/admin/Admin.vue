@@ -36,11 +36,11 @@ export default {
       },
       {
         name: "자료실",
-        uri: "/archives"
+        uri: "/materials"
       },
       {
         name: "제품 카다로그",
-        uri: "/notices"
+        uri: "/products"
       },
       {
         name: "홈페이지로 돌아가기",

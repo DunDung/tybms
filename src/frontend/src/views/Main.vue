@@ -11,14 +11,14 @@ import { mapActions } from "vuex";
 
 export default {
   created() {
-    this.requestNotices();
+    this.requestResource();
   },
   components: {
     MainSlider,
     MainCards
   },
   methods: {
-    ...mapActions(["requestNotices"])
+    ...mapActions(["requestResource"])
   }
 };
 </script>
