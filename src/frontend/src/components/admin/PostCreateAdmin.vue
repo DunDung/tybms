@@ -19,6 +19,7 @@
         label="글 내용"
         :rules="rules"
         v-model="creatingPost.content"
+        v-show="isNotProductCatalog()"
         auto-grow
       ></v-textarea>
       <v-file-input
@@ -76,12 +77,15 @@ export default {
         .post("/files", formData)
         .catch(error => alert(error.response.data));
       this.$axios
-        .post(this.component.uri, this.creatingPost) // 수정
+        .post(this.component.uri, this.creatingPost)
         .catch(error => alert(error.response.data));
       this.close();
     },
     close() {
       this.$emit("close-create");
+    },
+    isNotProductCatalog() {
+      return this.component.name !== "제품 카다로그";
     }
   },
   computed: {
