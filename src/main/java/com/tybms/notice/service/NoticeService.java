@@ -23,7 +23,7 @@ public class NoticeService {
     @Transactional
     public Notice save(NoticeCreateRequest noticeCreateRequest) {
         Notice savedNotice = noticeRepository.save(noticeCreateRequest.toNotice());
-        List<NoticeAttachedFile> noticeAttachedFiles = noticeCreateRequest.toNoticeAttachedFile();
+        List<NoticeAttachedFile> noticeAttachedFiles = noticeCreateRequest.toNoticeAttachedFiles();
         noticeAttachedFiles.forEach(noticeAttachedFile -> noticeAttachedFile.setNotice(savedNotice));
         noticeAttachedFileRepository.saveAll(noticeAttachedFiles);
         return savedNotice;

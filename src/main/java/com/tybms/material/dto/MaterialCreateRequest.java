@@ -36,7 +36,7 @@ public class MaterialCreateRequest {
                 .build();
     }
 
-    public List<MaterialAttachedFile> toMaterialAttachedFile() {
+    public List<MaterialAttachedFile> toMaterialAttachedFiles() {
         return this.fileNames.stream()
                 .map(fileName -> MaterialAttachedFile.builder()
                         .name(fileName)

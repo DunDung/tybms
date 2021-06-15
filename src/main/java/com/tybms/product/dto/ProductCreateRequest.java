@@ -1,7 +1,7 @@
-package com.tybms.notice.dto;
+package com.tybms.product.dto;
 
-import com.tybms.notice.entity.Notice;
-import com.tybms.notice.entity.NoticeAttachedFile;
+import com.tybms.product.entity.Product;
+import com.tybms.product.entity.ProductAttachedFile;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -18,27 +18,23 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-public class NoticeCreateRequest {
+public class ProductCreateRequest {
 
     @NotBlank(message = "제목은 비어있을 수 없습니다.")
     private String title;
 
-    @NotBlank(message = "본문은 비어있을 수 없습니다.")
-    private String content;
-
     @NotNull
     private List<String> fileNames;
 
-    public Notice toNotice() {
-        return Notice.builder()
+    public Product toProduct() {
+        return Product.builder()
                 .title(title)
-                .content(content)
                 .build();
     }
 
-    public List<NoticeAttachedFile> toNoticeAttachedFiles() {
+    public List<ProductAttachedFile> toProductAttachedFiles() {
         return this.fileNames.stream()
-                .map(fileName -> NoticeAttachedFile.builder()
+                .map(fileName -> ProductAttachedFile.builder()
                         .name(fileName)
                         .build())
                 .collect(Collectors.toList());

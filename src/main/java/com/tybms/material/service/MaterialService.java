@@ -23,7 +23,7 @@ public class MaterialService {
     @Transactional
     public Material save(MaterialCreateRequest materialCreateRequest) {
         Material savedMaterial = materialRepository.save(materialCreateRequest.toMaterial());
-        List<MaterialAttachedFile> materialAttachedFiles = materialCreateRequest.toMaterialAttachedFile();
+        List<MaterialAttachedFile> materialAttachedFiles = materialCreateRequest.toMaterialAttachedFiles();
         materialAttachedFiles.forEach(materialAttachedFile -> materialAttachedFile.setMaterial(savedMaterial));
         materialAttachedFileRepository.saveAll(materialAttachedFiles);
         return savedMaterial;
