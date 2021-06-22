@@ -6,6 +6,7 @@ import com.tybms.material.entity.Material;
 import com.tybms.material.service.MaterialService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -35,6 +36,12 @@ public class MaterialApiController {
     public ResponseEntity<Void> create(@RequestBody @Valid MaterialCreateRequest materialCreateRequest) {
         Material savedMaterial = materialService.save(materialCreateRequest);
         return ResponseEntity.created(URI.create("/" + savedMaterial.getId())).build();
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteById(@PathVariable  Long id) {
+        this.materialService.deleteById(id);
+        return ResponseEntity.noContent().build();
     }
 
 //    조회수 증가 기능 고민좀 해보자.,.. id랑 조회수받아서 save?

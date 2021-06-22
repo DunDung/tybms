@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.DynamicInsert;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
@@ -29,7 +30,8 @@ public class Material extends BaseEntity {
     @ColumnDefault("0")
     private Long viewCount;
 
-    @OneToMany(mappedBy = "material", fetch = FetchType.LAZY)
+    // TODO: 2021-06-16 cascade ALL 이면 Material에만 List 추가하고 save하면 저장되야하는게 아닌가?
+    @OneToMany(mappedBy = "material", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<MaterialAttachedFile> materialAttachedFiles;
 
     public List<String> getMaterialAttachedFileNames() {
@@ -38,8 +40,11 @@ public class Material extends BaseEntity {
                 .collect(Collectors.toList());
     }
 
+    public void setMaterialAttachedFiles(List<MaterialAttachedFile> materialAttachedFiles) {
+        this.materialAttachedFiles = materialAttachedFiles;
+    }
+
     public void increaseViewCount() {
         this.viewCount++;
     }
-
 }

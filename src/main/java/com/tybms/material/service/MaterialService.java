@@ -22,19 +22,23 @@ public class MaterialService {
 
     @Transactional
     public Material save(MaterialCreateRequest materialCreateRequest) {
-        Material savedMaterial = materialRepository.save(materialCreateRequest.toMaterial());
+        Material savedMaterial = this.materialRepository.save(materialCreateRequest.toMaterial());
         List<MaterialAttachedFile> materialAttachedFiles = materialCreateRequest.toMaterialAttachedFiles();
         materialAttachedFiles.forEach(materialAttachedFile -> materialAttachedFile.setMaterial(savedMaterial));
-        materialAttachedFileRepository.saveAll(materialAttachedFiles);
+        this.materialAttachedFileRepository.saveAll(materialAttachedFiles);
         return savedMaterial;
     }
 
     @Transactional
     public List<MaterialResponse> findAll() {
-        List<Material> materials = materialRepository.findAll();
+        List<Material> materials = this.materialRepository.findAll();
         return materials.stream()
                 .map(MaterialResponse::from)
                 .collect(Collectors.toList());
+    }
+
+    public void deleteById(Long id) {
+        this.materialRepository.deleteById(id);
     }
 
 }

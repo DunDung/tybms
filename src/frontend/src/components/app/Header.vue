@@ -114,7 +114,7 @@ export default {
           },
           {
             title: "자료실",
-            path: "/material"
+            path: "/archive"
           }
         ]
       },

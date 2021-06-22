@@ -42,12 +42,22 @@ const routes = [
     component: ProductCatalog
   },
   {
-    path: "/material",
+    path: "/archive",
+    name: "Archive",
+    component: Archive
+  },
+  {
+    path: "/archive/:id",
     name: "Archive",
     component: Archive
   },
   {
     path: "/notice",
+    name: "Notice",
+    component: Notice
+  },
+  {
+    path: "/notice/:id",
     name: "Notice",
     component: Notice
   },
@@ -75,7 +85,8 @@ const routes = [
     path: "/admin",
     name: "Admin",
     component: Admin
-  }
+  },
+
 ];
 
 const router = new VueRouter({

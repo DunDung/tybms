@@ -22,7 +22,7 @@ public class MaterialAttachedFile extends BaseEntity {
     private String name;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ARCHIVE_ID")
+    @JoinColumn(name = "MATERIAL_ID")
     private Material material;
 
     public void setMaterial(Material material) {

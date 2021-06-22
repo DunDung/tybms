@@ -50,7 +50,7 @@
           <table class="ma-auto">
             <tr>
               <td>
-                <v-btn text @click="dialog = false">
+                <v-btn text @click="onClickDelete">
                   삭제
                 </v-btn>
               </td>
@@ -119,6 +119,13 @@ export default {
     },
     onClickUpdate() {
       this.isUpdate = true;
+      this.dialog = false;
+    },
+    onClickDelete() {
+      console.log(`${this.component.uri}/${this.clickedPost.id}`);
+      this.$axios
+        .delete(`${this.component.uri}/${this.clickedPost.id}`)
+        .catch(error => alert(error.response.data));
       this.dialog = false;
     },
     closeCreate() {

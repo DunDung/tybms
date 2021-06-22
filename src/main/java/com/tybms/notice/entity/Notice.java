@@ -38,6 +38,7 @@ public class Notice extends BaseEntity {
                 .collect(Collectors.toList());
     }
 
+    // TODO: 2021-06-16 조회수 증가 고민해보기.. 
     public void increaseViewCount() {
         this.viewCount++;
     }

@@ -14,25 +14,30 @@ import Header from "@/components/app/Header";
 import Footer from "@/components/app/Footer";
 import ScrollToTopButton from "@/components/app/ScrollToTopButton";
 import EventBus from "@/event-bus/EventBus.js";
+import { mapActions } from "vuex";
 
 export default {
   name: "App",
 
+  created() {
+    this.requestResource();
+  },
   components: {
     Header,
     Footer,
     ScrollToTopButton
   },
-
   computed: {
     isNotAdmin() {
       EventBus.$on("admin", isAdminPage => {
         this.isAdmin = isAdminPage;
       });
       return !this.isAdmin;
-    }
+    },
   },
-
+  methods: {
+    ...mapActions(["requestResource"])
+  },
   data: () => ({
     isAdmin: false
   })
@@ -49,7 +54,7 @@ export default {
   /*font-family: 'NanumSquare', sans-serif !important;*/
 }
 
-/*Board 컴포넌트 스타일 적용이 App.vue가 아니면 안됨.*/
+/*Board 컴포넌트 스타일 적용이 scoped면 안됨.*/
 th {
   font-size: 1vw !important;
   font-weight: bold;

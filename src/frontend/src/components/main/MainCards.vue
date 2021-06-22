@@ -18,10 +18,9 @@
             </td>
           </tr>
         </table>
-
         <ul>
-          <li>
-            <router-link to="/#">2021.04.26 기계설비신문 기사 게재</router-link>
+          <li v-for="(notice, index) in getMainCardNotices" :key="index">
+            <router-link :to=getDetailNoticeUrlById(notice)>{{ notice.title }}</router-link>
           </li>
         </ul>
       </section>
@@ -34,7 +33,7 @@
               <h2>자료실</h2>
             </td>
             <td width="20%" align="center">
-              <router-link to="/archives">
+              <router-link to="/archive">
                 <img
                   src="@/assets/images/main/mini-slider/learn-more.png"
                   class="more"
@@ -45,8 +44,8 @@
         </table>
 
         <ul>
-          <li>
-            <router-link to="#">2021 동양BMS 회사지명원</router-link>
+          <li v-for="(material, index) in getMainCardMaterials" :key="index">
+            <router-link :to=getDetailMaterialUrlById(material)>{{ material.title }}</router-link>
           </li>
         </ul>
       </section>
@@ -65,9 +64,22 @@
 
 <script>
 import MiniSlider from "@/components/main/MiniSlider";
+import { mapGetters } from "vuex";
+
 export default {
   components: {
     MiniSlider
+  },
+  computed: {
+    ...mapGetters(["getMainCardNotices", "getMainCardMaterials"])
+  },
+  methods: {
+    getDetailNoticeUrlById(notice) {
+      return "/notice/" + notice.id;
+    },
+    getDetailMaterialUrlById(material) {
+      return "/archive/" + material.id;
+    }
   }
 };
 </script>

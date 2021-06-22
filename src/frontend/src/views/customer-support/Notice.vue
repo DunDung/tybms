@@ -13,12 +13,16 @@
 import ImageFrame from "@/components/detail/ImageFrame";
 import Board from "@/components/detail/Board";
 import DetailPost from "@/components/detail/DetailPost";
+import { mapGetters } from "vuex";
 
 export default {
   components: {
     ImageFrame,
     Board,
     DetailPost
+  },
+  computed: {
+    ...mapGetters(["getNotices"])
   },
   methods: {
     receiveClickedPost(clickedPost) {
@@ -31,6 +35,7 @@ export default {
   },
   data: () => ({
     isViewDetailPost: false,
+    clickedPost: {},
     frame: {
       content: "공지사항",
       subContent: `고객지원   >   공지사항`,
