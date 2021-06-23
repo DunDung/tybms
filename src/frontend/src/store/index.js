@@ -11,6 +11,7 @@ export default new Vuex.Store({
         id: 0,
         title: "",
         content: "",
+        modifiedDate: "",
         viewCount: 0,
         fileNames: []
       }
@@ -20,6 +21,7 @@ export default new Vuex.Store({
         id: 0,
         title: "",
         content: "",
+        modifiedDate: "",
         viewCount: 0,
         fileNames: []
       }
@@ -28,6 +30,7 @@ export default new Vuex.Store({
       {
         id: 0,
         title: "",
+        modifiedDate: "",
         viewCount: 0,
         fileNames: []
       }
@@ -53,27 +56,60 @@ export default new Vuex.Store({
   mutations: {
     SET_NOTICES(state, notices) {
       console.log(notices);
-      state.notices = notices.sort((a, b) => (a.id - b.id) * -1);
+      state.notices = notices;
     },
     SET_MATERIALS(state, materials) {
       console.log(materials);
-      state.materials = materials.sort((a, b) => (a.id - b.id) * -1);
+      state.materials = materials;
     },
     SET_PRODUCTS(state, products) {
       console.log(products);
-      state.products = products.sort((a, b) => (a.id - b.id) * -1);
+      state.products = products;
     }
   },
   actions: {
+    addAttachedFiles(resource) {
+      resource.attachedFiles = [];
+      for (const fileName of resource.fileNames) {
+        resource.attachedFiles.push({
+          fileName: fileName,
+          fileUrl: require(`@/assets/upload-files/${fileName}`)
+        });
+      }
+    },
     requestResource({ dispatch }) {
-      dispatch("requestGet", { uri: "/notices", mutationName: "SET_NOTICES" });
-      dispatch("requestGet", { uri: "/materials", mutationName: "SET_MATERIALS" });
-      dispatch("requestGet", { uri: "/products", mutationName: "SET_PRODUCTS" });
+      dispatch("requestGet", {
+        uri: "/notices",
+        mutationName: "SET_NOTICES"
+      });
+      dispatch("requestGet", {
+        uri: "/materials",
+        mutationName: "SET_MATERIALS"
+      });
+      dispatch("requestGet", {
+        uri: "/products",
+        mutationName: "SET_PRODUCTS"
+      });
     },
     requestGet({ commit }, request) {
       axios
         .get(request.uri)
-        .then(response => commit(request.mutationName, response.data))
+        .then(response => {
+          let resources = response.data;
+          resources
+            .sort((a, b) => (a.id - b.id) * -1)
+            .forEach(resource => {
+              resource.attachedFiles = [];
+              for (const fileName of resource.fileNames) {
+                resource.attachedFiles.push({
+                  fileName: fileName,
+                  fileUrl: require(`@/assets/upload-files/${fileName}`)
+                });
+              }
+            });
+          return resources;
+        })
+        .then(resources => commit(request.mutationName, resources))
         .catch(error => alert(error.response.data));
     }
   },

@@ -1,17 +1,21 @@
 <template>
   <v-main>
     <ImageFrame :frame="frame" />
-    <ProductBoard :posts="posts" />
+    <ProductBoard :posts="getProducts" />
   </v-main>
 </template>
 <script>
 import ImageFrame from "@/components/detail/ImageFrame";
 import ProductBoard from "@/components/detail/ProductBoard";
+import { mapGetters } from "vuex";
 
 export default {
   components: {
     ImageFrame,
     ProductBoard
+  },
+  computed: {
+    ...mapGetters(["getProducts"])
   },
   data: () => ({
     frame: {
@@ -24,15 +28,6 @@ export default {
         w1920: require("@/assets/images/frame/product-about/product-specification-1920.png")
       }
     },
-    posts: [
-      {
-        id: 1,
-        title: "AQS Series CATALOG",
-        updatedDate: "2021.05.13",
-        viewCount: 24,
-        fileUrl: require("@/assets/upload-files/AQS-Series-CATALOG.pdf")
-      }
-    ]
   })
 };
 </script>

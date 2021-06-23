@@ -31,14 +31,25 @@ export default {
         value: "id"
       },
       { text: "제목", sortable: false, value: "title" },
-      { text: "날짜", sortable: false, align: "center", value: "updatedDate" },
+      {
+        text: "수정 날짜",
+        sortable: false,
+        align: "center",
+        value: "modifiedDate"
+      },
       { text: "조회 수", sortable: false, align: "center", value: "viewCount" }
     ]
   }),
   props: ["posts"],
   methods: {
     sendPostOnEventBus(clickedPost) {
-      this.$emit("clickedPost", clickedPost);
+      const paths = this.$route.path.split("/");
+      const resource = paths[1]
+      const id = paths[2]
+      if (id == clickedPost.id) {
+        return
+      }
+      this.$router.push("/" + resource + "/" + clickedPost.id);
     }
   }
 };

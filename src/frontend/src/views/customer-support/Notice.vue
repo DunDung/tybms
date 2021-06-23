@@ -1,12 +1,8 @@
 <template>
   <v-main>
     <ImageFrame :frame="frame" />
-    <DetailPost
-      v-if="isViewDetailPost"
-      :clickedPost="clickedPost"
-      @destroyed="receiveDestroyed"
-    />
-    <Board :posts="posts" @clickedPost="receiveClickedPost" />
+    <DetailPost v-if="isViewDetailPost" :clickedPost="clickedPost" />
+    <Board :posts="getNotices" />
   </v-main>
 </template>
 <script>
@@ -24,13 +20,23 @@ export default {
   computed: {
     ...mapGetters(["getNotices"])
   },
+  created() {
+    this.showDetailPost(this.$route.params.id);
+  },
+  watch: {
+    $route() {
+      this.showDetailPost(this.$route.params.id);
+    }
+  },
   methods: {
-    receiveClickedPost(clickedPost) {
-      this.clickedPost = clickedPost;
-      this.isViewDetailPost = true;
-    },
-    receiveDestroyed() {
-      this.isViewDetailPost = false;
+    showDetailPost(id) {
+      if (id) {
+        const index = this.getNotices.findIndex(notice => notice.id == id);
+        this.clickedPost = this.getNotices[index];
+        this.isViewDetailPost = true;
+      } else {
+        this.isViewDetailPost = false;
+      }
     }
   },
   data: () => ({
@@ -45,24 +51,7 @@ export default {
         w1280: require("@/assets/images/frame/customer-support/notice-1280.png"),
         w1920: require("@/assets/images/frame/customer-support/notice-1920.png")
       }
-    },
-    posts: [
-      {
-        id: 1,
-        title: "2021.04.26 기계설비신문 기사 게재",
-        content: `자동제어전문기업 동양BMS는 기존 빌딩자동제어 사업을 바탕으로 산업환경 안전분야, 골프장 자동제어 등으로 사업을 다각화하며 사세 확장에 나서고 있다.
-4차 산업혁명시대를 맞이하고 그린뉴딜정책이 추진되는 상황에서 IoT 기술과 접목된 다양한 기술을 지속적으로 개발하고 이를 적용할 수 있는 현장을 꾸준히 발굴해
-사업영역을 확대해 나갈 예정이라고 얘기했다.`,
-        updatedDate: "2021.06.09",
-        viewCount: 24,
-        attachedFiles: [
-          {
-            fileName: "기계설비신문(21.04.26).pdf",
-            fileUrl: require("@/assets/upload-files/기계설비신문(21.04.26).pdf")
-          }
-        ]
-      }
-    ]
+    }
   })
 };
 </script>

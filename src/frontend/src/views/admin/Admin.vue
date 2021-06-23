@@ -86,10 +86,6 @@ export default {
         uri: "/products"
       },
       {
-        name: "회원 관리",
-        uri: "/sign-up"
-      },
-      {
         name: "홈페이지로 돌아가기",
         uri: "/"
       }

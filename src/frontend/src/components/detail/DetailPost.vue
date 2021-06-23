@@ -1,6 +1,5 @@
 <template>
   <v-main class="wrap">
-    <!--    <button @click="sendDestroyed">목록 보기</button>-->
     <v-card>
       <header>
         <table width="100%" color="gray" class="header">
@@ -12,7 +11,7 @@
             </td>
             <td width="30%" align="right">
               <span class="header-sub-title"
-                ><strong>최종 수정</strong> {{ clickedPost.updatedDate }}</span
+                ><strong>최종 수정</strong> {{ clickedPost.modifiedDate }}</span
               >
             </td>
             <td width="15%" align="center">
@@ -45,15 +44,7 @@
 <script>
 export default {
   props: ["clickedPost"],
-  data: () => ({}),
-  destroyed() {
-    this.sendDestroyed();
-  },
-  methods: {
-    sendDestroyed() {
-      this.$emit("destroyed");
-    }
-  }
+  data: () => ({})
 };
 </script>
 <style scoped>
@@ -78,7 +69,5 @@ export default {
   padding: 10px;
   white-space: pre-line;
   line-height: 1.7;
-}
-.attached-file {
 }
 </style>
