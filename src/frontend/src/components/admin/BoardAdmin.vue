@@ -28,7 +28,7 @@
       <v-data-table
         @click:row="openDeleteOrUpdateModal"
         :headers="headers"
-        :items="posts"
+        :items="component.posts"
         :page.sync="page"
         :items-per-page="itemsPerPage"
         :sort-by="['id']"
@@ -92,17 +92,6 @@ export default {
         value: "id"
       },
       { text: "제목", sortable: false, value: "title" }
-    ],
-    posts: [
-      // props
-      {
-        id: 1,
-        title: "1번 글"
-      },
-      {
-        id: 2,
-        title: "2번 글"
-      }
     ],
     clickedPost: {},
     dialog: false,

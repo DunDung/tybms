@@ -16,13 +16,8 @@
 
     <v-row justify="center">
       <v-dialog v-model="dialog" persistent overlay-opacity="1">
-        <v-alert
-                v-if="isWrongPassword"
-                dense
-                outlined
-                type="error"
-        >
-          비밀번호가 틀렸습니다! {{wrongPasswordCount}}회
+        <v-alert v-if="isWrongPassword" dense outlined type="error">
+          비밀번호가 틀렸습니다! {{ wrongPasswordCount }}회
         </v-alert>
         <v-card class="password-wrap">
           <v-card-title class="text-h5 ma-auto">
@@ -53,6 +48,8 @@
 <script>
 import EventBus from "@/event-bus/EventBus.js";
 import BoardAdmin from "@/components/admin/BoardAdmin";
+import { mapGetters } from "vuex";
+
 export default {
   created() {
     EventBus.$emit("admin", true);
@@ -63,44 +60,54 @@ export default {
   components: {
     BoardAdmin
   },
+  computed: {
+    ...mapGetters(["getNotices", "getMaterials", "getProducts"]),
+    menus() {
+      return [
+        {
+          name: "공지사항",
+          uri: "/notices",
+          posts: this.getNotices
+        },
+        {
+          name: "자료실",
+          uri: "/materials",
+          posts: this.getMaterials
+        },
+        {
+          name: "제품 카다로그",
+          uri: "/products",
+          posts: this.getProducts
+        },
+        {
+          name: "홈페이지로 돌아가기",
+          uri: "/"
+        }
+      ];
+    },
+    component() {
+      return this.menus[this.clickMenuIndex];
+    }
+  },
+
   data: () => ({
     dialog: false,
     isShowPassword: false,
     password: "",
     isWrongPassword: false,
     wrongPasswordCount: 0,
+    clickMenuIndex: 0,
     rules: {
       required: value => !!value || "Required."
     },
-    menus: [
-      {
-        name: "공지사항",
-        uri: "/notices"
-      },
-      {
-        name: "자료실",
-        uri: "/materials"
-      },
-      {
-        name: "제품 카다로그",
-        uri: "/products"
-      },
-      {
-        name: "홈페이지로 돌아가기",
-        uri: "/"
-      }
-    ],
-    component: {
-      name: "공지사항",
-      uri: "/notices"
-    }
   }),
   methods: {
     handleAdmin(index) {
-      if (this.menus[index].name === "홈페이지로 돌아가기") {
+      if (index == this.menus.length - 1) {
         this.$router.push("/");
+        return;
       }
-      this.component = this.menus[index];
+      this.clickMenuIndex = index;
     },
     requestMatchPassword() {
       this.$axios

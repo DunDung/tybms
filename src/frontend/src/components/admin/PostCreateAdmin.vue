@@ -5,7 +5,8 @@
         <span style="color:red">{{ component.name }}</span> 작성하기
       </h2>
       <h5>
-        * PDF 파일만 업로드되게 만들어놨어요. 다른 파일 형식도 필요하시면 편하게 말씀해주세용
+        * PDF 파일만 업로드되게 만들어놨어요. 다른 파일 형식도 필요하시면 편하게
+        말씀해주세용
       </h5>
       <h5>
         * 첨부파일이 너무 크면 서버에 부담이갑니다ㅠ 파일당 1MB를 안넘었으면
@@ -82,6 +83,7 @@ export default {
       this.$axios
         .post(this.component.uri, this.creatingPost)
         .catch(error => alert(error.response.data));
+      this.$router.go(); // 새로고침
       this.close();
     },
     close() {

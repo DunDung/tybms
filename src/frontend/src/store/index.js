@@ -65,7 +65,7 @@ export default new Vuex.Store({
     SET_PRODUCTS(state, products) {
       console.log(products);
       state.products = products;
-    }
+    },
   },
   actions: {
     addAttachedFiles(resource) {
