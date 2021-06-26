@@ -116,6 +116,7 @@ export default {
         .delete(`${this.component.uri}/${this.clickedPost.id}`)
         .catch(error => alert(error.response.data));
       this.dialog = false;
+      this.$router.go();
     },
     closeCreate() {
       this.isCreate = false;

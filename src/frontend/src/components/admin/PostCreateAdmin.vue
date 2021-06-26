@@ -83,8 +83,7 @@ export default {
       this.$axios
         .post(this.component.uri, this.creatingPost)
         .catch(error => alert(error.response.data));
-      this.$router.go(); // 새로고침
-      this.close();
+      this.$router.go();
     },
     close() {
       this.$emit("close-create");

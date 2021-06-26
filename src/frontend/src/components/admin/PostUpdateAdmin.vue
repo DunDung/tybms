@@ -73,7 +73,7 @@ export default {
       this.$axios
         .post(this.component.uri, this.updatingPost) // 수정
         .catch(error => alert(error.response.data));
-      this.close();
+      this.$router.go();
     },
     close() {
       this.$emit("close-update");
