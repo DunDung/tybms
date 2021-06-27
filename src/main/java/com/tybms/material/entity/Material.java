@@ -10,8 +10,10 @@ import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.DynamicInsert;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -25,6 +27,9 @@ import java.util.stream.Collectors;
 public class Material extends BaseEntity {
 
     private String title;
+
+    @Lob
+    @Column
     private String content;
 
     @ColumnDefault("0")
