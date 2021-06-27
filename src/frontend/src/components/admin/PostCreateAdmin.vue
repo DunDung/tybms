@@ -30,20 +30,29 @@
         multiple
         label="파일 입력"
         show-size
-        v-model="uploadFiles"
+        v-if="isNotProductCatalog()"
+        v-model="notProductUploadFiles"
       ></v-file-input>
-      <h4>첨부된 파일 목록 :</h4>
-      <v-chip
-        v-for="(file, index) in getSavedUploadFiles"
-        :key="index"
-        class="ma-2"
-        close
-        color="red"
-        text-color="white"
-        @click:close="deleteFile(index)"
-      >
-        {{ file.name }}
-      </v-chip>
+      <v-file-input
+        label="파일 입력, 하나만 가능"
+        show-size
+        v-if="!isNotProductCatalog()"
+        v-model="productUploadFile"
+      ></v-file-input>
+      <div v-if="isNotProductCatalog()">
+        <h4>첨부된 파일 목록 :</h4>
+        <v-chip
+          v-for="(file, index) in getSavedUploadFiles"
+          :key="index"
+          class="ma-2"
+          close
+          color="red"
+          text-color="white"
+          @click:close="deleteFile(index)"
+        >
+          {{ file.name }}
+        </v-chip>
+      </div>
     </div>
     <v-btn outlined color="indigo" @click="requestCreate" class="submit-btn">
       {{ component.name }} 작성 완료
@@ -60,23 +69,45 @@ export default {
     creatingPost: {
       title: "",
       content: ``,
-      fileNames: []
+      fileNames: [],
     },
-    uploadFiles: [],
+    notProductUploadFiles: [],
+    productUploadFile: null,
     savedUploadFiles: [],
     rules: [value => !!value || "한 글자 이상은 작성해주세요ㅠ."]
   }),
+  computed: {
+    getSavedUploadFiles() {
+      this.notProductUploadFiles.forEach(file =>
+        this.savedUploadFiles.push(file)
+      );
+      return this.savedUploadFiles;
+    }
+  },
   methods: {
     deleteFile(index) {
-      this.uploadFiles = [];
+      this.notProductUploadFiles = [];
       this.savedUploadFiles.splice(index, 1);
     },
     requestCreate() {
+      if (this.creatingPost.title === "") {
+        alert("제목은 비어있을 수 없습니다!");
+        return;
+      }
       let formData = new FormData();
-      this.savedUploadFiles.forEach(file => {
-        formData.append("files", file);
-        this.creatingPost.fileNames.push(file.name);
-      });
+      if (this.isNotProductCatalog()) {
+        this.savedUploadFiles.forEach(file => {
+          formData.append("files", file);
+          this.creatingPost.fileNames.push(file.name);
+        });
+      } else {
+        if (this.productUploadFile == null) {
+          alert("제품 카다로그 파일은 비어있을 수 없습니다!");
+          return;
+        }
+        formData.append("files", this.productUploadFile);
+        this.creatingPost.attachedFile = this.productUploadFile.name;
+      }
       this.$axios
         .post("/files", formData)
         .catch(error => alert(error.response.data));
@@ -90,12 +121,6 @@ export default {
     },
     isNotProductCatalog() {
       return this.component.name !== "제품 카다로그";
-    }
-  },
-  computed: {
-    getSavedUploadFiles() {
-      this.uploadFiles.forEach(file => this.savedUploadFiles.push(file));
-      return this.savedUploadFiles;
     }
   }
 };

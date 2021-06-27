@@ -1,7 +1,7 @@
 <template>
   <div class="board-wrap">
     <v-data-table
-      @click:row="sendPostOnEventBus"
+      @click:row="handleUriOnClick"
       :headers="headers"
       :items="posts"
       :page.sync="page"
@@ -42,7 +42,7 @@ export default {
   }),
   props: ["posts"],
   methods: {
-    sendPostOnEventBus(clickedPost) {
+    handleUriOnClick(clickedPost) {
       const paths = this.$route.path.split("/");
       const resource = paths[1]
       const id = paths[2]

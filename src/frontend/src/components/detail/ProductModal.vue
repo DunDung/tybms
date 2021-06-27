@@ -10,8 +10,8 @@
             <td>
               <v-btn
                 text
-                :href="product.attachedFiles[0].fileUrl"
-                :download="product.attachedFiles[0].fileName"
+                :href="product.attachedFile.fileUrl"
+                :download="product.attachedFile.fileName"
                 @click="$emit('close')"
               >
                 다운로드
@@ -21,7 +21,7 @@
               <v-btn
                 text
                 @click="$emit('close')"
-                :href="product.attachedFiles[0].fileUrl"
+                :href="product.attachedFile.fileUrl"
                 target="_blank"
               >
                 열기

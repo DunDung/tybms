@@ -52,7 +52,7 @@
 export default {
   props: ["component", "updatingPost"],
   data: () => ({
-    uploadFiles: [],
+    notProductUploadFiles: [],
     savedUploadFiles: [],
     rules: [value => !!value || "한 글자 이상은 작성해주세요ㅠ."]
   }),
@@ -81,7 +81,7 @@ export default {
   },
   computed: {
     getSavedUploadFiles() {
-      this.uploadFiles.forEach(file => this.savedUploadFiles.push(file));
+      this.notProductUploadFiles.forEach(file => this.savedUploadFiles.push(file));
       return this.savedUploadFiles;
     }
   }

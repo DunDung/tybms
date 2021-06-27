@@ -13,7 +13,7 @@ export default new Vuex.Store({
         content: "",
         modifiedDate: "",
         viewCount: 0,
-        fileNames: []
+        attachedFiles: []
       }
     ],
     materials: [
@@ -23,7 +23,7 @@ export default new Vuex.Store({
         content: "",
         modifiedDate: "",
         viewCount: 0,
-        fileNames: []
+        attachedFiles: []
       }
     ],
     products: [
@@ -32,7 +32,7 @@ export default new Vuex.Store({
         title: "",
         modifiedDate: "",
         viewCount: 0,
-        fileNames: []
+        attachedFile: {}
       }
     ]
   },
@@ -65,18 +65,9 @@ export default new Vuex.Store({
     SET_PRODUCTS(state, products) {
       console.log(products);
       state.products = products;
-    },
+    }
   },
   actions: {
-    addAttachedFiles(resource) {
-      resource.attachedFiles = [];
-      for (const fileName of resource.fileNames) {
-        resource.attachedFiles.push({
-          fileName: fileName,
-          fileUrl: require(`@/assets/upload-files/${fileName}`)
-        });
-      }
-    },
     requestResource({ dispatch }) {
       dispatch("requestGet", {
         uri: "/notices",
@@ -99,18 +90,30 @@ export default new Vuex.Store({
           resources
             .sort((a, b) => (a.id - b.id) * -1)
             .forEach(resource => {
-              resource.attachedFiles = [];
-              for (const fileName of resource.fileNames) {
-                resource.attachedFiles.push({
-                  fileName: fileName,
-                  fileUrl: require(`@/assets/upload-files/${fileName}`)
-                });
+              if (request.uri != "/products") {
+                resource.attachedFiles = [];
+                for (const fileName of resource.fileNames) {
+                  resource.attachedFiles.push({
+                    fileName: fileName,
+                    fileUrl: require(`@/assets/upload-files/${fileName}`)
+                  });
+                }
+              } else {
+                resource.attachedFile = {
+                  fileName: resource.attachedFile,
+                  fileUrl: require(`@/assets/upload-files/${resource.attachedFile}`)
+                };
               }
             });
           return resources;
         })
-        .then(resources => commit(request.mutationName, resources))
-        .catch(error => alert(error.response.data));
+        .then(resources => {
+          commit(request.mutationName, resources);
+        })
+        .catch(error => {
+          console.log(error);
+          alert(error.response.data);
+        });
     }
   },
   modules: {}

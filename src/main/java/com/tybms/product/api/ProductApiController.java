@@ -1,7 +1,5 @@
 package com.tybms.product.api;
 
-import com.tybms.product.dto.ProductCreateRequest;
-import com.tybms.product.dto.ProductResponse;
 import com.tybms.product.entity.Product;
 import com.tybms.product.service.ProductService;
 import lombok.RequiredArgsConstructor;
@@ -24,14 +22,13 @@ public class ProductApiController {
     private final ProductService productService;
 
     @GetMapping
-    public ResponseEntity<List<ProductResponse>> findAll() {
-        List<ProductResponse> productResponses = this.productService.findAll();
-        return ResponseEntity.ok(productResponses);
+    public ResponseEntity<List<Product>> findAll() {
+        return ResponseEntity.ok(this.productService.findAll());
     }
 
     @PostMapping
-    public ResponseEntity<Void> create(@RequestBody @Valid ProductCreateRequest productCreateRequest) {
-        Product savedProduct = this.productService.save(productCreateRequest);
+    public ResponseEntity<Void> create(@RequestBody @Valid Product product) {
+        Product savedProduct = this.productService.save(product);
         return ResponseEntity.created(URI.create("/" + savedProduct.getId())).build();
     }
 

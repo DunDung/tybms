@@ -44,22 +44,24 @@ const routes = [
   {
     path: "/archive",
     name: "Archive",
-    component: Archive
-  },
-  {
-    path: "/archive/:id",
-    name: "Archive",
-    component: Archive
+    component: Archive,
+    children: [
+      {
+        path: "/archive/:id",
+        component: Archive
+      }
+    ]
   },
   {
     path: "/notice",
     name: "Notice",
-    component: Notice
-  },
-  {
-    path: "/notice/:id",
-    name: "Notice",
-    component: Notice
+    component: Notice,
+    children: [
+      {
+        path: "/notice/:id",
+        component: Notice
+      }
+    ]
   },
   {
     path: "/greeting",

@@ -1,5 +1,6 @@
 package com.tybms.config;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import org.hibernate.annotations.DynamicInsert;
 import org.springframework.data.annotation.CreatedDate;
@@ -22,8 +23,10 @@ public abstract class BaseEntity {
     protected Long id;
 
     @CreatedDate
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
     protected LocalDateTime createdDate;
 
     @LastModifiedDate
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
     protected LocalDateTime modifiedDate;
 }

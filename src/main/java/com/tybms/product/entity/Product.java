@@ -13,6 +13,8 @@ import org.hibernate.annotations.DynamicInsert;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -24,18 +26,13 @@ import java.util.stream.Collectors;
 @Entity
 public class Product extends BaseEntity {
 
+    @NotBlank(message = "제목은 비어있을 수 없습니다.")
     private String title;
 
     @ColumnDefault("0")
     private Long viewCount;
 
-    @OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
-    private List<ProductAttachedFile> productAttachedFiles;
-
-    public List<String> getProductAttachedFileNames() {
-        return this.productAttachedFiles.stream()
-                .map(ProductAttachedFile::getName)
-                .collect(Collectors.toList());
-    }
+    @NotNull(message = "제품 카다로그에 첨부파일은 비어있을 수 없습니다.")
+    private String attachedFile;
 
 }
