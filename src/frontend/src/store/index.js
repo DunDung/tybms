@@ -34,7 +34,10 @@ export default new Vuex.Store({
         viewCount: 0,
         attachedFile: {}
       }
-    ]
+    ],
+    noticeViewCountRepository: new Map(),
+    materialViewCountRepository: new Map(),
+    productViewCountRepository: new Map()
   },
   getters: {
     getNotices(state) {
@@ -65,24 +68,58 @@ export default new Vuex.Store({
     SET_PRODUCTS(state, products) {
       console.log(products);
       state.products = products;
+    },
+    SET_NOTICE_VIEW_COUNTS(state, payload) {
+      state.notices[payload.index].viewCount++;
+      if (state.noticeViewCountRepository.has(payload.id)) {
+        state.noticeViewCountRepository.set(
+          payload.id,
+          state.noticeViewCountRepository.get(payload.id) + 1
+        );
+      } else {
+        state.noticeViewCountRepository.set(payload.id, 1);
+      }
+    },
+    SET_MATERIAL_VIEW_COUNTS(state, payload) {
+      state.materials[payload.index].viewCount++;
+      if (state.materialViewCountRepository.has(payload.id)) {
+        state.materialViewCountRepository.set(
+          payload.id,
+          state.materialViewCountRepository.get(payload.id) + 1
+        );
+      } else {
+        state.materialViewCountRepository.set(payload.id, 1);
+      }
+    },
+
+    SET_PRODUCT_VIEW_COUNTS(state, payload) {
+      state.products[payload.index].viewCount++;
+      if (state.productViewCountRepository.has(payload.id)) {
+        state.productViewCountRepository.set(
+          payload.id,
+          state.productViewCountRepository.get(payload.id) + 1
+        );
+      } else {
+        state.productViewCountRepository.set(payload.id, 1);
+      }
     }
   },
   actions: {
-    requestResource({ dispatch }) {
-      dispatch("requestGet", {
+    requestFindAllResources({ dispatch }) {
+      dispatch("requestGetFindAll", {
         uri: "/notices",
         mutationName: "SET_NOTICES"
       });
-      dispatch("requestGet", {
+      dispatch("requestGetFindAll", {
         uri: "/materials",
         mutationName: "SET_MATERIALS"
       });
-      dispatch("requestGet", {
+      dispatch("requestGetFindAll", {
         uri: "/products",
         mutationName: "SET_PRODUCTS"
       });
     },
-    requestGet({ commit }, request) {
+    requestGetFindAll({ commit }, request) {
       axios
         .get(request.uri)
         .then(response => {
@@ -110,6 +147,34 @@ export default new Vuex.Store({
         .then(resources => {
           commit(request.mutationName, resources);
         })
+        .catch(error => {
+          alert(error.response.data);
+        });
+    },
+    requestIncreaseViewCountResources({ state }) {
+      axios
+        .patch("/notices", Object.fromEntries(state.noticeViewCountRepository))
+        .then(response => console.log(response))
+        .catch(error => {
+          console.log(error);
+          alert(error.response.data);
+        });
+      axios
+        .patch(
+          "/materials",
+          Object.fromEntries(state.materialViewCountRepository)
+        )
+        .then(response => console.log(response))
+        .catch(error => {
+          console.log(error);
+          alert(error.response.data);
+        });
+      axios
+        .patch(
+          "/products",
+          Object.fromEntries(state.productViewCountRepository)
+        )
+        .then(response => console.log(response))
         .catch(error => {
           console.log(error);
           alert(error.response.data);

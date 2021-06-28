@@ -19,9 +19,6 @@ import { mapActions } from "vuex";
 export default {
   name: "App",
 
-  created() {
-    this.requestResource();
-  },
   components: {
     Header,
     Footer,
@@ -33,10 +30,22 @@ export default {
         this.isAdmin = isAdminPage;
       });
       return !this.isAdmin;
-    },
+    }
+  },
+  created() {
+    this.requestFindAllResources();
+
+    // 페이지 나가기 or 새로고침 시 조회수 변경요청 날리도록 등록
+    window.addEventListener(
+      "beforeunload",
+      this.requestIncreaseViewCountResources
+    );
   },
   methods: {
-    ...mapActions(["requestResource"])
+    ...mapActions([
+      "requestFindAllResources",
+      "requestIncreaseViewCountResources"
+    ])
   },
   data: () => ({
     isAdmin: false

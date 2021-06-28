@@ -1,7 +1,7 @@
 <template>
   <v-main>
     <ImageFrame :frame="frame" />
-    <ProductBoard :posts="getProducts" />
+    <ProductBoard :products="getProducts" />
   </v-main>
 </template>
 <script>

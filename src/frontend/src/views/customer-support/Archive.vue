@@ -1,7 +1,7 @@
 <template>
   <v-main>
     <ImageFrame :frame="frame" />
-    <DetailPost v-if="isViewDetailPost" :clickedPost="clickedPost" />
+    <DetailPost v-if="isViewDetailPost" :clickedPost="clickedPost" requestUri="/materials"/>
     <Board :posts="getMaterials" />
   </v-main>
 </template>
@@ -9,7 +9,7 @@
 import ImageFrame from "@/components/detail/ImageFrame";
 import Board from "@/components/detail/Board";
 import DetailPost from "@/components/detail/DetailPost";
-import { mapGetters } from "vuex";
+import { mapGetters, mapMutations } from "vuex";
 
 export default {
   components: {
@@ -36,10 +36,12 @@ export default {
         );
         this.clickedPost = this.getMaterials[index];
         this.isViewDetailPost = true;
+        this.SET_MATERIAL_VIEW_COUNTS({ id: id, index: index });
       } else {
         this.isViewDetailPost = false;
       }
-    }
+    },
+    ...mapMutations(["SET_MATERIAL_VIEW_COUNTS"])
   },
   data: () => ({
     isViewDetailPost: false,

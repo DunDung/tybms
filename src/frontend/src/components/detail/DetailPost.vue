@@ -43,7 +43,10 @@
 </template>
 <script>
 export default {
-  props: ["clickedPost"],
+  props: ["clickedPost", "requestUri"],
+  created() {
+
+  },
   data: () => ({})
 };
 </script>
