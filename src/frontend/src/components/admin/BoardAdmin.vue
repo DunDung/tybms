@@ -111,7 +111,6 @@ export default {
       this.dialog = false;
     },
     onClickDelete() {
-      console.log(`${this.component.uri}/${this.clickedPost.id}`);
       this.$axios
         .delete(`${this.component.uri}/${this.clickedPost.id}`)
         .catch(error => alert(error.response.data));

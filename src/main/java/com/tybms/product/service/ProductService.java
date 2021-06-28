@@ -33,4 +33,9 @@ public class ProductService {
                         .updateViewCount(viewCountEntry.getKey(), viewCountEntry.getValue()));
     }
 
+    @Transactional
+    public void deleteById(Long id) {
+        this.productRepository.deleteById(id);
+    }
+
 }

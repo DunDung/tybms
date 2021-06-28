@@ -45,4 +45,10 @@ public class NoticeService {
                 .forEach(viewCountEntry -> this.noticeRepository
                         .updateViewCount(viewCountEntry.getKey(), viewCountEntry.getValue()));
     }
+
+    @Transactional
+    public void deleteById(Long id) {
+        this.noticeRepository.deleteById(id);
+    }
+
 }

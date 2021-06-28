@@ -38,6 +38,7 @@ public class MaterialService {
                 .collect(Collectors.toList());
     }
 
+    @Transactional
     public void deleteById(Long id) {
         this.materialRepository.deleteById(id);
     }
