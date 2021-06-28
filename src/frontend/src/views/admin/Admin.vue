@@ -99,7 +99,7 @@ export default {
     clickMenuIndex: 0,
     rules: {
       required: value => !!value || "Required."
-    },
+    }
   }),
   methods: {
     handleAdmin(index) {

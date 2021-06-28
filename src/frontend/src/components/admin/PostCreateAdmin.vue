@@ -69,7 +69,7 @@ export default {
     creatingPost: {
       title: "",
       content: ``,
-      fileNames: [],
+      fileNames: []
     },
     notProductUploadFiles: [],
     productUploadFile: null,

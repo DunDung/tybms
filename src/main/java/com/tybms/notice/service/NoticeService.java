@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
@@ -35,5 +36,13 @@ public class NoticeService {
         return notices.stream()
                 .map(NoticeResponse::from)
                 .collect(Collectors.toList());
+    }
+
+    @Transactional
+    public void increaseViewCount(Map<Long, Long> viewCountToIds) {
+        viewCountToIds.entrySet()
+                .stream()
+                .forEach(viewCountEntry -> this.noticeRepository
+                        .updateViewCount(viewCountEntry.getKey(), viewCountEntry.getValue()));
     }
 }

@@ -18,9 +18,12 @@
             </td>
           </tr>
         </table>
+
         <ul>
           <li v-for="(notice, index) in getMainCardNotices" :key="index">
-            <router-link :to=getDetailNoticeUrlById(notice)>{{ notice.title }}</router-link>
+            <router-link :to="getDetailNoticeUrlById(notice)">{{
+              notice.title
+            }}</router-link>
           </li>
         </ul>
       </section>
@@ -45,7 +48,9 @@
 
         <ul>
           <li v-for="(material, index) in getMainCardMaterials" :key="index">
-            <router-link :to=getDetailMaterialUrlById(material)>{{ material.title }}</router-link>
+            <router-link :to="getDetailMaterialUrlById(material)">{{
+              material.title
+            }}</router-link>
           </li>
         </ul>
       </section>

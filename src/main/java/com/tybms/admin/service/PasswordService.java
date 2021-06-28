@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.NoSuchElementException;
+
 @RequiredArgsConstructor
 @Service
 public class PasswordService {
@@ -17,7 +19,7 @@ public class PasswordService {
 
     public boolean isMatch(Password password) {
         Password inFactEncodedPassword = this.passwordRepository.findById(ONLY_ONE_PASSWORD_ID)
-                .orElseThrow(() -> new RuntimeException("NOT EXIST PASSWORD ID"));
+                .orElseThrow(NoSuchElementException::new);
         return this.passwordEncoder.matches(password.getPassword(), inFactEncodedPassword.getPassword());
     }
 

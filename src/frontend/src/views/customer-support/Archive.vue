@@ -1,7 +1,11 @@
 <template>
   <v-main>
     <ImageFrame :frame="frame" />
-    <DetailPost v-if="isViewDetailPost" :clickedPost="clickedPost" requestUri="/materials"/>
+    <DetailPost
+      v-if="isViewDetailPost"
+      :clickedPost="clickedPost"
+      requestUri="/materials"
+    />
     <Board :posts="getMaterials" />
   </v-main>
 </template>

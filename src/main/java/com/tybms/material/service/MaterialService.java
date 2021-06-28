@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
@@ -41,4 +42,11 @@ public class MaterialService {
         this.materialRepository.deleteById(id);
     }
 
+    @Transactional
+    public void increaseViewCount(Map<Long, Long> viewCountToIds) {
+        viewCountToIds.entrySet()
+                .stream()
+                .forEach(viewCountEntry -> this.materialRepository
+                        .updateViewCount(viewCountEntry.getKey(), viewCountEntry.getValue()));
+    }
 }

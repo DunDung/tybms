@@ -152,33 +152,39 @@ export default new Vuex.Store({
         });
     },
     requestIncreaseViewCountResources({ state }) {
-      axios
-        .patch("/notices", Object.fromEntries(state.noticeViewCountRepository))
-        .then(response => console.log(response))
-        .catch(error => {
-          console.log(error);
-          alert(error.response.data);
-        });
-      axios
-        .patch(
-          "/materials",
-          Object.fromEntries(state.materialViewCountRepository)
-        )
-        .then(response => console.log(response))
-        .catch(error => {
-          console.log(error);
-          alert(error.response.data);
-        });
-      axios
-        .patch(
-          "/products",
-          Object.fromEntries(state.productViewCountRepository)
-        )
-        .then(response => console.log(response))
-        .catch(error => {
-          console.log(error);
-          alert(error.response.data);
-        });
+      if (state.noticeViewCountRepository.size != 0) {
+        axios
+          .patch(
+            "/notices",
+            Object.fromEntries(state.noticeViewCountRepository)
+          )
+          .catch(error => {
+            console.log(error);
+            alert(error.response.data);
+          });
+      }
+      if (state.materialViewCountRepository.size != 0) {
+        axios
+          .patch(
+            "/materials",
+            Object.fromEntries(state.materialViewCountRepository)
+          )
+          .catch(error => {
+            console.log(error);
+            alert(error.response.data);
+          });
+      }
+      if (state.productViewCountRepository.size != 0) {
+        axios
+          .patch(
+            "/products",
+            Object.fromEntries(state.productViewCountRepository)
+          )
+          .catch(error => {
+            console.log(error);
+            alert(error.response.data);
+          });
+      }
     }
   },
   modules: {}

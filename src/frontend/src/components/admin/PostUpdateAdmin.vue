@@ -81,7 +81,9 @@ export default {
   },
   computed: {
     getSavedUploadFiles() {
-      this.notProductUploadFiles.forEach(file => this.savedUploadFiles.push(file));
+      this.notProductUploadFiles.forEach(file =>
+        this.savedUploadFiles.push(file)
+      );
       return this.savedUploadFiles;
     }
   }

@@ -5,6 +5,7 @@ import com.tybms.product.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequiredArgsConstructor
@@ -30,6 +32,12 @@ public class ProductApiController {
     public ResponseEntity<Void> create(@RequestBody @Valid Product product) {
         Product savedProduct = this.productService.save(product);
         return ResponseEntity.created(URI.create("/" + savedProduct.getId())).build();
+    }
+
+    @PatchMapping
+    public ResponseEntity<Void> increaseViewCount(@RequestBody Map<Long, Long> viewCountToIds) {
+        this.productService.increaseViewCount(viewCountToIds);
+        return ResponseEntity.ok().build();
     }
 
 }

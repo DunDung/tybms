@@ -54,7 +54,9 @@ export default {
   },
   methods: {
     openProductModal(clickedPost) {
-      const index = this.products.findIndex(product => product.id == clickedPost.id);
+      const index = this.products.findIndex(
+        product => product.id == clickedPost.id
+      );
       this.SET_PRODUCT_VIEW_COUNTS({ id: clickedPost.id, index: index });
       this.clickedPost = clickedPost;
       this.isShow = true;

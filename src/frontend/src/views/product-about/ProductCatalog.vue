@@ -27,7 +27,7 @@ export default {
         w1280: require("@/assets/images/frame/product-about/product-specification-1280.png"),
         w1920: require("@/assets/images/frame/product-about/product-specification-1920.png")
       }
-    },
+    }
   })
 };
 </script>

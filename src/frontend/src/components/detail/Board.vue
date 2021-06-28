@@ -44,10 +44,10 @@ export default {
   methods: {
     handleUriOnClick(clickedPost) {
       const paths = this.$route.path.split("/");
-      const resource = paths[1]
-      const id = paths[2]
+      const resource = paths[1];
+      const id = paths[2];
       if (id == clickedPost.id) {
-        return
+        return;
       }
       this.$router.push("/" + resource + "/" + clickedPost.id);
     }

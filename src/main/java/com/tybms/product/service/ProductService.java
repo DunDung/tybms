@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Map;
 
 @RequiredArgsConstructor
 @Service
@@ -21,7 +22,15 @@ public class ProductService {
 
     @Transactional
     public List<Product> findAll() {
-        return productRepository.findAll();
+        return this.productRepository.findAll();
+    }
+
+    @Transactional
+    public void increaseViewCount(Map<Long, Long> viewCountToIds) {
+        viewCountToIds.entrySet()
+                .stream()
+                .forEach(viewCountEntry -> this.productRepository
+                        .updateViewCount(viewCountEntry.getKey(), viewCountEntry.getValue()));
     }
 
 }

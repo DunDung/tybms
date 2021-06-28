@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequiredArgsConstructor
@@ -28,25 +29,26 @@ public class MaterialApiController {
 
     @GetMapping
     public ResponseEntity<List<MaterialResponse>> findAll() {
-        List<MaterialResponse> materialResponses = materialService.findAll();
+        List<MaterialResponse> materialResponses = this.materialService.findAll();
         return ResponseEntity.ok(materialResponses);
     }
 
     @PostMapping
     public ResponseEntity<Void> create(@RequestBody @Valid MaterialCreateRequest materialCreateRequest) {
-        Material savedMaterial = materialService.save(materialCreateRequest);
+        Material savedMaterial = this.materialService.save(materialCreateRequest);
         return ResponseEntity.created(URI.create("/" + savedMaterial.getId())).build();
     }
 
+    @PatchMapping
+    public ResponseEntity<Void> increaseViewCount(@RequestBody Map<Long, Long> viewCountToIds) {
+        this.materialService.increaseViewCount(viewCountToIds);
+        return ResponseEntity.ok().build();
+    }
+
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteById(@PathVariable  Long id) {
+    public ResponseEntity<Void> deleteById(@PathVariable Long id) {
         this.materialService.deleteById(id);
         return ResponseEntity.noContent().build();
     }
-
-//    조회수 증가 기능 고민좀 해보자.,.. id랑 조회수받아서 save?
-//    @PatchMapping("/{id}")
-//    public ResponseEntity<Long> increaseViewCount(@PathVariable Long id) {
-//    }
 
 }

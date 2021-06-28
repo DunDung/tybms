@@ -44,9 +44,7 @@
 <script>
 export default {
   props: ["clickedPost", "requestUri"],
-  created() {
-
-  },
+  created() {},
   data: () => ({})
 };
 </script>
