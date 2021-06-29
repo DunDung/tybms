@@ -23,4 +23,10 @@ public class FileService {
             }
         });
     }
+
+    public boolean deleteFile(String fileName) {
+        File deleteFile = new File(BASE_DIR + fileName);
+        return deleteFile.delete();
+    }
+
 }

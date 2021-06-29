@@ -1,6 +1,7 @@
 package com.tybms.material.entity;
 
 import com.tybms.config.BaseEntity;
+import com.tybms.material.dto.MaterialUpdateRequest;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,6 +14,9 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 import java.util.List;
@@ -26,6 +30,10 @@ import java.util.stream.Collectors;
 @Entity
 public class Material extends BaseEntity {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    protected Long id;
+
     private String title;
 
     @Lob
@@ -35,8 +43,7 @@ public class Material extends BaseEntity {
     @ColumnDefault("0")
     private Long viewCount;
 
-    // TODO: 2021-06-16 cascade ALL 이면 Material에만 List 추가하고 save하면 저장되야하는게 아닌가?
-    @OneToMany(mappedBy = "material", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "material", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     private List<MaterialAttachedFile> materialAttachedFiles;
 
     public List<String> getMaterialAttachedFileNames() {
@@ -45,11 +52,9 @@ public class Material extends BaseEntity {
                 .collect(Collectors.toList());
     }
 
-    public void setMaterialAttachedFiles(List<MaterialAttachedFile> materialAttachedFiles) {
-        this.materialAttachedFiles = materialAttachedFiles;
-    }
-
-    public void increaseViewCount() {
-        this.viewCount++;
+    public Material update(MaterialUpdateRequest materialUpdateRequest) {
+        this.title = materialUpdateRequest.getTitle();
+        this.content = materialUpdateRequest.getContent();
+        return this;
     }
 }

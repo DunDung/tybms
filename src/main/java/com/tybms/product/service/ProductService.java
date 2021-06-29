@@ -1,5 +1,8 @@
 package com.tybms.product.service;
 
+import com.tybms.file.FileService;
+import com.tybms.product.dto.ProductResponse;
+import com.tybms.product.dto.ProductUpdateRequest;
 import com.tybms.product.entity.Product;
 import com.tybms.product.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
@@ -8,12 +11,15 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Map;
+import java.util.NoSuchElementException;
+import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
 public class ProductService {
 
     private final ProductRepository productRepository;
+    private final FileService fileService;
 
     @Transactional
     public Product save(Product product) {
@@ -21,16 +27,15 @@ public class ProductService {
     }
 
     @Transactional
-    public List<Product> findAll() {
-        return this.productRepository.findAll();
+    public List<ProductResponse> findAll() {
+        return this.productRepository.findAll().stream()
+                .map(ProductResponse::from)
+                .collect(Collectors.toList());
     }
 
     @Transactional
     public void increaseViewCount(Map<Long, Long> viewCountToIds) {
-        viewCountToIds.entrySet()
-                .stream()
-                .forEach(viewCountEntry -> this.productRepository
-                        .updateViewCount(viewCountEntry.getKey(), viewCountEntry.getValue()));
+        viewCountToIds.forEach(this.productRepository::updateViewCount);
     }
 
     @Transactional
@@ -38,4 +43,13 @@ public class ProductService {
         this.productRepository.deleteById(id);
     }
 
+    @Transactional
+    public void update(ProductUpdateRequest productUpdateRequest) {
+        Product productById = this.productRepository.findById(productUpdateRequest.getId())
+                .orElseThrow(NoSuchElementException::new);
+        if (productById.isNotMatchAttachedFile(productUpdateRequest.getAttachedFile())) {
+            fileService.deleteFile(productById.getAttachedFile());
+        }
+        productById.update(productUpdateRequest);
+    }
 }

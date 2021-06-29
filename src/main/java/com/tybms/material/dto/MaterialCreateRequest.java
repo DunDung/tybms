@@ -34,10 +34,11 @@ public class MaterialCreateRequest {
                 .build();
     }
 
-    public List<MaterialAttachedFile> toMaterialAttachedFiles() {
+    public List<MaterialAttachedFile> toMaterialAttachedFiles(Material material) {
         return this.fileNames.stream()
                 .map(fileName -> MaterialAttachedFile.builder()
                         .name(fileName)
+                        .material(material)
                         .build())
                 .collect(Collectors.toList());
     }

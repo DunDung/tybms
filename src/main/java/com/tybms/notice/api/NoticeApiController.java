@@ -2,6 +2,7 @@ package com.tybms.notice.api;
 
 import com.tybms.notice.dto.NoticeCreateRequest;
 import com.tybms.notice.dto.NoticeResponse;
+import com.tybms.notice.dto.NoticeUpdateRequest;
 import com.tybms.notice.entity.Notice;
 import com.tybms.notice.service.NoticeService;
 import lombok.RequiredArgsConstructor;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -42,6 +44,12 @@ public class NoticeApiController {
     @PatchMapping
     public ResponseEntity<Void> increaseViewCount(@RequestBody Map<Long, Long> viewCountToIds) {
         this.noticeService.increaseViewCount(viewCountToIds);
+        return ResponseEntity.ok().build();
+    }
+
+    @PutMapping
+    public ResponseEntity<Void> update(@RequestBody NoticeUpdateRequest noticeUpdateRequest) {
+        this.noticeService.update(noticeUpdateRequest);
         return ResponseEntity.ok().build();
     }
 

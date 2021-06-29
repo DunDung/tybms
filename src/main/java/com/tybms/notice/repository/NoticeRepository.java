@@ -10,5 +10,6 @@ public interface NoticeRepository extends JpaRepository<Notice, Long> {
 
     @Modifying
     @Query("UPDATE Notice set viewCount = viewCount + :expectedViewCount where id = :id")
-    void updateViewCount(@Param("id") Long id, @Param("expectedViewCount") Long expectedViewCount );
+    void updateViewCount(@Param("id") Long id, @Param("expectedViewCount") Long expectedViewCount);
+
 }

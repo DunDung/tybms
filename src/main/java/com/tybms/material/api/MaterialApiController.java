@@ -2,6 +2,7 @@ package com.tybms.material.api;
 
 import com.tybms.material.dto.MaterialCreateRequest;
 import com.tybms.material.dto.MaterialResponse;
+import com.tybms.material.dto.MaterialUpdateRequest;
 import com.tybms.material.entity.Material;
 import com.tybms.material.service.MaterialService;
 import lombok.RequiredArgsConstructor;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -42,6 +44,12 @@ public class MaterialApiController {
     @PatchMapping
     public ResponseEntity<Void> increaseViewCount(@RequestBody Map<Long, Long> viewCountToIds) {
         this.materialService.increaseViewCount(viewCountToIds);
+        return ResponseEntity.ok().build();
+    }
+
+    @PutMapping
+    public ResponseEntity<Void> update(@RequestBody MaterialUpdateRequest materialUpdateRequest) {
+        this.materialService.update(materialUpdateRequest);
         return ResponseEntity.ok().build();
     }
 

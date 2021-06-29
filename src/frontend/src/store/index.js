@@ -119,37 +119,40 @@ export default new Vuex.Store({
         mutationName: "SET_PRODUCTS"
       });
     },
-    requestGetFindAll({ commit }, request) {
+    requestGetFindAll({ commit, dispatch }, request) {
       axios
         .get(request.uri)
         .then(response => {
           let resources = response.data;
           resources
             .sort((a, b) => (a.id - b.id) * -1)
-            .forEach(resource => {
-              if (request.uri != "/products") {
-                resource.attachedFiles = [];
-                for (const fileName of resource.fileNames) {
-                  resource.attachedFiles.push({
-                    fileName: fileName,
-                    fileUrl: require(`@/assets/upload-files/${fileName}`)
-                  });
-                }
-              } else {
-                resource.attachedFile = {
-                  fileName: resource.attachedFile,
-                  fileUrl: require(`@/assets/upload-files/${resource.attachedFile}`)
-                };
-              }
-            });
+            .forEach(resource => dispatch("addFileUrl", resource));
           return resources;
         })
         .then(resources => {
           commit(request.mutationName, resources);
         })
         .catch(error => {
+          console.log(error);
           alert(error.response.data);
         });
+    },
+    addFileUrl(context, resource) {
+      if (resource.fileNames) {
+        resource.attachedFiles = [];
+        for (const fileName of resource.fileNames) {
+          resource.attachedFiles.push({
+            fileName: fileName,
+            fileUrl: require(`@/assets/upload-files/${fileName}`)
+          });
+        }
+      } else {
+        resource.attachedFile = {
+          fileName: resource.fileName,
+          fileUrl: require(`@/assets/upload-files/${resource.fileName}`)
+        };
+      }
+      return resource;
     },
     requestIncreaseViewCountResources({ state }) {
       if (state.noticeViewCountRepository.size != 0) {

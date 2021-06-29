@@ -10,5 +10,5 @@ public interface MaterialRepository extends JpaRepository<Material, Long> {
 
     @Modifying
     @Query("UPDATE Material set viewCount = viewCount + :expectedViewCount where id = :id")
-    void updateViewCount(@Param("id") Long id, @Param("expectedViewCount") Long expectedViewCount );
+    void updateViewCount(@Param("id") Long id, @Param("expectedViewCount") Long expectedViewCount);
 }

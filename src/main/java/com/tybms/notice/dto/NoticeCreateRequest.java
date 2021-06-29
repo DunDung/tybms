@@ -34,12 +34,12 @@ public class NoticeCreateRequest {
                 .build();
     }
 
-    public List<NoticeAttachedFile> toNoticeAttachedFiles() {
+    public List<NoticeAttachedFile> toNoticeAttachedFiles(Notice notice) {
         return this.fileNames.stream()
                 .map(fileName -> NoticeAttachedFile.builder()
                         .name(fileName)
+                        .notice(notice)
                         .build())
                 .collect(Collectors.toList());
     }
-
 }
