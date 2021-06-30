@@ -98,6 +98,12 @@ export default {
     isCreate: false,
     isUpdate: false
   }),
+  watch: {
+    component() {
+      this.isCreate = false;
+      this.isUpdate = false;
+    }
+  },
   methods: {
     openDeleteOrUpdateModal(clickedPost) {
       this.clickedPost = clickedPost;

@@ -140,16 +140,17 @@ export default new Vuex.Store({
     addFileUrl(context, resource) {
       if (resource.fileNames) {
         resource.attachedFiles = [];
+        // todo: 더 간단하게 바꿀 수 있지 않을까?
         for (const fileName of resource.fileNames) {
           resource.attachedFiles.push({
             fileName: fileName,
-            fileUrl: require(`@/assets/upload-files/${fileName}`)
+            fileUrl: `/files/${fileName}`
           });
         }
       } else {
         resource.attachedFile = {
           fileName: resource.fileName,
-          fileUrl: require(`@/assets/upload-files/${resource.fileName}`)
+          fileUrl: `/files/${resource.fileName}`
         };
       }
       return resource;

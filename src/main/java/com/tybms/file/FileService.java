@@ -9,24 +9,29 @@ import java.util.List;
 
 @Service
 public class FileService {
-    private static final String BASE_DIR = System.getProperty("user.dir") + "\\src\\frontend\\src\\assets\\upload-files\\";
 
-    public void uploadFiles(List<MultipartFile> files) {
+    private static final String BASE_DIR = System.getProperty("user.dir") + "\\src\\main\\resources\\upload-files\\";
+
+    void uploadFiles(List<MultipartFile> files) {
         if (files == null) {
             return;
         }
         files.forEach(file -> {
             try {
-                file.transferTo(new File(BASE_DIR + file.getOriginalFilename()));
+                file.transferTo(getFile(file.getOriginalFilename()));
             } catch (IOException e) {
-                throw new IllegalArgumentException("파일 업로드 중 오류가 발생했습니다.");
+                throw new RuntimeException("파일 업로드 중 오류가 발생했습니다.");
             }
         });
     }
 
-    public boolean deleteFile(String fileName) {
-        File deleteFile = new File(BASE_DIR + fileName);
-        return deleteFile.delete();
+    public void deleteFile(String fileName) {
+        File deleteFile = getFile(fileName);
+        deleteFile.delete();
+    }
+
+    File getFile(String fileName) {
+        return new File(BASE_DIR + fileName);
     }
 
 }
