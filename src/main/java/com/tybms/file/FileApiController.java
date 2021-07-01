@@ -16,6 +16,8 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.List;
 
 @RequestMapping("/files")
@@ -32,9 +34,10 @@ public class FileApiController {
     }
 
     @GetMapping("/{name}")
-    public ResponseEntity<InputStreamResource> getTermsConditions(@PathVariable("name") String name) throws FileNotFoundException {
+    public ResponseEntity<InputStreamResource> getTermsConditions(@PathVariable("name") String name) throws
+            FileNotFoundException, UnsupportedEncodingException {
         HttpHeaders headers = new HttpHeaders();
-        headers.add("content-disposition", "inline;filename=" + name);
+        headers.add("content-disposition", "inline;filename=" + URLEncoder.encode(name, "utf-8"));
         File file = this.fileService.getFile(name);
         InputStreamResource resource = new InputStreamResource(new FileInputStream(file));
 
