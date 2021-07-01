@@ -18,12 +18,16 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 @RequestMapping("/files")
 @RequiredArgsConstructor
 @RestController
 public class FileApiController {
+
+    private static final String INLINE_FILENAME = "inline;filename=";
+    private static final String CONTENT_DISPOSITION = "content-disposition";
 
     private final FileService fileService;
 
@@ -37,14 +41,14 @@ public class FileApiController {
     public ResponseEntity<InputStreamResource> getTermsConditions(@PathVariable("name") String name) throws
             FileNotFoundException, UnsupportedEncodingException {
         HttpHeaders headers = new HttpHeaders();
-        headers.add("content-disposition", "inline;filename=" + URLEncoder.encode(name, "utf-8"));
+        headers.add(CONTENT_DISPOSITION, INLINE_FILENAME + URLEncoder.encode(name, StandardCharsets.UTF_8.name()));
         File file = this.fileService.getFile(name);
         InputStreamResource resource = new InputStreamResource(new FileInputStream(file));
 
         return ResponseEntity.ok()
                 .headers(headers)
                 .contentLength(file.length())
-                .contentType(MediaType.parseMediaType("application/pdf"))
+                .contentType(MediaType.parseMediaType(MediaType.APPLICATION_PDF_VALUE))
                 .body(resource);
     }
 
