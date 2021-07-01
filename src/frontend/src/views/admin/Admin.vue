@@ -91,7 +91,7 @@ export default {
   },
 
   data: () => ({
-    dialog: false,
+    dialog: true,
     isShowPassword: false,
     password: "",
     isWrongPassword: false,
