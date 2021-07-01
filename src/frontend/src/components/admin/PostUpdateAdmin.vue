@@ -70,7 +70,7 @@
       <div v-if="!isNotProductCatalog()" style="margin-top : 20px">
         <h4><strong style="color: red">기존에</strong> 첨부된 파일 :</h4>
         <v-chip class="ma-2" color="red" text-color="white">
-          {{ updatingPost.attachedFile.fileName }}
+          {{ updatingPost.attachedFile }}
         </v-chip>
       </div>
       <div v-if="isNotProductCatalog()">
@@ -130,12 +130,9 @@ export default {
           this.updatingPost.fileNames.push(file.name);
         });
       } else {
-        this.up
         if (this.productUploadFile != null) {
           formData.append("files", this.productUploadFile);
           this.updatingPost.attachedFile = this.productUploadFile.name;
-        } else {
-          this.updatingPost.attachedFile = this.updatingPost.attachedFile.fileName;
         }
       }
       this.$axios

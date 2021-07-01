@@ -30,9 +30,9 @@
         <strong>첨부 파일</strong>
         <ol>
           <small>
-            <li v-for="(attachedFile, i) in clickedPost.attachedFiles" :key="i">
-              <a :download="attachedFile.fileName" :href="attachedFile.fileUrl"
-                >{{ attachedFile.fileName }}
+            <li v-for="(fileName, i) in clickedPost.fileNames" :key="i">
+              <a :download="fileName" :href="/files/ + fileName"
+                >{{ fileName }}
               </a>
             </li>
           </small>

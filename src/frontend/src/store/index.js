@@ -13,7 +13,7 @@ export default new Vuex.Store({
         content: "",
         modifiedDate: "",
         viewCount: 0,
-        attachedFiles: []
+        fileNames: []
       }
     ],
     materials: [
@@ -23,7 +23,7 @@ export default new Vuex.Store({
         content: "",
         modifiedDate: "",
         viewCount: 0,
-        attachedFiles: []
+        fileNames: []
       }
     ],
     products: [
@@ -32,7 +32,7 @@ export default new Vuex.Store({
         title: "",
         modifiedDate: "",
         viewCount: 0,
-        attachedFile: {}
+        attachedFile: ""
       }
     ],
     noticeViewCountRepository: new Map(),
@@ -58,15 +58,12 @@ export default new Vuex.Store({
   },
   mutations: {
     SET_NOTICES(state, notices) {
-      console.log(notices);
       state.notices = notices;
     },
     SET_MATERIALS(state, materials) {
-      console.log(materials);
       state.materials = materials;
     },
     SET_PRODUCTS(state, products) {
-      console.log(products);
       state.products = products;
     },
     SET_NOTICE_VIEW_COUNTS(state, payload) {
@@ -76,9 +73,9 @@ export default new Vuex.Store({
           payload.id,
           state.noticeViewCountRepository.get(payload.id) + 1
         );
-      } else {
-        state.noticeViewCountRepository.set(payload.id, 1);
+        return;
       }
+      state.noticeViewCountRepository.set(payload.id, 1);
     },
     SET_MATERIAL_VIEW_COUNTS(state, payload) {
       state.materials[payload.index].viewCount++;
@@ -87,9 +84,9 @@ export default new Vuex.Store({
           payload.id,
           state.materialViewCountRepository.get(payload.id) + 1
         );
-      } else {
-        state.materialViewCountRepository.set(payload.id, 1);
+        return;
       }
+      state.materialViewCountRepository.set(payload.id, 1);
     },
 
     SET_PRODUCT_VIEW_COUNTS(state, payload) {
@@ -99,9 +96,9 @@ export default new Vuex.Store({
           payload.id,
           state.productViewCountRepository.get(payload.id) + 1
         );
-      } else {
-        state.productViewCountRepository.set(payload.id, 1);
+        return;
       }
+      state.productViewCountRepository.set(payload.id, 1);
     }
   },
   actions: {
@@ -119,14 +116,12 @@ export default new Vuex.Store({
         mutationName: "SET_PRODUCTS"
       });
     },
-    requestGetFindAll({ commit, dispatch }, request) {
+    requestGetFindAll({ commit }, request) {
       axios
         .get(request.uri)
         .then(response => {
           let resources = response.data;
-          resources
-            .sort((a, b) => (a.id - b.id) * -1)
-            .forEach(resource => dispatch("addFileUrl", resource));
+          resources.sort((a, b) => (a.id - b.id) * -1);
           return resources;
         })
         .then(resources => {
@@ -137,53 +132,24 @@ export default new Vuex.Store({
           alert(error.response.data);
         });
     },
-    addFileUrl(context, resource) {
-      if (resource.fileNames) {
-        resource.attachedFiles = [];
-        // todo: 더 간단하게 바꿀 수 있지 않을까?
-        for (const fileName of resource.fileNames) {
-          resource.attachedFiles.push({
-            fileName: fileName,
-            fileUrl: `/files/${fileName}`
-          });
-        }
-      } else {
-        resource.attachedFile = {
-          fileName: resource.fileName,
-          fileUrl: `/files/${resource.fileName}`
-        };
-      }
-      return resource;
+    requestIncreaseViewCountResources({ state, dispatch }) {
+      dispatch("requestPatchIncreaseViewCount", {
+        uri: "/notices",
+        repository: state.noticeViewCountRepository
+      });
+      dispatch("requestPatchIncreaseViewCount", {
+        uri: "/materials",
+        repository: state.materialViewCountRepository
+      });
+      dispatch("requestPatchIncreaseViewCount", {
+        uri: "/products",
+        repository: state.productViewCountRepository
+      });
     },
-    requestIncreaseViewCountResources({ state }) {
-      if (state.noticeViewCountRepository.size != 0) {
+    requestPatchIncreaseViewCount(context, request) {
+      if (request.repository.size != 0) {
         axios
-          .patch(
-            "/notices",
-            Object.fromEntries(state.noticeViewCountRepository)
-          )
-          .catch(error => {
-            console.log(error);
-            alert(error.response.data);
-          });
-      }
-      if (state.materialViewCountRepository.size != 0) {
-        axios
-          .patch(
-            "/materials",
-            Object.fromEntries(state.materialViewCountRepository)
-          )
-          .catch(error => {
-            console.log(error);
-            alert(error.response.data);
-          });
-      }
-      if (state.productViewCountRepository.size != 0) {
-        axios
-          .patch(
-            "/products",
-            Object.fromEntries(state.productViewCountRepository)
-          )
+          .patch(request.uri, Object.fromEntries(request.repository))
           .catch(error => {
             console.log(error);
             alert(error.response.data);
