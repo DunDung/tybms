@@ -10,11 +10,14 @@ import java.util.List;
 @Service
 public class FileService {
 
-    private static final String BASE_DIR = System.getProperty("user.dir") + "/src/main/resources/upload-files/";
+    private static final String BASE_DIR = System.getProperty("user.dir") + "\\upload-files";
 
     void uploadFiles(List<MultipartFile> files) {
         if (files == null) {
             return;
+        }
+        if (!new File(BASE_DIR).exists()) {
+            new File(BASE_DIR).mkdir();
         }
         files.forEach(file -> {
             try {
@@ -31,7 +34,7 @@ public class FileService {
     }
 
     File getFile(String fileName) {
-        return new File(BASE_DIR + fileName);
+        return new File(BASE_DIR + "\\" + fileName);
     }
 
 }
