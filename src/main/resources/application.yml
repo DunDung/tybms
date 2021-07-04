@@ -3,6 +3,9 @@ spring:
     multipart:
       maxFileSize: 10MB
       maxRequestSize: 100MB
+  mvc:
+    async:
+      request-timeout: 5000
   profiles:
     active: local
   jpa:

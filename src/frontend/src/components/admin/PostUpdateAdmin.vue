@@ -136,7 +136,9 @@ export default {
         }
       }
       this.$axios
-        .post("/files", formData)
+        .post("/files", formData, {
+          timeout: 8000
+        })
         .catch(error => alert(error.response.data));
       this.$axios
         .put(this.component.uri, this.updatingPost)

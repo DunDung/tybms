@@ -109,7 +109,9 @@ export default {
         this.creatingPost.attachedFile = this.productUploadFile.name;
       }
       this.$axios
-        .post("/files", formData)
+        .post("/files", formData, {
+          timeout: 8000
+        })
         .catch(error => alert(error.response.data));
       this.$axios
         .post(this.component.uri, this.creatingPost)
