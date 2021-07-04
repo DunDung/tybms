@@ -5,7 +5,7 @@ spring:
       maxRequestSize: 100MB
   mvc:
     async:
-      request-timeout: 5000
+      request-timeout: 500000
   profiles:
     active: local
   jpa:

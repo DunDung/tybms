@@ -137,7 +137,7 @@ export default {
       }
       this.$axios
         .post("/files", formData, {
-          timeout: 8000
+          timeout: 100000
         })
         .catch(error => alert(error.response.data));
       this.$axios
