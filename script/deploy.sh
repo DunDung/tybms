@@ -15,6 +15,7 @@ echo "> 업로드 파일 삭제 후 임시 저장한 폴더 복사"
 
 rm -rf $RESOURCES/upload-files
 cp -r $REPOSITORY/upload-files $RESOURCES/
+rm -rf $REPOSITORY/upload-files
 
 echo "> Permission Denied 방지"
 

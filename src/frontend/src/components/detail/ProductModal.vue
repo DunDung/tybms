@@ -10,10 +10,8 @@
             <td>
               <v-btn
                 text
-                :href="/files/"
-                +
-                product.attachedFile
-                :download="product.attachedFile"
+                :href="makeFileUrl(product)"
+                :download="product.fileName"
                 @click="$emit('close')"
               >
                 다운로드
@@ -23,9 +21,7 @@
               <v-btn
                 text
                 @click="$emit('close')"
-                :href="/files/"
-                +
-                product.attachedFile
+                :href="makeFileUrl(product)"
                 target="_blank"
               >
                 열기
@@ -47,7 +43,12 @@ export default {
   props: ["product"],
   data: () => ({
     dialog: true
-  })
+  }),
+  methods: {
+    makeFileUrl(product) {
+      return "/files/" + product.fileName;
+    }
+  }
 };
 </script>
 
