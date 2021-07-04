@@ -5,7 +5,6 @@
       <router-view></router-view>
       <ScrollToTopButton v-if="isNotAdmin" />
       <Footer v-if="isNotAdmin" />
-      <v-btn @click="this.requestIncreaseViewCountResources"></v-btn>
     </v-main>
   </v-app>
 </template>
@@ -36,11 +35,11 @@ export default {
   created() {
     this.requestFindAllResources();
 
-    // 페이지 나가기 or 새로고침 시 조회수 변경요청 날리도록 등록
-    // window.addEventListener(
-    //   "beforeunload",
-    //   this.requestIncreaseViewCountResources
-    // );
+    //페이지 나가기 or 새로고침 시 조회수 변경요청 날리도록 등록
+    window.addEventListener(
+      "beforeunload",
+      this.requestIncreaseViewCountResources
+    );
   },
   methods: {
     ...mapActions([

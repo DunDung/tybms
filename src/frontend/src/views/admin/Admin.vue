@@ -53,6 +53,9 @@ import { mapGetters } from "vuex";
 export default {
   created() {
     EventBus.$emit("admin", true);
+    if (sessionStorage.getItem("admin") == "true") {
+      this.dialog = false;
+    }
   },
   destroyed() {
     EventBus.$emit("admin", false);
@@ -114,6 +117,7 @@ export default {
         .post("/passwords", { password: this.password })
         .then(res => {
           if (res.data === true) {
+            sessionStorage.setItem("admin", res.data);
             this.dialog = false;
           } else {
             this.isWrongPassword = true;

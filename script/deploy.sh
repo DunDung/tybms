@@ -1,11 +1,20 @@
 REPOSITORY=/home/ubuntu/app
+RESOURCES=/home/ubuntu/app/tybms/src/main/resources
+
+echo "> 업로드 파일 임시 저장"
+
+cp -r $RESOURCES/upload-files $REPOSITORY/
 
 cd $REPOSITORY/tybms
-
 
 echo "> Git Pull"
 
 git pull
+
+echo "> 업로드 파일 삭제 후 임시 저장한 폴더 복사"
+
+rm -rf $RESOURCES/upload-files
+cp -r $REPOSITORY/upload-files $RESOURCES/
 
 echo "> Permission Denied 방지"
 
@@ -39,6 +48,4 @@ JAR_NAME=$(ls -tr $REPOSITORY/*.jar | tail -n 1)
 
 echo "> JAR Name: $JAR_NAME"
 
-nohup java -jar $JAR_NAME 1> /dev/null 2>&1 &
-
-#-DSpring.profiles.active=prod
+nohup java -jar -DSpring.profiles.active=prod $JAR_NAME 1> /dev/null 2>&1 &
