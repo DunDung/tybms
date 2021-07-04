@@ -10,7 +10,7 @@ import java.util.List;
 @Service
 public class FileService {
 
-    private static final String BASE_DIR = System.getProperty("user.dir") + "/upload-files";
+    private static final String BASE_DIR = System.getProperty("user.dir") + "/src/main/resources/upload-files/";
 
     void uploadFiles(List<MultipartFile> files) {
         if (files == null) {
