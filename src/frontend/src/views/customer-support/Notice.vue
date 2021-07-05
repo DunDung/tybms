@@ -4,7 +4,6 @@
     <DetailPost
       v-if="isViewDetailPost"
       :clickedPost="clickedPost"
-      requestUri="/notices"
     />
     <Board :posts="getNotices" />
   </v-main>

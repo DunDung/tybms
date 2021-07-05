@@ -4,7 +4,6 @@
     <DetailPost
       v-if="isViewDetailPost"
       :clickedPost="clickedPost"
-      requestUri="/materials"
     />
     <Board :posts="getMaterials" />
   </v-main>
