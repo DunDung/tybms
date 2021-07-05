@@ -110,6 +110,9 @@ export default {
       }
       this.$axios
         .post("/files", formData, {
+          headers : {
+            'Content-Type': 'multipart/form-data'
+          },
           timeout: 100000
         })
         .catch(error => alert(error.response.data));

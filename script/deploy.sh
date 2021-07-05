@@ -1,21 +1,12 @@
 REPOSITORY=/home/ubuntu/app
-RESOURCES=/home/ubuntu/app/tybms/src/main/resources
 
 echo "> 업로드 파일 임시 저장"
-
-cp -r $RESOURCES/upload-files $REPOSITORY/
 
 cd $REPOSITORY/tybms
 
 echo "> Git Pull"
 
 git pull
-
-echo "> 업로드 파일 삭제 후 임시 저장한 폴더 복사"
-
-rm -rf $RESOURCES/upload-files
-cp -r $REPOSITORY/upload-files $RESOURCES/
-rm -rf $REPOSITORY/upload-files
 
 echo "> Permission Denied 방지"
 
