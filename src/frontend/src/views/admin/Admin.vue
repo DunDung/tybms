@@ -53,7 +53,7 @@ import { mapGetters } from "vuex";
 export default {
   created() {
     EventBus.$emit("admin", true);
-    if (sessionStorage.getItem("admin") == "true") {
+    if (sessionStorage.getItem("admin")) {
       this.dialog = false;
     }
   },

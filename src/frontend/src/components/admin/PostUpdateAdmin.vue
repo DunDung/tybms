@@ -122,7 +122,7 @@ export default {
     deleteAgoFile(index) {
       this.updatingPost.fileNames.splice(index, 1);
     },
-    requestUpdate() {
+    async requestUpdate() {
       let formData = new FormData();
       if (this.isNotProductCatalog()) {
         this.savedUploadFiles.forEach(file => {
@@ -135,17 +135,13 @@ export default {
           this.updatingPost.attachedFile = this.productUploadFile.name;
         }
       }
-      const axiosForFileUpload = this.$axios.create({
-        headers : {
-          'Content-Type': 'multipart/form-data'
-        },
-        timeout: 600000
-      });
-      axiosForFileUpload
-        .post("/files", formData)
-        .catch(error => alert(error.response.data));
       this.$axios
         .put(this.component.uri, this.updatingPost)
+        .catch(error => alert(error.response.data));
+      await this.$axios
+        .post("/files", formData, {
+          timeout: 600000
+        })
         .catch(error => alert(error.response.data));
       this.$router.go();
     },
