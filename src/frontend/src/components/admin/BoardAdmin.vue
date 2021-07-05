@@ -60,6 +60,17 @@
                 </v-btn>
               </td>
               <td>
+                <v-btn
+                  text
+                  @click="
+                    isView = true;
+                    dialog = false;
+                  "
+                >
+                  보기
+                </v-btn>
+              </td>
+              <td>
                 <v-btn text @click="dialog = false">
                   닫기
                 </v-btn>
@@ -69,15 +80,23 @@
         </v-card>
       </v-dialog>
     </v-container>
+      <v-dialog v-model="isView" max-width="80%" >
+        <DetailPost :clickedPost="clickedPost" />
+        <v-btn @click="isView = false" tile color="red">
+          <v-icon color="white">mdi-window-close</v-icon>
+        </v-btn>
+      </v-dialog>
   </v-main>
 </template>
 <script>
 import PostCreateAdmin from "@/components/admin/PostCreateAdmin";
 import PostUpdateAdmin from "@/components/admin/PostUpdateAdmin";
+import DetailPost from "@/components/detail/DetailPost";
 export default {
   components: {
     PostCreateAdmin,
-    PostUpdateAdmin
+    PostUpdateAdmin,
+    DetailPost
   },
   props: ["component"],
   data: () => ({
@@ -95,6 +114,7 @@ export default {
     ],
     clickedPost: {},
     dialog: false,
+    isView: false,
     isCreate: false,
     isUpdate: false
   }),
@@ -121,7 +141,9 @@ export default {
         .delete(`${this.component.uri}/${this.clickedPost.id}`)
         .catch(error => alert(error.response.data));
       this.dialog = false;
-      let index = this.component.posts.findIndex(post => post.id === this.clickedPost.id);
+      let index = this.component.posts.findIndex(
+        post => post.id === this.clickedPost.id
+      );
       this.component.posts.splice(index, 1);
     },
     closeCreate() {
@@ -137,4 +159,7 @@ export default {
 .v-card {
   display: flex;
 }
+  .wrap {
+    margin: 0 auto;
+  }
 </style>
