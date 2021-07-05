@@ -89,7 +89,7 @@ export default {
         text: "번호",
         align: "center",
         sortable: false,
-        value: "id"
+        value: "index"
       },
       { text: "제목", sortable: false, value: "title" }
     ],
