@@ -89,7 +89,7 @@ export default {
       this.notProductUploadFiles = [];
       this.savedUploadFiles.splice(index, 1);
     },
-    requestCreate() {
+    async requestCreate() {
       if (this.creatingPost.title === "") {
         alert("제목은 비어있을 수 없습니다!");
         return;
@@ -114,11 +114,11 @@ export default {
         },
         timeout: 600000
       });
-      axiosForFileUpload
-        .post("/files", formData)
-        .catch(error => alert(error.response.data));
       this.$axios
         .post(this.component.uri, this.creatingPost)
+        .catch(error => alert(error.response.data));
+      await axiosForFileUpload
+        .post("/files", formData)
         .catch(error => alert(error.response.data));
       this.$router.go();
     },
