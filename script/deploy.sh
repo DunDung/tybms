@@ -1,12 +1,20 @@
 REPOSITORY=/home/ubuntu/app
+ORIGIN_UPLOAD_FILE=/home/ubuntu/app/tybms/upload-files
+TEMP_UPLOAD_FILE=/home/ubuntu/app/upload-files
 
-echo "> 업로드 파일 임시 저장"
+echo "> 업로드 파일 임시 폴더로 이동"
+
+mv $ORIGIN_UPLOAD_FILE $TEMP_UPLOAD_FILE
 
 cd $REPOSITORY/tybms
 
 echo "> Git Pull"
 
 git pull
+
+echo "> 업로드 파일 제자리로"
+
+mv $TEMP_UPLOAD_FILE $ORIGIN_UPLOAD_FILE
 
 echo "> Permission Denied 방지"
 
