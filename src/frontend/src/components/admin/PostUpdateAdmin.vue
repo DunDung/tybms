@@ -135,13 +135,14 @@ export default {
           this.updatingPost.attachedFile = this.productUploadFile.name;
         }
       }
-      this.$axios
-        .post("/files", formData, {
-          headers : {
-            'Content-Type': 'multipart/form-data'
-          },
-          timeout: 100000
-        })
+      const axiosForFileUpload = this.$axios.create({
+        headers : {
+          'Content-Type': 'multipart/form-data'
+        },
+        timeout: 600000
+      });
+      axiosForFileUpload
+        .post("/files", formData)
         .catch(error => alert(error.response.data));
       this.$axios
         .put(this.component.uri, this.updatingPost)
