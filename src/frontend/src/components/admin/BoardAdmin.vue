@@ -121,7 +121,8 @@ export default {
         .delete(`${this.component.uri}/${this.clickedPost.id}`)
         .catch(error => alert(error.response.data));
       this.dialog = false;
-      this.$router.go();
+      let index = this.component.posts.findIndex(post => post.id === this.clickedPost.id);
+      this.component.posts.splice(index, 1);
     },
     closeCreate() {
       this.isCreate = false;
