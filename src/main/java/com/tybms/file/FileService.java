@@ -29,9 +29,8 @@ public class FileService {
         });
     }
 
-    public void deleteFile(String fileName) {
-        File deleteFile = getFile(fileName);
-        deleteFile.delete();
+    public boolean deleteFile(String fileName) {
+        return getFile(fileName).delete();
     }
 
     File getFile(String fileName) {

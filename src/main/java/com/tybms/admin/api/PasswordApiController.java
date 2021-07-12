@@ -18,7 +18,6 @@ public class PasswordApiController {
 
     @PostMapping
     public ResponseEntity<Boolean> isMatch(@RequestBody Password password) {
-        System.out.println(password.getPassword());
         return ResponseEntity.ok(passwordService.isMatch(password));
     }
 
