@@ -80,12 +80,12 @@
         </v-card>
       </v-dialog>
     </v-container>
-      <v-dialog v-model="isView" max-width="80%" >
-        <DetailPost :clickedPost="clickedPost" />
-        <v-btn @click="isView = false" tile color="red">
-          <v-icon color="white">mdi-window-close</v-icon>
-        </v-btn>
-      </v-dialog>
+    <v-dialog v-model="isView" max-width="80%">
+      <DetailPost :clickedPost="clickedPost" />
+      <v-btn @click="isView = false" tile color="red">
+        <v-icon color="white">mdi-window-close</v-icon>
+      </v-btn>
+    </v-dialog>
   </v-main>
 </template>
 <script>
@@ -137,14 +137,18 @@ export default {
       this.dialog = false;
     },
     onClickDelete() {
-      this.$axios
-        .delete(`${this.component.uri}/${this.clickedPost.id}`)
-        .catch(error => alert(error.response.data));
-      this.dialog = false;
-      let index = this.component.posts.findIndex(
-        post => post.id === this.clickedPost.id
-      );
-      this.component.posts.splice(index, 1);
+      if (window.confirm("삭제하시겠습니까?")) {
+        this.$axios
+          .delete(`${this.component.uri}/${this.clickedPost.id}`)
+          .catch(error => alert(error.response.data));
+        this.dialog = false;
+        let index = this.component.posts.findIndex(
+          post => post.id === this.clickedPost.id
+        );
+        this.component.posts.splice(index, 1);
+      } else {
+        this.dialog = false;
+      }
     },
     closeCreate() {
       this.isCreate = false;
@@ -159,7 +163,7 @@ export default {
 .v-card {
   display: flex;
 }
-  .wrap {
-    margin: 0 auto;
-  }
+.wrap {
+  margin: 0 auto;
+}
 </style>
