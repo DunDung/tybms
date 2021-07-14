@@ -25,11 +25,15 @@ export default {};
 <style scoped>
 .main-wrap {
   font-family: "NanumSquare", sans-serif !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .sub-wrap {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 0 auto;
 }
 h1 {
   font-family: "Do Hyeon", sans-serif;
@@ -42,7 +46,7 @@ h2 {
 }
 h4 {
   font-size: 20px;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 .error-btn {
   border-color: black !important;
@@ -55,5 +59,6 @@ h4 {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  margin-top: 40px;
 }
 </style>
