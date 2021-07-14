@@ -12,6 +12,7 @@ import History from "@/views/company-about/History";
 import Performance from "@/views/company-about/Performance";
 import Contact from "@/views/company-about/Contact";
 import Admin from "@/views/admin/Admin";
+import Error from "@/views/Error";
 
 Vue.use(VueRouter);
 
@@ -20,6 +21,15 @@ const routes = [
     path: "/",
     name: "Main",
     component: Main
+  },
+  {
+    path: "*",
+    redirect: "/404"
+  },
+  {
+    path: "/404",
+    name: "Error",
+    component: Error
   },
   {
     path: "/smart-go",

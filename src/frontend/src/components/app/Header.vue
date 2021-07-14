@@ -142,7 +142,7 @@ export default {
       },
       {
         title: "쇼핑몰",
-        path: "/#"
+        path: "/404"
       }
     ]
   }),
@@ -163,20 +163,21 @@ export default {
 .menu-list {
   width: 15vw;
   background-color: transparent !important;
+  padding: 10px 0;
 }
 
 .main-title {
   color: #ffffff;
-  font-weight: 500;
+  font-weight: 700;
   font-size: 18px;
 }
 
 .sub-menus-wrap {
-  margin-left: 18.3vw;
+  margin-left: 18.6vw;
 }
 
 .sub-menus {
-  height: 250px;
+  height: 270px;
   width: 100%;
   opacity: 0.8;
   position: absolute;
@@ -196,6 +197,7 @@ export default {
 .sub-menu-title {
   white-space: normal;
   font-size: 0.9rem;
+  font-weight: 600;
   margin-top: 15px;
 }
 

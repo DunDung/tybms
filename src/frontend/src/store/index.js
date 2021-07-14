@@ -121,7 +121,7 @@ export default new Vuex.Store({
         .get(request.uri)
         .then(response => {
           let resources = response.data;
-          resources.sort((a, b) => (a.id - b.id) * -1)
+          resources.sort((a, b) => (a.id - b.id) * -1);
           let index = resources.length;
           for (let i in resources) {
             resources[i].index = index--;

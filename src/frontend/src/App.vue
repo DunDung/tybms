@@ -1,11 +1,9 @@
 <template>
   <v-app id="app">
-    <v-main>
-      <Header v-if="isNotAdmin" />
-      <router-view></router-view>
-      <ScrollToTopButton v-if="isNotAdmin" />
-      <Footer v-if="isNotAdmin" />
-    </v-main>
+    <Header v-if="isNotAdmin" />
+    <router-view></router-view>
+    <ScrollToTopButton v-if="isNotAdmin" />
+    <Footer v-if="isNotAdmin" />
   </v-app>
 </template>
 
@@ -56,25 +54,13 @@ export default {
 #app {
   font-family: "Nanum Gothic", sans-serif;
   width: 80%;
+  height: 100%;
   margin: 0 auto;
   /*font-family: 'Noto Sans KR', sans-serif;*/
   /* font-family: 'Yeon Sung', cursive;*/
   /* font-family: "Do Hyeon", sans-serif;*/
   /*font-family: 'NanumSquare', sans-serif !important;*/
 }
-
-/*Board 컴포넌트 스타일 적용이 scoped면 안됨.*/
-th {
-  font-size: 1vw !important;
-  font-weight: bold;
-  background-color: #f0f0f0;
-}
-
-td {
-  font-size: 0.9vw !important;
-  cursor: pointer;
-}
-/**/
 
 @media screen and (max-width: 960px) {
   #app {

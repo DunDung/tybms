@@ -54,6 +54,21 @@ export default {
   }
 };
 </script>
+<style>
+/*Board 컴포넌트 스타일 적용이 scoped면 안됨.*/
+th {
+  font-size: 1vw !important;
+  font-weight: bold;
+  background-color: #f0f0f0;
+}
+
+td {
+  font-size: 0.9vw !important;
+  cursor: pointer;
+}
+/**/
+</style>
+
 <style scoped>
 .board-wrap {
   margin-top: 1.5vw;
