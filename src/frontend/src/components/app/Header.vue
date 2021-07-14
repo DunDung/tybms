@@ -142,7 +142,7 @@ export default {
       },
       {
         title: "쇼핑몰",
-        path: "/#"
+        path: "/404"
       }
     ]
   }),
