@@ -1,10 +1,7 @@
 <template>
   <v-main>
     <ImageFrame :frame="frame" />
-    <DetailPost
-      v-if="isViewDetailPost"
-      :clickedPost="clickedPost"
-    />
+    <DetailPost v-if="isViewDetailPost" :clickedPost="clickedPost" />
     <Board :posts="getMaterials" />
   </v-main>
 </template>

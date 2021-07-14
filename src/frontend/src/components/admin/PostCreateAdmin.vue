@@ -113,8 +113,8 @@ export default {
         .catch(error => alert(error.response.data));
       await this.$axios
         .post("/files", formData, {
-        timeout: 600000
-      })
+          timeout: 600000
+        })
         .catch(error => alert(error.response.data));
       this.$router.go();
     },

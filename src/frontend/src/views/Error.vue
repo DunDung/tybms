@@ -11,9 +11,7 @@
       </h4>
       <h4>감사합니다.☺️</h4>
       <v-container class="buttons">
-        <v-btn text outlined to="/" class="error-btn"
-          >메인으로</v-btn
-        >
+        <v-btn text outlined to="/" class="error-btn">메인으로</v-btn>
         <v-btn text outlined @click="$router.go(-1)" class="error-btn"
           >이전 페이지</v-btn
         >
@@ -22,8 +20,7 @@
   </v-main>
 </template>
 <script>
-export default {
-};
+export default {};
 </script>
 <style scoped>
 .main-wrap {
@@ -52,7 +49,7 @@ h4 {
   font-family: "NanumSquare", sans-serif !important;
   font-weight: bold;
   font-size: 20px;
-  margin: 0 10px 0 10px
+  margin: 0 10px 0 10px;
 }
 .buttons {
   display: flex;
