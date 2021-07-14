@@ -34,7 +34,7 @@ public class MaterialService {
         return savedMaterial;
     }
 
-    @Transactional
+    @Transactional(readOnly = true)
     public List<MaterialResponse> findAll() {
         List<Material> materials = this.materialRepository.findAll();
         return materials.stream()

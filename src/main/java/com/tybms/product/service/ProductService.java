@@ -26,7 +26,7 @@ public class ProductService {
         return this.productRepository.save(product);
     }
 
-    @Transactional
+    @Transactional(readOnly = true)
     public List<ProductResponse> findAll() {
         return this.productRepository.findAll().stream()
                 .map(ProductResponse::from)

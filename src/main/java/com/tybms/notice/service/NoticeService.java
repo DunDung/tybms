@@ -33,7 +33,7 @@ public class NoticeService {
         return savedNotice;
     }
 
-    @Transactional
+    @Transactional(readOnly = true)
     public List<NoticeResponse> findAll() {
         List<Notice> notices = noticeRepository.findAll();
         return notices.stream()
