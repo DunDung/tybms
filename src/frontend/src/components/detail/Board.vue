@@ -68,6 +68,7 @@ td {
 }
 /**/
 </style>
+
 <style scoped>
 .board-wrap {
   margin-top: 1.5vw;
