@@ -168,12 +168,12 @@ export default {
 
 .main-title {
   color: #ffffff;
-  font-weight: 500;
+  font-weight: 700;
   font-size: 18px;
 }
 
 .sub-menus-wrap {
-  margin-left: 18.3vw;
+  margin-left: 18.6vw;
 }
 
 .sub-menus {
@@ -197,6 +197,7 @@ export default {
 .sub-menu-title {
   white-space: normal;
   font-size: 0.9rem;
+  font-weight: 600;
   margin-top: 15px;
 }
 
