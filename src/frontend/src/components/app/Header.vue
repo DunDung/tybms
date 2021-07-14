@@ -163,6 +163,7 @@ export default {
 .menu-list {
   width: 15vw;
   background-color: transparent !important;
+  padding: 10px 0;
 }
 
 .main-title {
@@ -176,7 +177,7 @@ export default {
 }
 
 .sub-menus {
-  height: 250px;
+  height: 270px;
   width: 100%;
   opacity: 0.8;
   position: absolute;
