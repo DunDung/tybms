@@ -23,7 +23,7 @@ public class Password {
     @Column(unique = true)
     private String password;
 
-    public void encodePassword(PasswordEncoder passwordEncoder) {
+    public void setEncodePassword(PasswordEncoder passwordEncoder) {
         this.password = passwordEncoder.encode(this.password);
     }
 

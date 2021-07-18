@@ -20,7 +20,8 @@ public class PasswordService {
     }
 
     public Password register(Password password) {
-        password.encodePassword(this.passwordEncoder);
+        password.setEncodePassword(this.passwordEncoder);
         return passwordRepository.save(password);
     }
+
 }
