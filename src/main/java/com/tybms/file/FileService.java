@@ -24,7 +24,7 @@ public class FileService {
             try {
                 file.transferTo(getFile(file.getOriginalFilename()));
             } catch (IOException e) {
-                throw new RuntimeException("파일 업로드 중 오류가 발생했습니다.");
+                throw new FileUploadException();
             }
         });
     }
