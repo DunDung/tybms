@@ -73,6 +73,7 @@ class PasswordServiceTest {
 
         Password find = passwordRepository.findById(register.getId())
                 .orElseThrow(NoSuchElementException::new);
+
         assertThat(register).usingRecursiveComparison()
                 .isEqualTo(find);
     }

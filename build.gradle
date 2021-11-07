@@ -7,7 +7,7 @@ plugins {
 
 group = 'co.kr'
 version = '1.0.1'
-sourceCompatibility = '1.8'
+sourceCompatibility = '1.11'
 
 configurations {
     compileOnly {
@@ -39,20 +39,20 @@ test {
     useJUnitPlatform()
 }
 
-node {
-    workDir = file("./src/frontend")
-    npmWorkDir = file("./src/frontend")
-    nodeModulesDir = file("./src/frontend")
-}
-
-task setUp(type: NpmTask) {
-    description = "Install Node.js Package"
-    args = ['install']
-}
-
-task buildFrontEnd(type: NpmTask, dependsOn: setUp) {
-    description = "Build vue.js"
-    args = ['run', 'build']
-}
-
-processResources.dependsOn 'buildFrontEnd'
+//node {
+//    workDir = file("./src/frontend")
+//    npmWorkDir = file("./src/frontend")
+//    nodeModulesDir = file("./src/frontend")
+//}
+//
+//task setUp(type: NpmTask) {
+//    description = "Install Node.js Package"
+//    args = ['install']
+//}
+//
+//task buildFrontEnd(type: NpmTask, dependsOn: setUp) {
+//    description = "Build vue.js"
+//    args = ['run', 'build']
+//}
+//
+//processResources.dependsOn 'buildFrontEnd'

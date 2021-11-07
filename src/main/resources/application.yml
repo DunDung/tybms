@@ -54,9 +54,9 @@ spring:
   datasource:
     hikari:
       driver-class-name: org.mariadb.jdbc.Driver
-      jdbc-url: jdbc:mariadb://tybms.c6q7uh384wrh.ap-northeast-2.rds.amazonaws.com/tybms
-    username: tybms_rdb
-    password: tybms023!!
+      jdbc-url: jdbc:mysql://13.124.1.36:3306/tybms
+    username: dundung
+    password: dundung
   jpa:
     hibernate:
       ddl-auto: validate
