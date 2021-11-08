@@ -14,4 +14,4 @@ build/
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
-/src/test/java/com/tybms/PasswordRegister.java
+/src/test/java/co/kr/tybms/PasswordRegister.java
