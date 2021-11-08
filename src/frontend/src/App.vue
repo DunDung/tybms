@@ -1,9 +1,9 @@
 <template>
   <v-app id="app">
-    <Header v-if="isNotAdmin" />
+    <Header v-if="isNotAdmin"/>
     <router-view></router-view>
-    <ScrollToTopButton v-if="isNotAdmin" />
-    <Footer v-if="isNotAdmin" />
+    <ScrollToTopButton v-if="isNotAdmin"/>
+    <Footer v-if="isNotAdmin"/>
   </v-app>
 </template>
 
@@ -12,7 +12,7 @@ import Header from "@/components/app/Header";
 import Footer from "@/components/app/Footer";
 import ScrollToTopButton from "@/components/app/ScrollToTopButton";
 import EventBus from "@/event-bus/EventBus.js";
-import { mapActions } from "vuex";
+import {mapActions} from "vuex";
 
 export default {
   name: "App",
@@ -35,8 +35,8 @@ export default {
 
     //페이지 나가기 or 새로고침 시 조회수 변경요청 날리도록 등록
     window.addEventListener(
-      "beforeunload",
-      this.requestIncreaseViewCountResources
+        "beforeunload",
+        this.requestIncreaseViewCountResources
     );
   },
   methods: {
@@ -65,6 +65,8 @@ export default {
 @media screen and (max-width: 960px) {
   #app {
     width: 100%;
+    /*모바일 오른쪽 여백 제거*/
+    overflow-x: hidden;
   }
 }
 </style>
