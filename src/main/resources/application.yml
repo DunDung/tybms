@@ -55,6 +55,12 @@ spring:
     hikari:
       driver-class-name: org.mariadb.jdbc.Driver
       jdbc-url: jdbc:mysql://13.124.1.36:3306/tybms
+      minimum-idle: 3
+      maximum-pool-size: 10
+      connection-timeout: 3000
+      max-lifetime: 58000
+      idle-timeout: 30000
+      auto-commit: false
     username: dundung
     password: dundung
   jpa:
