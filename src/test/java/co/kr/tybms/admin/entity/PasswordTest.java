@@ -9,7 +9,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 
-public class PasswordTest {
+class PasswordTest {
 
     public static final String ENCODED_PASSWORD = "encoded password";
 
@@ -26,4 +26,6 @@ public class PasswordTest {
 
         assertThat(password.getPassword()).isEqualTo(ENCODED_PASSWORD);
     }
+
+
 }
