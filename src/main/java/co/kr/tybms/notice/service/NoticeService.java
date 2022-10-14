@@ -27,7 +27,7 @@ public class NoticeService {
     private final NoticeAttachedFileRepository noticeAttachedFileRepository;
     private final FileService fileService;
 
-    @CacheEvict(cacheNames = "NOTICES")
+    @CacheEvict(cacheNames = "NOTICES", allEntries = true)
     @Transactional
     public Notice save(NoticeCreateRequest noticeCreateRequest) {
         Notice savedNotice = noticeRepository.save(noticeCreateRequest.toNotice());
@@ -45,13 +45,13 @@ public class NoticeService {
                 .collect(Collectors.toList());
     }
 
-    @CacheEvict(cacheNames = "NOTICES")
+    @CacheEvict(cacheNames = "NOTICES", allEntries = true)
     @Transactional
     public void increaseViewCount(Map<Long, Long> viewCountToIds) {
         viewCountToIds.forEach(this.noticeRepository::updateViewCount);
     }
 
-    @CacheEvict(cacheNames = "NOTICES")
+    @CacheEvict(cacheNames = "NOTICES", allEntries = true)
     @Transactional
     public void deleteById(Long id) {
         noticeAttachedFileRepository.findByNoticeId(id).stream()
@@ -60,7 +60,7 @@ public class NoticeService {
         this.noticeRepository.deleteById(id);
     }
 
-    @CacheEvict(cacheNames = "NOTICES")
+    @CacheEvict(cacheNames = "NOTICES", allEntries = true)
     @Transactional
     public void update(NoticeUpdateRequest noticeUpdateRequest) {
         Notice noticeById = noticeRepository.findById(noticeUpdateRequest.getId())

@@ -28,7 +28,7 @@ public class MaterialService {
     private final FileService fileService;
 
 
-    @CacheEvict(cacheNames = "MATERIALS")
+    @CacheEvict(cacheNames = "MATERIALS", allEntries = true)
     @Transactional
     public Material save(MaterialCreateRequest materialCreateRequest) {
         Material savedMaterial = this.materialRepository.save(materialCreateRequest.toMaterial());
@@ -46,13 +46,13 @@ public class MaterialService {
                 .collect(Collectors.toList());
     }
 
-    @CacheEvict(cacheNames = "MATERIALS")
+    @CacheEvict(cacheNames = "MATERIALS", allEntries = true)
     @Transactional
     public void increaseViewCount(Map<Long, Long> viewCountToIds) {
         viewCountToIds.forEach(this.materialRepository::updateViewCount);
     }
 
-    @CacheEvict(cacheNames = "MATERIALS")
+    @CacheEvict(cacheNames = "MATERIALS", allEntries = true)
     @Transactional
     public void deleteById(Long id) {
         materialAttachedFileRepository.findByMaterialId(id).stream()
@@ -61,7 +61,7 @@ public class MaterialService {
         this.materialRepository.deleteById(id);
     }
 
-    @CacheEvict(cacheNames = "MATERIALS")
+    @CacheEvict(cacheNames = "MATERIALS", allEntries = true)
     @Transactional
     public void update(MaterialUpdateRequest materialUpdateRequest) {
         Material materialById = this.materialRepository.findById(materialUpdateRequest.getId())

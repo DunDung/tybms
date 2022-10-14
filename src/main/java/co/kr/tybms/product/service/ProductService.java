@@ -23,7 +23,7 @@ public class ProductService {
     private final ProductRepository productRepository;
     private final FileService fileService;
 
-    @CacheEvict(cacheNames = "PRODUCTS")
+    @CacheEvict(cacheNames = "PRODUCTS", allEntries = true)
     @Transactional
     public Product save(Product product) {
         return this.productRepository.save(product);
@@ -37,19 +37,19 @@ public class ProductService {
                 .collect(Collectors.toList());
     }
 
-    @CacheEvict(cacheNames = "PRODUCTS")
+    @CacheEvict(cacheNames = "PRODUCTS", allEntries = true)
     @Transactional
     public void increaseViewCount(Map<Long, Long> viewCountToIds) {
         viewCountToIds.forEach(this.productRepository::updateViewCount);
     }
 
-    @CacheEvict(cacheNames = "PRODUCTS")
+    @CacheEvict(cacheNames = "PRODUCTS", allEntries = true)
     @Transactional
     public void deleteById(Long id) {
         this.productRepository.deleteById(id);
     }
 
-    @CacheEvict(cacheNames = "PRODUCTS")
+    @CacheEvict(cacheNames = "PRODUCTS", allEntries = true)
     @Transactional
     public void update(ProductUpdateRequest productUpdateRequest) {
         Product productById = this.productRepository.findById(productUpdateRequest.getId())
