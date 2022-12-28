@@ -1,39 +1,41 @@
 package co.kr.tybms.file;
 
+import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.s3.model.ObjectMetadata;
+import com.amazonaws.services.s3.model.S3Object;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class FileService {
 
-    private static final String FILE_SEPARATOR = System.getProperty("file.separator");
-    private static final String BASE_DIR = System.getProperty("user.dir") + FILE_SEPARATOR + "upload-files";
+    @Value("${cloud.aws.s3.bucket}")
+    private String bucket;
+    private final AmazonS3 amazonS3;
 
-    void uploadFiles(List<MultipartFile> files) {
-        if (files == null) {
-            return;
-        }
-        if (!new File(BASE_DIR).exists()) {
-            new File(BASE_DIR).mkdir();
-        }
+    public void uploadFiles(List<MultipartFile> files) {
         files.forEach(file -> {
+            ObjectMetadata objMeta = new ObjectMetadata();
             try {
-                file.transferTo(getFile(file.getOriginalFilename()));
+                objMeta.setContentLength(file.getInputStream().available());
+                amazonS3.putObject(bucket, file.getOriginalFilename(), file.getInputStream(), objMeta);
             } catch (IOException e) {
-                throw new FileUploadException();
+                throw new FileUploadException(e);
             }
         });
     }
 
-    public boolean deleteFile(String fileName) {
-        return getFile(fileName).delete();
+    public void deleteFile(String fileName) {
+        amazonS3.deleteObject(bucket, fileName);
     }
 
-    File getFile(String fileName) {
-        return new File(BASE_DIR + FILE_SEPARATOR + fileName);
+    public S3Object getFile(String fileName) {
+        return amazonS3.getObject(bucket, fileName);
     }
 }

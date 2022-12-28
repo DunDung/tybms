@@ -20,12 +20,17 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-    implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-validation'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.springframework.boot:spring-boot-starter-cache'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    implementation 'com.amazonaws:aws-java-sdk-s3'
     implementation 'com.github.ben-manes.caffeine:caffeine'
-    compile "org.springframework.boot:spring-boot-starter-security"
+    implementation platform('com.amazonaws:aws-java-sdk-bom:1.11.1000')
+    implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.4'
+
     runtimeOnly "org.mariadb.jdbc:mariadb-java-client"
     runtimeOnly 'mysql:mysql-connector-java'
     compileOnly 'org.projectlombok:lombok'
@@ -39,21 +44,3 @@ dependencies {
 test {
     useJUnitPlatform()
 }
-
-//node {
-//    workDir = file("./src/frontend")
-//    npmWorkDir = file("./src/frontend")
-//    nodeModulesDir = file("./src/frontend")
-//}
-//
-//task setUp(type: NpmTask) {
-//    description = "Install Node.js Package"
-//    args = ['install']
-//}
-//
-//task buildFrontEnd(type: NpmTask, dependsOn: setUp) {
-//    description = "Build vue.js"
-//    args = ['run', 'build']
-//}
-//
-//processResources.dependsOn 'buildFrontEnd'

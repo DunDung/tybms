@@ -5,50 +5,46 @@
         <span style="color:red">{{ component.name }}</span> 작성하기
       </h2>
       <h5>
-        * PDF 파일만 업로드되게 만들어놨어요. 다른 파일 형식도 필요하시면 편하게
-        말씀해주세용
-      </h5>
-      <h5>
         * 첨부파일이 너무 크면 서버에 부담이갑니다ㅠ 파일당 1MB를 안넘었으면
         좋겠어요,.
       </h5>
       <v-text-field
-        label="글 제목"
-        :rules="rules"
-        v-model="creatingPost.title"
-        hide-details="auto"
+          label="글 제목"
+          :rules="rules"
+          v-model="creatingPost.title"
+          hide-details="auto"
       ></v-text-field>
       <v-textarea
-        name="input-7-1"
-        label="글 내용"
-        :rules="rules"
-        v-model="creatingPost.content"
-        v-show="isNotProductCatalog()"
-        auto-grow
+          name="input-7-1"
+          label="글 내용"
+          :rules="rules"
+          v-model="creatingPost.content"
+          v-show="isNotProductCatalog()"
+          auto-grow
       ></v-textarea>
       <v-file-input
-        multiple
-        label="파일 입력"
-        show-size
-        v-if="isNotProductCatalog()"
-        v-model="notProductUploadFiles"
+          multiple
+          label="파일 입력"
+          show-size
+          v-if="isNotProductCatalog()"
+          v-model="notProductUploadFiles"
       ></v-file-input>
       <v-file-input
-        label="파일 입력, 하나만 가능"
-        show-size
-        v-if="!isNotProductCatalog()"
-        v-model="productUploadFile"
+          label="파일 입력, 하나만 가능"
+          show-size
+          v-if="!isNotProductCatalog()"
+          v-model="productUploadFile"
       ></v-file-input>
       <div v-if="isNotProductCatalog()">
         <h4>첨부된 파일 목록 :</h4>
         <v-chip
-          v-for="(file, index) in getSavedUploadFiles"
-          :key="index"
-          class="ma-2"
-          close
-          color="red"
-          text-color="white"
-          @click:close="deleteFile(index)"
+            v-for="(file, index) in getSavedUploadFiles"
+            :key="index"
+            class="ma-2"
+            close
+            color="red"
+            text-color="white"
+            @click:close="deleteFile(index)"
         >
           {{ file.name }}
         </v-chip>
@@ -79,7 +75,7 @@ export default {
   computed: {
     getSavedUploadFiles() {
       this.notProductUploadFiles.forEach(file =>
-        this.savedUploadFiles.push(file)
+          this.savedUploadFiles.push(file)
       );
       return this.savedUploadFiles;
     }
@@ -109,13 +105,13 @@ export default {
         this.creatingPost.attachedFile = this.productUploadFile.name;
       }
       this.$axios
-        .post(this.component.uri, this.creatingPost)
-        .catch(error => alert(error.response.data));
+          .post(this.component.uri, this.creatingPost)
+          .catch(error => alert(error.response.data));
       await this.$axios
-        .post("/files", formData, {
-          timeout: 600000
-        })
-        .catch(error => alert(error.response.data));
+          .post("/files", formData, {
+            timeout: 600000
+          })
+          .catch(error => alert(error.response.data));
       this.$router.go();
     },
     close() {

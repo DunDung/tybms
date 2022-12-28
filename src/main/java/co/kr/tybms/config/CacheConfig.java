@@ -13,10 +13,10 @@ import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 @Configuration
-public class CacheConfiguration {
+public class CacheConfig {
 
     @Bean
-    public CacheManager cacheManager() {
+    public CacheManager caffeineCacheManager() {
         List<CaffeineCache> caches = Arrays.stream(CacheType.values())
                 .map(cacheType -> new CaffeineCache(cacheType.name(), Caffeine.newBuilder().recordStats()
                                 .expireAfterWrite(cacheType.getExpireAfterWrite(), TimeUnit.SECONDS)

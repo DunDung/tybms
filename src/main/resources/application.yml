@@ -1,9 +1,4 @@
 spring:
-  resources:
-    chain:
-      strategy:
-        content:
-          enabled: true
   servlet:
     multipart:
       maxFileSize: 10MB
@@ -15,6 +10,12 @@ spring:
     active: local
   jpa:
     open-in-view: false
+  web:
+    resources:
+      chain:
+        strategy:
+          content:
+            enabled: true
 
 server:
   compression:
@@ -22,6 +23,17 @@ server:
     mime-types: text/html, text/css, text/javascript, application/javascript, application/json, image/png, image/jpeg
     min-response-size: 2048
 
+cloud:
+  aws:
+    credentials:
+      accessKey: AKIAQZ2RNX24B2E4XANI
+      secretKey: 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
+    s3:
+      bucket: tybms
+    region:
+      static: ap-northeast-2
+    stack:
+      auto: false
 ---
 
 spring:
