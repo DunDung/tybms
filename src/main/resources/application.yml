@@ -6,8 +6,6 @@ spring:
   mvc:
     async:
       request-timeout: 50000
-  profiles:
-    active: local
   jpa:
     open-in-view: false
   web:
