@@ -27,6 +27,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
 
     implementation 'com.amazonaws:aws-java-sdk-s3'
+    implementation 'org.hibernate:hibernate-envers'
     implementation 'com.github.ben-manes.caffeine:caffeine'
     implementation platform('com.amazonaws:aws-java-sdk-bom:1.11.1000')
     implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.4'

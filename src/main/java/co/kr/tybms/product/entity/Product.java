@@ -2,13 +2,10 @@ package co.kr.tybms.product.entity;
 
 import co.kr.tybms.config.BaseEntity;
 import co.kr.tybms.product.dto.ProductUpdateRequest;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.envers.Audited;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,12 +14,13 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+@Entity
 @Getter
 @Builder
-@AllArgsConstructor
+@Audited
 @DynamicInsert
+@AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Entity
 public class Product extends BaseEntity {
 
     @Id

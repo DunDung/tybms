@@ -2,32 +2,22 @@ package co.kr.tybms.material.entity;
 
 import co.kr.tybms.config.BaseEntity;
 import co.kr.tybms.material.dto.MaterialUpdateRequest;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.envers.Audited;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Lob;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Entity
 @Getter
 @Builder
-@AllArgsConstructor
+@Audited
 @DynamicInsert
+@AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Entity
 public class Material extends BaseEntity {
 
     @Id

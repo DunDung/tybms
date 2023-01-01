@@ -2,34 +2,22 @@ package co.kr.tybms.notice.entity;
 
 import co.kr.tybms.config.BaseEntity;
 import co.kr.tybms.notice.dto.NoticeUpdateRequest;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.envers.Audited;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Lob;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Getter
-@Setter
-@Builder
-@AllArgsConstructor
-@DynamicInsert
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
+@Getter
+@Builder
+@Audited
+@DynamicInsert
+@AllArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Notice extends BaseEntity {
 
     @Id

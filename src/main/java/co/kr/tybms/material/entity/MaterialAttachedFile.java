@@ -1,26 +1,17 @@
 package co.kr.tybms.material.entity;
 
 import co.kr.tybms.config.BaseEntity;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.hibernate.envers.Audited;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Getter
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Entity
+@Audited
 @Builder
 @AllArgsConstructor
-@Entity
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class MaterialAttachedFile extends BaseEntity {
 
     @Id
