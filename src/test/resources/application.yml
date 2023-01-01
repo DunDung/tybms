@@ -1,3 +1,15 @@
+cloud:
+  aws:
+    credentials:
+      accessKey: AKIAQZ2RNX24B2E4XANI
+      secretKey: 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
+    s3:
+      bucket: tybms
+    region:
+      static: ap-northeast-2
+    stack:
+      auto: false
+---
 spring:
   config:
     activate:
@@ -20,14 +32,3 @@ spring:
         format_sql: true
     show-sql: true
     generate-ddl: true
-cloud:
-  aws:
-    credentials:
-      accessKey: AKIAQZ2RNX24B2E4XANI
-      secretKey: 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
-    s3:
-      bucket: tybms
-    region:
-      static: ap-northeast-2
-    stack:
-      auto: false
