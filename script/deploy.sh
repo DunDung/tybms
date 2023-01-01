@@ -1,3 +1,7 @@
+REPOSITORY=/home/ubuntu/app
+
+cd $REPOSITORY/tybms
+
 echo "> Git Pull"
 
 git pull
