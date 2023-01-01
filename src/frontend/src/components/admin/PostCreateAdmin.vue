@@ -5,8 +5,7 @@
         <span style="color:red">{{ component.name }}</span> 작성하기
       </h2>
       <h5>
-        * 첨부파일이 너무 크면 서버에 부담이갑니다ㅠ 파일당 1MB를 안넘었으면
-        좋겠어요,.
+        * 첨부파일이 너무 크면 서버에 부담이갑니다ㅠㅠ 크기를 최대한 줄여주세요.
       </h5>
       <v-text-field
           label="글 제목"
