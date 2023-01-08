@@ -1,4 +1,4 @@
-REPOSITORY=/home/ubuntu/app
+REPOSITORY=/home/pi
 
 cd $REPOSITORY/tybms
 
